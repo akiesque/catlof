@@ -1,0 +1,50 @@
+[gd_scene format=3 uid="uid://dc8g6llrc8nx2"]
+
+[ext_resource type="Texture2D" uid="uid://ssgafk7u01v" path="res://assets/ui/interactkey.png" id="1_b1101"]
+[ext_resource type="Texture2D" uid="uid://cvxn6gaxka1vd" path="res://assets/ui/interactkey_pressed.png" id="2_jfapk"]
+
+[sub_resource type="GDScript" id="GDScript_b1101"]
+script/source = "extends TextureButton
+
+func _ready() -> void:
+	# Keep the button fully transparent at the start
+	self.modulate.a = 0.0
+
+func _test_hover() -> void:
+	# Godot automatically tracks mouse_entered/exited for UI buttons
+	pass
+
+func _on_mouse_entered() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, \"modulate:a\", 1.0, 0.15)
+
+func _on_mouse_exited() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, \"modulate:a\", 0.0, 0.15)
+
+func _on_pressed() -> void:
+	print(\"Object Interacted With!\")
+	# Insert your gameplay logic here (e.g., open chest, open shop)
+"
+
+[node name="Interact" type="Control" unique_id=1888986582]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="interact_button" type="TextureButton" parent="." unique_id=1304654246]
+layout_mode = 0
+offset_right = 64.0
+offset_bottom = 64.0
+scale = Vector2(0.5, 0.5)
+size_flags_horizontal = 0
+action_mode = 0
+texture_normal = ExtResource("1_b1101")
+texture_pressed = ExtResource("2_jfapk")
+script = SubResource("GDScript_b1101")
+
+[connection signal="mouse_entered" from="interact_button" to="interact_button" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="interact_button" to="interact_button" method="_on_mouse_exited"]
