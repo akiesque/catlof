@@ -7,6 +7,8 @@
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d47ma"]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8cdug"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drhfn"]
 radius = 28.0
 height = 88.0
@@ -20,6 +22,7 @@ bg_image = "uid://bqmufvchinalo"
 shape = SubResource("RectangleShape2D_d47ma")
 
 [node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=2131923993]
+material = SubResource("ShaderMaterial_8cdug")
 texture = ExtResource("1_3pt3y")
 
 [node name="Interactable" parent="CollisionShape2D" unique_id=894810374 instance=ExtResource("3_drhfn")]

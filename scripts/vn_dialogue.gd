@@ -5,7 +5,7 @@ extends Control
 @onready var char_dialogue: RichTextLabel = $CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue
 @onready var layer: CanvasLayer = $CanvasLayer
 @onready var voicebox: ACVoiceBox = $ACVoicebox
-@onready var shader_rect: ColorRect = $CanvasLayer/Shader
+@onready var anim: AnimationPlayer = $Animation
 
 
 var current_line: DialogueLine
@@ -19,20 +19,21 @@ func _ready():
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
 
 func start_ui():
-	# 1. Load texture
+	char_dialogue.text = ""
+	character_name.text = ""
+	char_dialogue.visible_characters = 0
+	voicebox.stop()
+	
 	if GameManager.next_background_path != "":
 		background_rect.texture = load(GameManager.next_background_path)
-	
-	# 2. Reset visual states to fully visible
-	background_rect.modulate.a = 1.0
-	background_rect.show()
-	
+
 	# 3. Show UI structure
 	self.show()
 	layer.visible = true
 	get_tree().paused = true
-	
-	# 4. Start text
+	anim.play("enter")
+	await anim.animation_finished
+
 	update_line(GameManager.next_dialogue_start)
 
 func update_line(title: String):
@@ -84,9 +85,8 @@ func _input(event):
 			update_line(current_line.next_id)
 
 func _on_dialogue_ended(_resource):
-	var tween = create_tween()
-	tween.tween_property(shader_rect.material, "shader_parameter/progress", 0.0, 0.5)
-	await tween.finished
+	anim.play("exit")
+	await anim.animation_finished
 	layer.visible = false
 	self.hide()
 	get_tree().paused = false
