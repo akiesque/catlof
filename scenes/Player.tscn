@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://t1wpfrtfedux" path="res://assets/sprites/casimir.png" id="1_p0vlq"]
 [ext_resource type="Script" uid="uid://u7i0eic4ofod" path="res://scripts/player.gd" id="1_v6fml"]
+[ext_resource type="PackedScene" uid="uid://bvodyppt5g2pc" path="res://scenes/vn_dialogue.tscn" id="2_mdl7e"]
 [ext_resource type="PackedScene" uid="uid://c6sen7yvnme66" path="res://scenes/interact_component.tscn" id="3_3li8b"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rnld"]
@@ -172,9 +173,16 @@ height = 72.0
 [node name="Player" type="CharacterBody2D" unique_id=1320964713]
 script = ExtResource("1_v6fml")
 
+[node name="DialogUI" type="CanvasLayer" parent="." unique_id=13547527]
+visible = false
+
+[node name="ConversationUI" parent="DialogUI" unique_id=1062700121 instance=ExtResource("2_mdl7e")]
+process_mode = 3
+z_index = 5
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136892245]
 sprite_frames = SubResource("SpriteFrames_0rnld")
-animation = &"idle_left"
+animation = &"idle_down"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168059971]

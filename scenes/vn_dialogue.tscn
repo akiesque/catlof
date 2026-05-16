@@ -4,7 +4,6 @@
 [ext_resource type="Script" uid="uid://bg46iwoyjyd4m" path="res://scripts/vn_dialogue.gd" id="1_sn5mt"]
 [ext_resource type="Shader" uid="uid://b3ekrw3u7hmtt" path="res://shaders/frost.gdshader" id="3_5kqa1"]
 [ext_resource type="PackedScene" uid="uid://dai5dyhvqwk1s" path="res://scenes/ACVoicebox.tscn" id="3_6krnm"]
-[ext_resource type="Texture2D" uid="uid://ds0dfnh3ao4xh" path="res://assets/ui/Screenshot 2026-05-15 094553.png" id="4_nxuv4"]
 
 [sub_resource type="Animation" id="Animation_2lfgq"]
 length = 0.6333333
@@ -284,8 +283,8 @@ tracks/0/path = NodePath("../CanvasLayer/TextureRect:self_modulate")
 tracks/0/interp = 2
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36666667),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(0.17075504, 0.1961461),
 "update": 0,
 "values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
@@ -313,7 +312,7 @@ tracks/2/keys = {
 }
 tracks/3/type = "bezier"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath("../CanvasLayer/TextureRect:position:x")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
@@ -324,7 +323,7 @@ tracks/3/keys = {
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
-tracks/4/enabled = true
+tracks/4/enabled = false
 tracks/4/path = NodePath("../CanvasLayer/TextureRect:position:y")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
@@ -655,7 +654,7 @@ tracks/9/loop_wrap = true
 tracks/9/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.36666667, 0.53333336)
+"times": PackedFloat32Array(0.23333333, 0.53333336)
 }
 tracks/10/type = "bezier"
 tracks/10/imported = false
@@ -666,7 +665,7 @@ tracks/10/loop_wrap = true
 tracks/10/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.36666667, 0.53333336)
+"times": PackedFloat32Array(0.23333333, 0.53333336)
 }
 tracks/11/type = "bezier"
 tracks/11/imported = false
@@ -677,7 +676,7 @@ tracks/11/loop_wrap = true
 tracks/11/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.36666667, 0.53333336)
+"times": PackedFloat32Array(0.23333333, 0.53333336)
 }
 tracks/12/type = "bezier"
 tracks/12/imported = false
@@ -688,7 +687,7 @@ tracks/12/loop_wrap = true
 tracks/12/keys = {
 "handle_modes": PackedInt32Array(0, 0),
 "points": PackedFloat32Array(1, -0.03486953, -0.16666669, 0, 0, 0, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0.36666667, 0.53333336)
+"times": PackedFloat32Array(0.23333333, 0.53333336)
 }
 tracks/13/type = "bezier"
 tracks/13/imported = false
@@ -840,6 +839,7 @@ libraries/ = SubResource("AnimationLibrary_nxuv4")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 100
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1155997001]
 use_parent_material = true
@@ -853,7 +853,6 @@ pivot_offset = Vector2(570, 340)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-texture = ExtResource("4_nxuv4")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1573009849]
 material = SubResource("ShaderMaterial_5kqa1")
@@ -879,7 +878,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = 660.0
-offset_bottom = 659.9929
+offset_bottom = 659.9939
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
@@ -905,7 +904,7 @@ anchor_bottom = 1.0
 offset_left = 60.0
 offset_top = 31.0
 offset_right = -33.0
-offset_bottom = -390.99976
+offset_bottom = -390.99973
 grow_horizontal = 2
 grow_vertical = 2
 

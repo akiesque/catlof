@@ -46,8 +46,12 @@ func update_line(title: String):
 		is_typing = true
 		
 		match current_line.character:
-			"Casimir": voicebox.base_pitch = 2.8
-			_: voicebox.base_pitch = 3.5
+			"Casimir": 
+				voicebox.base_pitch = 2.5
+				voicebox.voice_speed = 1.2
+			_: 
+				voicebox.base_pitch = 3.5
+				voicebox.voice_speed = 1.0
 		
 		if typing_tween: typing_tween.kill()
 		typing_tween = create_tween()

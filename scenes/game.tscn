@@ -1,11 +1,66 @@
 [gd_scene format=4 uid="uid://mis3jo8v22a7"]
 
-[ext_resource type="PackedScene" uid="uid://bvodyppt5g2pc" path="res://scenes/vn_dialogue.tscn" id="1_p57ef"]
+[ext_resource type="Shader" uid="uid://buqv60r6hr7gm" path="res://shaders/clouds.gdshader" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="1_uwrxv"]
+[ext_resource type="Texture2D" uid="uid://mrdgvnc5ulyu" path="res://assets/backgrounds/clouds.png" id="2_0tnpc"]
 [ext_resource type="Texture2D" uid="uid://c421jodr5dnil" path="res://assets/tilesets/tileset.png" id="2_yqjtg"]
 [ext_resource type="PackedScene" uid="uid://c86ofimjpwimo" path="res://scenes/interactables/mailbox.tscn" id="3_iywne"]
 [ext_resource type="Texture2D" uid="uid://bxqimn6vjuuyw" path="res://assets/tilesets/tileset_out.png" id="3_lnu2h"]
+[ext_resource type="Shader" uid="uid://bj8uvyxhuhm8j" path="res://shaders/swaying.gdshader" id="3_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://kjnnfs648nvu" path="res://scenes/lamp.tscn" id="4_lbhrr"]
+[ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="9_vtaks"]
+[ext_resource type="PackedScene" uid="uid://8bbkacsdifcj" path="res://scenes/interactables/door.tscn" id="10_vtaks"]
+
+[sub_resource type="Gradient" id="Gradient_0tnpc"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0, 0.21863118, 0.61787075, 0.9258555, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.017692752, 0.017692752, 0.017692752, 1, 0.94954705, 0.94954705, 0.94954705, 1, 0.98361355, 0.98361355, 0.98361355, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_vtaks"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_kvpfn"]
+height = 201
+noise = SubResource("FastNoiseLite_vtaks")
+color_ramp = SubResource("Gradient_0tnpc")
+seamless = true
+in_3d_space = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="Gradient" id="Gradient_vtaks"]
+interpolation_mode = 2
+offsets = PackedFloat32Array(0.051330797, 0.30988592, 0.5912548, 1)
+colors = PackedColorArray(0, 0, 0, 1, 0.3441989, 0.3441989, 0.3441989, 1, 0.9478128, 0.9478128, 0.9478128, 1, 1, 1, 1, 1)
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_kvpfn"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_dinhu"]
+width = 1
+height = 11
+noise = SubResource("FastNoiseLite_kvpfn")
+color_ramp = SubResource("Gradient_vtaks")
+seamless = true
+invert = true
+seamless_blend_skirt = 1.0
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0tnpc"]
+shader = ExtResource("1_gee14")
+shader_parameter/pixelation = Vector2(256, 256)
+shader_parameter/cloud_noise1 = SubResource("NoiseTexture2D_kvpfn")
+shader_parameter/scroll_speed1 = Vector2(0.03, 0.007)
+shader_parameter/cloud_noise2 = SubResource("NoiseTexture2D_dinhu")
+shader_parameter/scroll_speed2 = Vector2(-0.015, -0.004)
+shader_parameter/center_pos = Vector2(0.5, 0)
+shader_parameter/position_impact = 0.37999999150624
+shader_parameter/color_gardient = ExtResource("2_0tnpc")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gee14"]
+shader = ExtResource("3_u5sy4")
+shader_parameter/wind_start_threshold = 0.302000014345
+shader_parameter/wind_end_threshold = 2.962000140695
+shader_parameter/wind_end_threshold_2 = 0.2430000115425
+shader_parameter/wind_strength = 0.1470000069825
+shader_parameter/wind_speed = 1.27100005385273
+shader_parameter/scale = 1.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
 texture = ExtResource("3_lnu2h")
@@ -58,9 +113,6 @@ texture_region_size = Vector2i(48, 48)
 2:5/0 = 0
 3:5/0 = 0
 4:5/0 = 0
-5:5/0 = 0
-6:5/0 = 0
-7:5/0 = 0
 8:5/0 = 0
 9:5/0 = 0
 10:5/0 = 0
@@ -68,9 +120,6 @@ texture_region_size = Vector2i(48, 48)
 2:6/0 = 0
 3:6/0 = 0
 4:6/0 = 0
-5:6/0 = 0
-6:6/0 = 0
-7:6/0 = 0
 8:6/0 = 0
 9:6/0 = 0
 10:6/0 = 0
@@ -79,15 +128,27 @@ texture_region_size = Vector2i(48, 48)
 2:7/0 = 0
 3:7/0 = 0
 4:7/0 = 0
-5:7/0 = 0
-6:7/0 = 0
-7:7/0 = 0
 8:7/0 = 0
 9:7/0 = 0
 10:7/0 = 0
+7:5/0 = 0
+7:6/0 = 0
+7:7/0 = 0
+6:5/0 = 0
+6:6/0 = 0
+6:7/0 = 0
+5:5/0 = 0
+5:6/0 = 0
+5:7/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_u5sy4"]
 sources/0 = SubResource("TileSetAtlasSource_p57ef")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_kvpfn"]
+shader = ExtResource("9_vtaks")
+shader_parameter/normal_offset = 0.10000000149012
+shader_parameter/time_influence = 2.3790001130025
+shader_parameter/y_div = 0.30000000447036
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
@@ -262,7 +323,7 @@ texture_region_size = Vector2i(48, 48)
 [sub_resource type="TileSet" id="TileSet_p57ef"]
 sources/0 = SubResource("TileSetAtlasSource_iywne")
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lnu2h"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0tnpc"]
 resource_name = "Grass"
 texture = ExtResource("2_yqjtg")
 texture_region_size = Vector2i(48, 48)
@@ -306,17 +367,19 @@ texture_region_size = Vector2i(48, 48)
 [sub_resource type="TileSet" id="TileSet_lbhrr"]
 tile_size = Vector2i(48, 48)
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetAtlasSource_lnu2h")
+sources/0 = SubResource("TileSetAtlasSource_0tnpc")
 
 [node name="Game" type="Node2D" unique_id=932342677]
 
-[node name="DialogUI" type="CanvasLayer" parent="." unique_id=2050160021]
-visible = false
-
-[node name="ConversationUI" parent="DialogUI" unique_id=1062700121 instance=ExtResource("1_p57ef")]
-process_mode = 3
-visible = false
-z_index = 5
+[node name="ColorRect" type="TextureRect" parent="." unique_id=2119493803]
+material = SubResource("ShaderMaterial_0tnpc")
+offset_left = -364.0
+offset_top = -279.0
+offset_right = 1155.0
+offset_bottom = 81.0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_0tnpc")
 
 [node name="objs" type="Node" parent="." unique_id=1575386879]
 
@@ -329,25 +392,36 @@ position = Vector2(-195, -81)
 scale = Vector2(0.62673616, 0.62673616)
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=910869146]
-tile_map_data = PackedByteArray("AAAEAP//AAAFAAcAAAAEAPz/AAAFAAYAAAAEAPn/AAAFAAYAAAAEAPb/AAAFAAUAAAAGAP//AAAGAAcAAAAGAPz/AAAGAAYAAAAGAPn/AAAGAAYAAAAGAPj/AAAGAAUAAAD1////AAAFAAcAAAD1//z/AAAFAAYAAAD1//n/AAAFAAYAAAD1//b/AAAFAAUAAADz////AAAGAAcAAADz//z/AAAGAAUAAADx////AAAHAAcAAADx//z/AAAHAAYAAADx//n/AAAHAAUAAAAIAP//AAAFAAcAAAALAP//AAAFAAcAAAAIAPz/AAAFAAYAAAALAPz/AAAFAAYAAAAIAPj/AAAFAAUAAAALAPX/AAAFAAUAAAAIAPr/AAAFAAYAAAALAPn/AAAFAAYAAAALAPf/AAAFAAYAAAAMAP//AAAGAAcAAAAMAPz/AAAGAAYAAAAMAPr/AAAGAAUAAADv////AAAFAAcAAADv//3/AAAFAAYAAADv//r/AAAFAAYAAADv//j/AAAFAAYAAADv//b/AAAFAAYAAADv//T/AAAFAAUAAAAKAP//AAAHAAcAAAAKAPz/AAAHAAYAAAAKAPn/AAAHAAUAAAA=")
+material = SubResource("ShaderMaterial_gee14")
+tile_map_data = PackedByteArray("AADv//T/AAAFAAUAAADv//b/AAAFAAYAAADv//j/AAAFAAYAAADv//r/AAAFAAYAAADv//3/AAAFAAYAAADv////AAAFAAcAAADx//n/AAAHAAUAAADx//z/AAAHAAYAAADx////AAAHAAcAAADz//z/AAAGAAUAAADz////AAAGAAcAAAD1//b/AAAFAAUAAAD1//n/AAAFAAYAAAD1//z/AAAFAAYAAAD1////AAAFAAcAAAAEAPb/AAAFAAUAAAAEAPn/AAAFAAYAAAAEAPz/AAAFAAYAAAAEAP//AAAFAAcAAAAGAPj/AAAGAAUAAAAGAPn/AAAGAAYAAAAGAPz/AAAGAAYAAAAGAP//AAAGAAcAAAAIAPj/AAAFAAUAAAAIAPr/AAAFAAYAAAAIAPz/AAAFAAYAAAAIAP//AAAFAAcAAAAKAPn/AAAHAAUAAAAKAPz/AAAHAAYAAAAKAP//AAAHAAcAAAALAPX/AAAFAAUAAAALAPf/AAAFAAYAAAALAPn/AAAFAAYAAAALAPz/AAAFAAYAAAALAP//AAAFAAcAAAAMAPr/AAAGAAUAAAAMAPz/AAAGAAYAAAAMAP//AAAGAAcAAAAPAP//AAAFAAcAAAASAP//AAAFAAcAAAAUAP//AAAFAAcAAAAYAP//AAAFAAcAAAAbAP//AAAFAAcAAAAPAPz/AAAFAAYAAAAPAPr/AAAFAAYAAAAPAPn/AAAFAAYAAAASAPz/AAAFAAYAAAAUAPz/AAAFAAYAAAAYAPz/AAAFAAYAAAAbAPz/AAAFAAYAAAASAPr/AAAFAAUAAAAUAPn/AAAFAAYAAAAYAPn/AAAFAAYAAAAbAPn/AAAFAAYAAAAYAPb/AAAFAAUAAAAPAPf/AAAFAAUAAAAUAPj/AAAFAAUAAAAbAPf/AAAFAAYAAAAbAPT/AAAFAAUAAAAVAP//AAAGAAcAAAAVAPz/AAAGAAYAAAAVAPr/AAAGAAUAAAAZAP//AAAGAAcAAAAZAPz/AAAGAAYAAAAZAPv/AAAGAAYAAAAZAPr/AAAGAAYAAAAZAPn/AAAGAAYAAAAZAPj/AAAGAAYAAAAZAPX/AAAGAAUAAAA=")
 tile_set = SubResource("TileSet_u5sy4")
 
 [node name="Mailbox" parent="." unique_id=296927762 instance=ExtResource("3_iywne")]
 position = Vector2(125, -35)
 
+[node name="Door" parent="." unique_id=1055153053 instance=ExtResource("10_vtaks")]
+position = Vector2(-35, -23)
+
 [node name="Behind-Player" type="TileMapLayer" parent="." unique_id=2134730351]
-tile_map_data = PackedByteArray("AADx//P/AQAAAAAAAADx//b/AQAAAAEAAADx//n/AQAAAAIAAAD0//P/AQABAAAAAAD0//b/AQABAAEAAAD0//n/AQABAAIAAAD0//z/AQABAAMAAAD0////AQABAAQAAAD3//P/AQACAAAAAAD3//b/AQACAAEAAAD3//n/AQACAAIAAAD3//z/AQACAAMAAAD3////AQACAAQAAAD6//P/AQADAAAAAAD6//b/AQADAAEAAAD6//n/AQADAAIAAAD6//z/AQADAAMAAAD6////AQADAAQAAAD9//P/AQAEAAAAAAD9//b/AQAEAAEAAAD9//n/AQAEAAIAAAD9//z/AQAEAAMAAAD9////AQAEAAQAAAAAAPP/AQAFAAAAAAAAAPb/AQAFAAEAAAAAAPn/AQAFAAIAAAAAAPz/AQAFAAMAAAAAAP//AQAFAAQAAAADAPP/AQAGAAAAAAADAPb/AQAGAAEAAAADAPn/AQAGAAIAAAADAPz/AQAGAAMAAAADAP//AQAGAAQAAAAGAPb/AQAHAAEAAAAGAPn/AQAHAAIAAAAGAPz/AQAHAAMAAAA=")
+material = SubResource("ShaderMaterial_kvpfn")
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray("AADx//P/AQAAAAAAAADx//b/AQAAAAEAAADx//n/AQAAAAIAAAD0//P/AQABAAAAAAD0//b/AQABAAEAAAD0//n/AQABAAIAAAD0//z/AQABAAMAAAD0////AQABAAQAAAD3//P/AQACAAAAAAD3//b/AQACAAEAAAD3//n/AQACAAIAAAD3//z/AQACAAMAAAD3////AQACAAQAAAD6//P/AQADAAAAAAD6//b/AQADAAEAAAD6//n/AQADAAIAAAD6//z/AQADAAMAAAD6////AQADAAQAAAD9//P/AQAEAAAAAAD9//b/AQAEAAEAAAD9//n/AQAEAAIAAAD9//z/AQAEAAMAAAD9////AQAEAAQAAAAAAPP/AQAFAAAAAAAAAPb/AQAFAAEAAAAAAPn/AQAFAAIAAAAAAPz/AQAFAAMAAAAAAP//AQAFAAQAAAADAPP/AQAGAAAAAAADAPb/AQAGAAEAAAADAPn/AQAGAAIAAAADAPz/AQAGAAMAAAADAP//AQAGAAQAAAAGAPb/AQAHAAEAAAAGAPn/AQAHAAIAAAAGAPz/AQAHAAMAAAAGAP//AQAKAAIAAAAIAP//AQAKAAIAAAAQAP//AQAIAAIAAAAUAP//AQAJAAIAAADx////AQAJAAIAAADt////AQAJAAIAAAA=")
 tile_set = SubResource("TileSet_iywne")
 
+[node name="FromInside" type="Marker2D" parent="." unique_id=386723106]
+position = Vector2(-35, -28)
+
 [node name="Player" parent="." unique_id=1320964713 instance=ExtResource("1_uwrxv")]
-position = Vector2(-2, -30)
+position = Vector2(36, -30)
 
 [node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1294536627]
 position = Vector2(2, -48)
-zoom = Vector2(2.5, 2.5)
+zoom = Vector2(2.2, 2.2)
 limit_smoothed = true
 
 [node name="Foreground" type="TileMapLayer" parent="." unique_id=1012211207]
+material = SubResource("ShaderMaterial_kvpfn")
+position = Vector2(12, 2)
 tile_map_data = PackedByteArray("AAD0////AAAIAAEAAAADAP//AAAKAAEAAAAMAP//AAAJAAEAAAA=")
 tile_set = SubResource("TileSet_p57ef")
 

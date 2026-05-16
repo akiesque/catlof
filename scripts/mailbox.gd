@@ -1,11 +1,12 @@
-extends Area2D
+extends Node2D
 
 @export var dialogue: DialogueResource
 @export var dialogue_start: String = "start"
 @export_file("*.png") var bg_image: String
 
-@onready var interactable: Area2D = $CollisionShape2D/Interactable
-@onready var sprite_2d: Sprite2D = $CollisionShape2D/Sprite2D
+@onready var interactable: Area2D = $Sprite2D/Interactable
+@onready var sprite_2d: Sprite2D = $Sprite2D
+
 
 func _ready() -> void:
 	interactable.interact = _on_interact

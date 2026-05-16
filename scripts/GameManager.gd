@@ -15,3 +15,10 @@ var next_background_path: String = ""
 
 # Saves player position
 var player_return_position: Vector2 = Vector2.ZERO
+var target_spawn_id: String = ""
+var player_saved_pos : Vector2
+var use_saved_position : bool = false
+
+func save_player_state(pos: Vector2):
+	player_saved_pos = pos
+	use_saved_position = true

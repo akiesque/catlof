@@ -9,6 +9,8 @@ const PITCH_MULTIPLIER_RANGE := 0.3
 const INFLECTION_SHIFT := 0.4
 
 @export var base_pitch := 3.5 # (float, 2.5, 4.5)
+@export var voice_speed := 1.0 # 1.0 is normal, 1.5 is fast, 0.8 is slow
+
 
 const sounds = {
 	'a': preload('res://assets/Sounds/a.wav'),
@@ -60,17 +62,21 @@ func play_next_sound():
 	if len(remaining_sounds) == 0:
 		emit_signal("finished_phrase")
 		return
+		
 	var next_symbol = remaining_sounds.pop_front()
 	emit_signal("characters_sounded", next_symbol.characters)
-	# Skip to next sound if no sound exists for text
+	
 	if next_symbol.sound == '':
 		play_next_sound()
 		return
+		
 	var sound: AudioStreamWAV = sounds[next_symbol.sound]
-	# Add some randomness to pitch plus optional inflection for end word in questions
-	pitch_scale = base_pitch + (PITCH_MULTIPLIER_RANGE * randf()) + (INFLECTION_SHIFT if next_symbol.inflective else 0.0)
+ 
+	# MULTIPLY by voice_speed here:
+	pitch_scale = (base_pitch + (PITCH_MULTIPLIER_RANGE * randf()) + (INFLECTION_SHIFT if next_symbol.inflective else 0.0)) * voice_speed
 	stream = sound
 	play()
+
 
 
 func parse_input_string(in_string: String):

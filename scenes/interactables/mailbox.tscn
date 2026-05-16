@@ -5,28 +5,23 @@
 [ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="2_as08p"]
 [ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="3_drhfn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_d47ma"]
-
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8cdug"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_drhfn"]
 radius = 28.0
 height = 88.0
 
-[node name="Mailbox" type="Area2D" unique_id=1836395599]
+[node name="Mailbox" type="Node2D" unique_id=1972823097]
 script = ExtResource("1_drhfn")
 dialogue = ExtResource("2_as08p")
 bg_image = "uid://bqmufvchinalo"
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=800579739]
-shape = SubResource("RectangleShape2D_d47ma")
-
-[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=2131923993]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2131923993]
 material = SubResource("ShaderMaterial_8cdug")
 texture = ExtResource("1_3pt3y")
 
-[node name="Interactable" parent="CollisionShape2D" unique_id=894810374 instance=ExtResource("3_drhfn")]
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("3_drhfn")]
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="CollisionShape2D/Interactable" unique_id=1480071800]
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=1480071800]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_drhfn")
