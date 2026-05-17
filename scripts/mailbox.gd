@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var needs_up_input: bool = true 
 @export var dialogue: DialogueResource
 @export var dialogue_start: String = "start"
 @export_file("*.png") var bg_image: String

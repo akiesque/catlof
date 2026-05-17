@@ -13,6 +13,7 @@ height = 88.0
 
 [node name="Mailbox" type="Node2D" unique_id=1972823097]
 script = ExtResource("1_drhfn")
+needs_up_input = false
 dialogue = ExtResource("2_as08p")
 bg_image = "uid://bqmufvchinalo"
 

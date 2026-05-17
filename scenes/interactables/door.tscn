@@ -15,9 +15,10 @@ texture = ExtResource("1_qq3h0")
 
 [node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("2_fnoyy")]
 script = ExtResource("4_nmwkn")
+needs_up_input = true
 destination_scene = "uid://dwuw11amb6tk7"
 spawn_location_name = "FromOutside"
-transition_color = Color(0.8868194, 0.66852885, 0.6190237, 1)
+transition_color = Color(0.8043839, 0.84173864, 0.8098898, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=611041434]
 shape = SubResource("CapsuleShape2D_xetrc")

@@ -5,6 +5,8 @@ var dir = "right"
 
 @onready var animated_sprite = $AnimatedSprite2D
 
+@export var inv: Bag
+
 func _ready() -> void:
 	visible = false 
 	await get_tree().process_frame

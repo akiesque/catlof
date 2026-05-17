@@ -17,9 +17,10 @@ texture = ExtResource("1_6ji2u")
 
 [node name="Interactable" parent="." unique_id=894810374 instance=ExtResource("2_1b54f")]
 script = ExtResource("3_yw5bp")
+needs_up_input = true
 destination_scene = "uid://mis3jo8v22a7"
 spawn_location_name = "FromInside"
-transition_color = Color(0.84, 0.76608, 0.47039998, 1)
+transition_color = Color(0.4079079, 0.63558495, 0.655823, 1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=2038051810]
 position = Vector2(0, -5)

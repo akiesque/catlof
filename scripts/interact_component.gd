@@ -9,21 +9,34 @@ var can_interact := true
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact") and can_interact:
 		if current_interactions:
+			var target = current_interactions[0]
+			
+			if "needs_up_input" in target and target.needs_up_input:
+				if owner.dir != "up":
+					return 
+					
 			can_interact = false
 			interact_label.hide()
-			
-			await current_interactions[0].interact.call()
-			
+			await target.interact.call()
 			can_interact = true
 
 func _process(_delta: float) -> void:
 	if current_interactions and can_interact:
 		current_interactions.sort_custom(_sort_by_nearest)
-		if current_interactions[0].is_interactable:
+		var target = current_interactions[0]
+		
+		var is_facing_wrong = false
+		if "needs_up_input" in target and target.needs_up_input:
+			if owner.dir != "up":
+				is_facing_wrong = true
+		
+		if target.is_interactable and not is_facing_wrong:
 			interact_label.visible = true
-			
 			if bounce.current_animation != "floating":
 				bounce.play("floating")
+		else:
+			interact_label.visible = false
+			bounce.stop()
 	else:
 		interact_label.visible = false
 		bounce.stop()

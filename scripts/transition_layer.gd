@@ -8,7 +8,8 @@ extends CanvasLayer
 	set(value):
 		transition_color = value
 		if color_rect:
-			color_rect.material.set_shader_parameter("color", value)
+			var tween = create_tween()
+			tween.tween_property(color_rect.material, "shader_parameter/color", value, 0.5)
 
 # Argument for color
 
