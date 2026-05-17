@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BagItem" format=3 uid="uid://bkpefllq7cgj1"]
+
+[ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="1_ptjab"]
+[ext_resource type="Texture2D" uid="uid://dmam0c1ukie47" path="res://assets/bag/letter.png" id="2_cos40"]
+
+[resource]
+script = ExtResource("1_ptjab")
+name = "Letter"
+texture = ExtResource("2_cos40")
+desc = "A letter from Propharis Fatum Inc."
+metadata/_custom_type_script = "uid://c0wwlqkowni6"
