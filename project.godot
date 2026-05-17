@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-GameManager="*uid://dve65t5qr4n7t"
-DialogueManager="*uid://c3rodes2l3gxb"
-Transition="*uid://dgvh34l1ln6f"
+GameManager="*res://Scripts/game_manager.gd"
+DialogueManager="*res://Plugins/dialogue_manager.gd"
+Transition="*res://Scenes/transition.tscn"
 
 [display]
 
