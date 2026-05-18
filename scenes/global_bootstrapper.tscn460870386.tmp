@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://drpel2u3q8q82"]
+
+[ext_resource type="Script" uid="uid://dyfqytrhhir5a" path="res://scripts/global_bootstrapper.gd" id="1_c3dgf"]
+
+[node name="GlobalBootstrapper" type="Node" unique_id=902758628]
+script = ExtResource("1_c3dgf")

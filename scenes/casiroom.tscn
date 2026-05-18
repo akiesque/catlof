@@ -1,0 +1,71 @@
+[gd_scene format=4 uid="uid://dwuw11amb6tk7"]
+
+[ext_resource type="Texture2D" uid="uid://c421jodr5dnil" path="res://assets/tilesets/tileset.png" id="1_8i817"]
+[ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="1_urk4m"]
+[ext_resource type="PackedScene" uid="uid://bljrbpmbiaiec" path="res://scenes/interactables/door_outside.tscn" id="3_bwqj8"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_urk4m"]
+resource_name = "Grass"
+texture = ExtResource("1_8i817")
+texture_region_size = Vector2i(48, 48)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -9.04911, 24, -9.049114, 24, 24, -24, 24)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -9.04911, 6.7549706, -8.539305, 7.264778, 24, -24, 24)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.163925, -8.95326, 24, -9.163925, 24, 24, -10.578545, 24)
+4:0/0 = 0
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, -8.953262, 24, -9.163925, 24, 24, -24, 24)
+5:0/0 = 0
+5:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 24, 9.715687, 24, 7.865078, -8.790382, -24, -8.173515)
+1:1/0 = 0
+1:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 24, 24, 24, 24, -24, -24, -24)
+2:1/0 = 0
+2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 24, 9.715687, 24, 8.790382, -24, -24, -24)
+3:1/0 = 0
+3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.7942095, -24, 24, -24, 24, 24, -8.794212, 24)
+4:1/0 = 0
+4:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 24, 24, 24, 24, -24, -24, -24)
+5:1/0 = 0
+5:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 24, 9.715687, 24, 8.173515, -24, -24, -24)
+0:2/0 = 0
+0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.531931, 8.531933, 24, 9.374588, 24, -24, -9.163925, -24)
+1:2/0 = 0
+1:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 9.09882, 24, 10.024124, 24, -24, -24, -24)
+2:2/0 = 0
+2:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 9.09882, 8.481949, 8.481953, 9.098816, -24, -24, -24)
+3:2/0 = 0
+3:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.531931, 8.531933, 24, 9.374588, 24, -24, -9.163925, -24)
+4:2/0 = 0
+4:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 9.585255, 24, 9.374588, 24, -24, -24, -24)
+5:2/0 = 0
+5:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-24, 9.09882, 8.481949, 8.481953, 9.098816, -24, -24, -24)
+0:1/0 = 0
+0:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8.7942095, -24, 24, -24, 24, 24, -8.794212, 24)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-9.30402, -9.558924, 24, -9.049114, 24, 24, -9.558922, 24)
+
+[sub_resource type="TileSet" id="TileSet_bwqj8"]
+tile_size = Vector2i(48, 48)
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_urk4m")
+
+[node name="Room" type="Node2D" unique_id=1280048899]
+
+[node name="FromOutside" type="Marker2D" parent="." unique_id=11250672]
+position = Vector2(0, -28)
+
+[node name="DoorOutside" parent="." unique_id=181197232 instance=ExtResource("3_bwqj8")]
+position = Vector2(-2, -18)
+
+[node name="Player" parent="." unique_id=1320964713 instance=ExtResource("1_urk4m")]
+position = Vector2(0, -28)
+
+[node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1922041369]
+position = Vector2(2, -48)
+zoom = Vector2(2.2, 2.2)
+limit_smoothed = true
+
+[node name="Ground" type="TileMapLayer" parent="." unique_id=885842228]
+tile_map_data = PackedByteArray("AAD7/wAAAAABAAAAAAD8/wAAAAAEAAAAAAD9/wAAAAABAAAAAAD+/wAAAAAEAAAAAAD//wAAAAAEAAAAAAAAAAAAAAABAAAAAAABAAAAAAAEAAAAAAACAAAAAAAEAAAAAAADAAAAAAABAAAAAAD8/wEAAAABAAIAAAD7/wEAAAAEAAIAAAD9/wEAAAABAAIAAAD+/wEAAAABAAIAAAD//wEAAAABAAIAAAAAAAEAAAABAAIAAAABAAEAAAABAAIAAAACAAEAAAABAAIAAAADAAEAAAABAAIAAAAEAAAAAAABAAAAAAAFAAAAAAABAAAAAAAGAAAAAAABAAAAAAAHAAAAAAABAAAAAAAIAAAAAAABAAAAAAAEAAEAAAABAAIAAAAFAAEAAAABAAIAAAAGAAEAAAABAAIAAAAHAAEAAAABAAIAAAAIAAEAAAABAAIAAAAJAAAAAAAFAAAAAAAJAAEAAAAFAAIAAAD6/wAAAAABAAAAAAD5/wAAAAAEAAAAAAD6/wEAAAAEAAIAAAD4/wAAAAADAAAAAAD4/wEAAAADAAIAAAD5/wEAAAAEAAIAAAA=")
+tile_set = SubResource("TileSet_bwqj8")

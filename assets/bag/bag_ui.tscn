@@ -1,0 +1,370 @@
+[gd_scene format=3 uid="uid://c22p7pmals1gm"]
+
+[ext_resource type="Script" uid="uid://b6ys7rdutfp5k" path="res://assets/bag/bag_ui.gd" id="1_g4xy5"]
+[ext_resource type="Texture2D" uid="uid://ca4nfp6161g3s" path="res://assets/bag/inventory_screen.png" id="2_8hsri"]
+[ext_resource type="Texture2D" uid="uid://bxxeedkbclk7i" path="res://assets/bag/inventory_left.png" id="2_dwvyf"]
+[ext_resource type="Texture2D" uid="uid://e7c5xujc447d" path="res://assets/bag/inventory_right.png" id="3_dl16x"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="3_hlioe"]
+[ext_resource type="FontFile" uid="uid://b7ycgobmyrjwe" path="res://assets/ui/fonts/Karla-Medium.ttf" id="4_28ki7"]
+[ext_resource type="FontFile" uid="uid://cj60rdc27g6td" path="res://assets/ui/fonts/Karla-SemiBold.ttf" id="5_uavcl"]
+[ext_resource type="FontFile" uid="uid://cx03sur0ty3f8" path="res://assets/ui/fonts/Karla-SemiBoldItalic.ttf" id="6_lsxrs"]
+[ext_resource type="FontFile" uid="uid://b6vgmo7uki7co" path="res://assets/ui/fonts/Karla-MediumItalic.ttf" id="7_02fno"]
+
+[sub_resource type="Animation" id="Animation_8hsri"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control/ArrowLeft:position:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control/ArrowLeft:position:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Control/ArrowRight:position:x")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(400, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/Control/ArrowRight:position:y")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Control:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/Control:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/Control:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -150)]
+}
+
+[sub_resource type="Animation" id="Animation_dwvyf"]
+resource_name = "close_inventory"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, 0, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 660, 0, 0, 0.15, -110.00001),
+"times": PackedFloat32Array(0, 0.7)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.03333336, 0.20000002),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.022390604, 0.7040388),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 16), Vector2(0, -150)]
+}
+
+[sub_resource type="Animation" id="Animation_4p6be"]
+resource_name = "open_inventory"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.15, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.57535654)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(660, 0, 0, 0.15, -110.00001, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.57535654)
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Control:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.46666667, 0.73333335),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Control:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.004038832, 0.59774715),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -150), Vector2(0, 16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwvyf"]
+_data = {
+&"RESET": SubResource("Animation_8hsri"),
+&"close_inventory": SubResource("Animation_dwvyf"),
+&"open_inventory": SubResource("Animation_4p6be")
+}
+
+[node name="BagUI" type="Control" unique_id=10907286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4xy5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1681165543]
+libraries/ = SubResource("AnimationLibrary_dwvyf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=875234416]
+layer = 2
+
+[node name="BookBG" type="TextureRect" parent="CanvasLayer" unique_id=574438420]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.0008544922
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hsri")
+
+[node name="TabSheetOverlay" type="TextureRect" parent="CanvasLayer/BookBG" unique_id=1462432202]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TabPages" type="Control" parent="CanvasLayer/BookBG" unique_id=649381959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bag" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=297598137]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/BookBG/TabPages/Bag" unique_id=180335484]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.53300005
+anchor_top = 0.39400002
+anchor_right = 0.924
+anchor_bottom = 0.66700006
+offset_left = 21.983948
+offset_top = -47.311676
+offset_bottom = -29.215454
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 12
+columns = 3
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BookBG/TabPages/Bag" unique_id=313755466]
+layout_mode = 0
+offset_left = 113.0
+offset_top = 294.0
+offset_right = 510.0
+offset_bottom = 475.0
+theme_override_constants/separation = 40
+
+[node name="ItemLabel" type="Label" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=339721249]
+custom_minimum_size = Vector2(-10, 40)
+layout_mode = 2
+theme_override_fonts/font = ExtResource("3_hlioe")
+theme_override_font_sizes/font_size = 30
+vertical_alignment = 1
+
+[node name="ItemDesc" type="RichTextLabel" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=2073252929]
+custom_minimum_size = Vector2(0, 109)
+layout_mode = 2
+theme_override_fonts/normal_font = ExtResource("4_28ki7")
+theme_override_fonts/bold_font = ExtResource("5_uavcl")
+theme_override_fonts/bold_italics_font = ExtResource("6_lsxrs")
+theme_override_fonts/italics_font = ExtResource("7_02fno")
+theme_override_font_sizes/normal_font_size = 18
+theme_override_font_sizes/bold_font_size = 18
+theme_override_font_sizes/bold_italics_font_size = 18
+theme_override_font_sizes/italics_font_size = 18
+bbcode_enabled = true
+fit_content = true
+scroll_following = true
+
+[node name="Map" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=10619512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+
+[node name="Char" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=2008171216]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 1
+
+[node name="Settings" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=1516998858]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 1
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=577158908]
+modulate = Color(1, 1, 1, 0)
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -150.0
+offset_bottom = -150.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ArrowLeft" type="TextureRect" parent="CanvasLayer/Control" unique_id=1348717188]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 56.000023
+offset_bottom = 98.00012
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_dwvyf")
+
+[node name="ArrowRight" type="TextureRect" parent="CanvasLayer/Control" unique_id=834653227]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 50.0
+offset_right = 448.0
+offset_bottom = 98.000046
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_dl16x")

@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bljrbpmbiaiec"]
+
+[ext_resource type="Texture2D" uid="uid://cnpndcr41sp5" path="res://assets/tilesets/inside_door.png" id="1_6ji2u"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_1b54f"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="3_yw5bp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc6wi"]
+radius = 36.0
+height = 78.0
+
+[node name="DoorOutside" type="Node2D" unique_id=181197232]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=298127100]
+position = Vector2(0, -7)
+scale = Vector2(1, 1.21875)
+texture = ExtResource("1_6ji2u")
+
+[node name="Interactable" parent="." unique_id=894810374 instance=ExtResource("2_1b54f")]
+script = ExtResource("3_yw5bp")
+needs_up_input = true
+destination_scene = "uid://mis3jo8v22a7"
+spawn_location_name = "FromInside"
+transition_color = Color(0.4079079, 0.63558495, 0.655823, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=2038051810]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_yc6wi")

@@ -1,0 +1,155 @@
+[gd_scene format=3 uid="uid://c22p7pmals1gm"]
+
+[ext_resource type="Script" uid="uid://b6ys7rdutfp5k" path="res://assets/bag/bag_ui.gd" id="1_g4xy5"]
+[ext_resource type="Texture2D" uid="uid://ca4nfp6161g3s" path="res://assets/bag/inventory_screen.png" id="2_8hsri"]
+
+[sub_resource type="Animation" id="Animation_8hsri"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_dwvyf"]
+resource_name = "close_inventory"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, 0, 0, 0.15, 0),
+"times": PackedFloat32Array(0, 0.56666666)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 660, 0, 0, 0.15, -110.00001),
+"times": PackedFloat32Array(0, 0.56666666)
+}
+
+[sub_resource type="Animation" id="Animation_4p6be"]
+resource_name = "open_inventory"
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/BookBG:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.15, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/BookBG:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0),
+"points": PackedFloat32Array(660, 0, 0, 0.15, -110.00001, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dwvyf"]
+_data = {
+&"RESET": SubResource("Animation_8hsri"),
+&"close_inventory": SubResource("Animation_dwvyf"),
+&"open_inventory": SubResource("Animation_4p6be")
+}
+
+[node name="BagUI" type="Control" unique_id=10907286]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g4xy5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1681165543]
+libraries/ = SubResource("AnimationLibrary_dwvyf")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=875234416]
+layer = 2
+
+[node name="BookBG" type="TextureRect" parent="CanvasLayer" unique_id=574438420]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00061035156
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_8hsri")
+
+[node name="TabPages" type="Control" parent="CanvasLayer/BookBG" unique_id=649381959]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Bag" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=297598137]
+visible = false
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 104.0
+focus_mode = 1
+
+[node name="GridContainer" type="GridContainer" parent="CanvasLayer/BookBG/TabPages/Bag" unique_id=180335484]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Map" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=10619512]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 104.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 1
+
+[node name="Char" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=2008171216]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 1
+
+[node name="Settings" type="Control" parent="CanvasLayer/BookBG/TabPages" unique_id=1516998858]
+visible = false
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+focus_mode = 1

@@ -1,0 +1,34 @@
+[gd_scene format=3 uid="uid://bfdkxij5b12ws"]
+
+[ext_resource type="Script" uid="uid://cmdlmpxq5f8ip" path="res://scripts/noise.gd" id="1_c6ft6"]
+[ext_resource type="Shader" uid="uid://biytsh3wibkxl" path="res://shaders/fractalnoise.gdshader" id="2_ker3x"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8u0gf"]
+resource_local_to_scene = true
+shader = ExtResource("2_ker3x")
+shader_parameter/progress = 0.5
+shader_parameter/speed = 0.5
+shader_parameter/pixelation = Vector2(3, 3)
+shader_parameter/zoom = 1.0
+shader_parameter/background_threshold = 0.27000010782500006
+shader_parameter/color_threshold = 1.0
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/seed = 0.06
+
+[node name="Control" type="Control" unique_id=618844663]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_c6ft6")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=217220148]
+material = SubResource("ShaderMaterial_8u0gf")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

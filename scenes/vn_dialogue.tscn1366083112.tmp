@@ -1,0 +1,100 @@
+[gd_scene format=3 uid="uid://bvodyppt5g2pc"]
+
+[ext_resource type="Texture2D" uid="uid://b1lbvnh3n6h3l" path="res://assets/ui/dialogueBox.png" id="1_mysaw"]
+[ext_resource type="Script" uid="uid://bg46iwoyjyd4m" path="res://scripts/vn_dialogue.gd" id="1_sn5mt"]
+[ext_resource type="Shader" uid="uid://biytsh3wibkxl" path="res://shaders/fractalnoise.gdshader" id="3_2lfgq"]
+[ext_resource type="PackedScene" uid="uid://dai5dyhvqwk1s" path="res://scenes/ACVoicebox.tscn" id="3_6krnm"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqa1"]
+shader = ExtResource("3_2lfgq")
+shader_parameter/progress = 0.8
+shader_parameter/speed = 0.48
+shader_parameter/pixelation = Vector2(2, 2)
+shader_parameter/zoom = 2.0
+shader_parameter/background_threshold = -0.7809999420975
+shader_parameter/color_threshold = 0.8850000420375
+shader_parameter/color = Color(0, 0, 0, 1)
+shader_parameter/seed = 12.06
+
+[node name="ConversationUI" type="Control" unique_id=1062700121]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn5mt")
+
+[node name="ACVoicebox" parent="." unique_id=1503638627 instance=ExtResource("3_6krnm")]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
+layer = 100
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1155997001]
+material = SubResource("ShaderMaterial_5kqa1")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 6
+size_flags_vertical = 6
+mouse_filter = 2
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=254938698]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterA" type="Sprite2D" parent="CanvasLayer/Control" unique_id=784373986]
+
+[node name="CharacterB" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1680545880]
+
+[node name="CharacterC" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1444747682]
+
+[node name="CharacterD" type="Sprite2D" parent="CanvasLayer/Control" unique_id=346130715]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=506521021]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 31.0
+offset_right = -33.0
+offset_bottom = -391.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBox" type="NinePatchRect" parent="CanvasLayer/MarginContainer" unique_id=443404838]
+layout_mode = 2
+texture = ExtResource("1_mysaw")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/DialogueBox" unique_id=1853491787]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 30.0
+offset_right = 1036.0
+offset_bottom = 214.0
+theme_override_constants/separation = 2
+
+[node name="CharacterName" type="Label" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=1344772370]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 29
+
+[node name="CharDialogue" type="RichTextLabel" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=2122964189]
+modulate = Color(0, 0, 0, 1)
+custom_minimum_size = Vector2(959, 142)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_font_sizes/normal_font_size = 30
+bbcode_enabled = true

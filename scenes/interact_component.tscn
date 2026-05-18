@@ -1,0 +1,103 @@
+[gd_scene format=3 uid="uid://c6sen7yvnme66"]
+
+[ext_resource type="Script" uid="uid://bgmb4jnkk1jve" path="res://scripts/interact_component.gd" id="1_100oa"]
+[ext_resource type="Texture2D" uid="uid://ssgafk7u01v" path="res://assets/ui/interactkey.png" id="1_lipib"]
+[ext_resource type="Texture2D" uid="uid://cvxn6gaxka1vd" path="res://assets/ui/interactkey_pressed.png" id="2_100oa"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_bbssj"]
+radius = 8.062258
+
+[sub_resource type="Animation" id="Animation_bbssj"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractRange/CollisionShape2D/interact_label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-9, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractRange/CollisionShape2D/interact_label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-63, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_100oa"]
+resource_name = "floating"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("InteractRange/CollisionShape2D/interact_label:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(-9, -0.25, 0, 0.25, 0, -9, -0.03666667, 0, 0, 0, -9, -0.25, 0, 0.25, 0, -9, -0.03666667, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 0.96666664)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("InteractRange/CollisionShape2D/interact_label:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 0, 0, 0),
+"points": PackedFloat32Array(-63, -0.25, 0, 0.25, 0, -59.000004, -0.03666667, -0.6666661, 0, 0, -63, -0.25, 0, 0.25, 0, -59.000004, -0.03666667, -0.6666661, 0, 0),
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667, 0.96666664)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bbssj"]
+_data = {
+&"RESET": SubResource("Animation_bbssj"),
+&"floating": SubResource("Animation_100oa")
+}
+
+[node name="InteractComponent" type="Node2D" unique_id=167555890]
+script = ExtResource("1_100oa")
+
+[node name="InteractRange" type="Area2D" parent="." unique_id=1536489731]
+z_index = 10
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractRange" unique_id=1967354318]
+shape = SubResource("CircleShape2D_bbssj")
+
+[node name="interact_label" type="TextureButton" parent="InteractRange/CollisionShape2D" unique_id=1798753935]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -9.0
+offset_top = -63.0
+offset_right = 55.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(0.3, 0.3)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+action_mode = 0
+texture_normal = ExtResource("1_lipib")
+texture_pressed = ExtResource("2_100oa")
+
+[node name="Bounce" type="AnimationPlayer" parent="InteractRange/CollisionShape2D/interact_label" unique_id=1131749255]
+root_node = NodePath("../../../..")
+libraries/ = SubResource("AnimationLibrary_bbssj")
+autoplay = &"floating"
+
+[connection signal="area_entered" from="InteractRange" to="." method="_on_interact_range_area_entered"]
+[connection signal="area_exited" from="InteractRange" to="." method="_on_interact_range_area_exited"]

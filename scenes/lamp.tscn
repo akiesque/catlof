@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://kjnnfs648nvu"]
+
+[ext_resource type="Texture2D" uid="uid://dmf50b51nb1v5" path="res://assets/tilesets/lamp.png" id="1_72t4t"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxjgs"]
+atlas = ExtResource("1_72t4t")
+region = Rect2(0, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_60c0r"]
+atlas = ExtResource("1_72t4t")
+region = Rect2(48, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f2tjl"]
+atlas = ExtResource("1_72t4t")
+region = Rect2(96, 0, 48, 144)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wd4c3"]
+atlas = ExtResource("1_72t4t")
+region = Rect2(144, 0, 48, 144)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_ba3iu"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxjgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_60c0r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f2tjl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wd4c3")
+}],
+"loop": true,
+"name": &"default",
+"speed": 3.0
+}]
+
+[node name="lamp" type="AnimatedSprite2D" unique_id=1671591837]
+sprite_frames = SubResource("SpriteFrames_ba3iu")
+autoplay = "default"
+frame_progress = 0.02814446

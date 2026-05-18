@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://8bbkacsdifcj"]
+
+[ext_resource type="Texture2D" uid="uid://b0tu0gm4ixj86" path="res://assets/tilesets/door.png" id="1_qq3h0"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_fnoyy"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="4_nmwkn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xetrc"]
+radius = 11.0
+height = 52.0
+
+[node name="Door" type="Node2D" unique_id=349202613]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=44939885]
+texture = ExtResource("1_qq3h0")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("2_fnoyy")]
+script = ExtResource("4_nmwkn")
+destination_scene = ""
+spawn_location_name = "FromOutside"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=611041434]
+shape = SubResource("CapsuleShape2D_xetrc")
