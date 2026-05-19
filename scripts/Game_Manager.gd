@@ -18,7 +18,7 @@ var use_saved_position : bool = false
 #Locking inputs
 var unlocked_book := false
 var unlock_crafting := false
-var unlock_cooking := false
+var unlock_cooking := true
 
 func save_player_state(pos: Vector2):
 	player_saved_pos = pos
