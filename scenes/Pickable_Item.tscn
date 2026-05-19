@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://81mtju0jh5cs"]
+
+[ext_resource type="Script" uid="uid://b5mka14mehe8c" path="res://scripts/pickable_item.gd" id="1_lrlqt"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_84pi5"]
+size = Vector2(16, 15)
+
+[node name="GroundItem" type="Area2D" unique_id=516596914 groups=["ingredients"]]
+script = ExtResource("1_lrlqt")
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=2073538088]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1501398068]
+shape = SubResource("RectangleShape2D_84pi5")

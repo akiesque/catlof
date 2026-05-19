@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://choth4xdhl6po"]
+
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="1_b8ege"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70d11"]
+radius = 16.0
+height = 72.0
+
+[sub_resource type="LabelSettings" id="LabelSettings_1lptj"]
+font = ExtResource("1_b8ege")
+
+[node name="ItemDetector" type="Area2D" unique_id=1109934401]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203915909]
+position = Vector2(0, 9)
+shape = SubResource("CapsuleShape2D_70d11")
+
+[node name="Label" type="Label" parent="." unique_id=2039739982]
+offset_left = -55.0
+offset_top = -57.0
+offset_right = 68.0
+offset_bottom = -34.0
+text = "You picked up a"
+label_settings = SubResource("LabelSettings_1lptj")

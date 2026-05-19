@@ -82,6 +82,7 @@ func populate_slots() -> void:
 	if not grid_container: return
 	
 	for child in grid_container.get_children():
+		grid_container.remove_child(child)
 		child.queue_free()
 		
 	var item_list = []
@@ -100,9 +101,11 @@ func populate_slots() -> void:
 		slot_instance.item_hovered.connect(update_description_panel)
 		slot_instance.focus_mode = Control.FOCUS_ALL
 		slot_instance.process_mode = Node.PROCESS_MODE_ALWAYS
-		
-		if i == 0:
-			slot_instance.force_focus()
+	
+	await get_tree().process_frame
+	
+	if grid_container.get_child_count() > 0:
+		grid_container.get_child(0).force_focus()
 
 func update_description_panel(item: BagItem) -> void:
 	if item == null:
