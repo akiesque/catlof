@@ -233,7 +233,7 @@ script = ExtResource("1_g4xy5")
 libraries/ = SubResource("AnimationLibrary_dwvyf")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=875234416]
-layer = 2
+layer = 9
 
 [node name="BookBG" type="TextureRect" parent="CanvasLayer" unique_id=574438420]
 anchors_preset = 15

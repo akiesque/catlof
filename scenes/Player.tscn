@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://bvodyppt5g2pc" path="res://scenes/vn_dialogue.tscn" id="2_mdl7e"]
 [ext_resource type="Resource" uid="uid://b4oul4f1sy5as" path="res://assets/bag/playerbag.tres" id="2_qu4a1"]
 [ext_resource type="PackedScene" uid="uid://c6sen7yvnme66" path="res://scenes/interact_component.tscn" id="3_3li8b"]
+[ext_resource type="Texture2D" uid="uid://ckpv5whkeat07" path="res://assets/sprites/pickupcasimir-pickup.png" id="5_70d11"]
+[ext_resource type="PackedScene" uid="uid://choth4xdhl6po" path="res://scenes/notif_pickup.tscn" id="7_cw2d6"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_0rnld"]
 atlas = ExtResource("1_p0vlq")
@@ -21,6 +23,54 @@ region = Rect2(0, 192, 48, 96)
 [sub_resource type="AtlasTexture" id="AtlasTexture_jfpux"]
 atlas = ExtResource("1_p0vlq")
 region = Rect2(0, 288, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_61ith"]
+atlas = ExtResource("5_70d11")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebwui"]
+atlas = ExtResource("5_70d11")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sfy4j"]
+atlas = ExtResource("5_70d11")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gv3ic"]
+atlas = ExtResource("5_70d11")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8lor"]
+atlas = ExtResource("5_70d11")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6e537"]
+atlas = ExtResource("5_70d11")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p07f3"]
+atlas = ExtResource("5_70d11")
+region = Rect2(288, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_viqgg"]
+atlas = ExtResource("5_70d11")
+region = Rect2(336, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fgkxt"]
+atlas = ExtResource("5_70d11")
+region = Rect2(384, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xsi7p"]
+atlas = ExtResource("5_70d11")
+region = Rect2(432, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jpwa"]
+atlas = ExtResource("5_70d11")
+region = Rect2(480, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pfeki"]
+atlas = ExtResource("5_70d11")
+region = Rect2(528, 0, 48, 96)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bruh7"]
 atlas = ExtResource("1_p0vlq")
@@ -106,6 +156,47 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_61ith")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ebwui")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sfy4j")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gv3ic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8lor")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6e537")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p07f3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_viqgg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fgkxt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xsi7p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jpwa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pfeki")
+}],
+"loop": false,
+"name": &"pickup",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_0rnld")
 }],
 "loop": true,
@@ -184,7 +275,7 @@ z_index = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136892245]
 sprite_frames = SubResource("SpriteFrames_0rnld")
-animation = &"idle_down"
+animation = &"pickup"
 autoplay = "idle_right"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=168059971]
@@ -192,3 +283,5 @@ position = Vector2(0, 7)
 shape = SubResource("CapsuleShape2D_p0vlq")
 
 [node name="InteractComponent" parent="." unique_id=167555890 instance=ExtResource("3_3li8b")]
+
+[node name="ItemDetector" parent="." unique_id=1109934401 instance=ExtResource("7_cw2d6")]

@@ -3,6 +3,7 @@ extends TextureButton
 
 @onready var icon_rect: TextureRect = $ItemIcon
 @onready var background_rect: TextureRect = $SlotBackground
+@onready var quantity: Label = $Quantity
 
 const TEXTURE_NORMAL = preload("res://assets/bag/bag_slot.png")
 const TEXTURE_SELECTED = preload("res://assets/bag/bag_slot_focused.png")
@@ -24,12 +25,22 @@ func force_focus() -> void:
 	grab_focus()
 	_on_focused()
 
-func display_item(item_resource: BagItem) -> void:
-	current_item = item_resource
-	if current_item == null:
-		icon_rect.texture = null
+func display_item(item: BagItem) -> void:
+	current_item = item 
+	
+	if item:
+		icon_rect.texture = item.texture
+		icon_rect.show() 
+		
+		if item.quantity > 1:
+			quantity.text = str(item.quantity)
+			quantity.show()
+		else:
+			quantity.hide()
 	else:
-		icon_rect.texture = current_item.texture
+		icon_rect.texture = null
+		icon_rect.hide()
+		quantity.hide()
 
 func _on_focused() -> void:
 	item_hovered.emit(current_item)
