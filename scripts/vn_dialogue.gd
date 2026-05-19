@@ -57,10 +57,11 @@ func _process(_delta):
 		last_played_character_index = current_idx
 
 func start_ui():
+	GameManager.is_dialogue_active = true
 	char_dialogue.text = ""
 	character_name.text = ""
 	char_dialogue.visible_characters = 0
-	_hide_ctc() # REVISED
+	_hide_ctc() 
 	
 	if GameManager.next_background_path != "":
 		background_rect.texture = load(GameManager.next_background_path)
@@ -118,11 +119,9 @@ func update_line(title: String):
 		
 func _show_ctc():
 	ctc.show()
-	# REVISED: Fire up the twirl loop immediately!
 	if ctc_anim and ctc_anim.has_animation("twirly"):
 		ctc_anim.play("twirly")
 
-# NEW: Helper to stop the animation and hide the icon completely
 func _hide_ctc():
 	if ctc_anim:
 		ctc_anim.stop()
@@ -147,8 +146,13 @@ func _input(event):
 func _on_dialogue_ended(_resource):
 	anim.play("exit")
 	await anim.animation_finished
+	GameManager.is_dialogue_active = false
 	layer.visible = false
 	self.hide()
+	
+	get_tree().paused = false
+	#Call hour UI
+	GameManager.hour_ui() 
 
 	if get_parent():
 		get_parent().process_mode = Node.PROCESS_MODE_INHERIT

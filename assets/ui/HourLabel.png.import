@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dsmla62qvfxgb"
-path="res://.godot/imported/bag_slot.png-7c9821bcabf6f5d06b7e0905066e6a86.ctex"
+uid="uid://dp4ksorbj7shs"
+path="res://.godot/imported/HourLabel.png-d5b6519c1e39e8a6de2501c4d843714b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/ui/bag_slot.png"
-dest_files=["res://.godot/imported/bag_slot.png-7c9821bcabf6f5d06b7e0905066e6a86.ctex"]
+source_file="res://assets/ui/HourLabel.png"
+dest_files=["res://.godot/imported/HourLabel.png-d5b6519c1e39e8a6de2501c4d843714b.ctex"]
 
 [params]
 

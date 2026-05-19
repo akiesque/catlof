@@ -1,0 +1,397 @@
+[gd_scene format=3 uid="uid://0mkbbsny1hq2"]
+
+[ext_resource type="Script" uid="uid://bhjky8pnmnvah" path="res://scripts/hour_ui.gd" id="1_d0okv"]
+[ext_resource type="Texture2D" uid="uid://dii70ntvmdsd1" path="res://assets/ui/HourScreen.png" id="1_rgikh"]
+[ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="1_xsb2q"]
+[ext_resource type="Texture2D" uid="uid://dp4ksorbj7shs" path="res://assets/ui/HourLabel.png" id="2_sg6ci"]
+[ext_resource type="Texture2D" uid="uid://chdebj0y75xwj" path="res://assets/ui/SunsetMeter.png" id="3_wd6rm"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="3_xsb2q"]
+
+[sub_resource type="Animation" id="Animation_wd6rm"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HourScreen/HourLabel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HourScreen/HourLabel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HourScreen:scale:x")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HourScreen:scale:y")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HourScreen:material:shader_parameter/normal_offset")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1.3000001, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HourScreen:material:shader_parameter/time_influence")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(8.06, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HourScreen:material:shader_parameter/y_div")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2.2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HourScreen:modulate:r")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HourScreen:modulate:g")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HourScreen:modulate:b")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HourScreen:modulate:a")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("HourScreen:position:x")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(896, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("HourScreen:position:y")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+
+[sub_resource type="Animation" id="Animation_xsb2q"]
+resource_name = "floating"
+loop_mode = 2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HourScreen/HourLabel:position:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.03666667, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 1)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HourScreen/HourLabel:position:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(2, 2, 0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -3, -0.03666667, 0.8333334, 0, 0, 0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.5, 0.99759156, 1)
+}
+
+[sub_resource type="Animation" id="Animation_d0okv"]
+resource_name = "hourui_enter"
+length = 1.2
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("HourScreen:scale:x")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.105682775, -0.166665, 0, 0, 0.8, -0.061699986, 0.03333333, 0, 0),
+"times": PackedFloat32Array(0, 0.6333333, 1.0035332)
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HourScreen:scale:y")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0, 2),
+"points": PackedFloat32Array(1e-05, -0.25, 0, 0.25, 0, 1, -0.105682775, -0.166665, 0, 0, 0.8, -0.061699986, 0.03333333, 0, 0),
+"times": PackedFloat32Array(0, 0.6333333, 1.0035332)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HourScreen:material:shader_parameter/normal_offset")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(1.3000001, -0.25, 0, 0.25, 0, 0.2, -0.15280248, 0.18333335, 0, 0),
+"times": PackedFloat32Array(0, 0.91681486)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("HourScreen:material:shader_parameter/time_influence")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(8.06, -0.25, 0, 0.25, 0, 4.4880004, -0.15280248, 0.59533334, 0, 0),
+"times": PackedFloat32Array(0, 0.91681486)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("HourScreen:material:shader_parameter/y_div")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(2.2, -0.25, 0, 0.25, 0, 1.2, -0.15280248, 0.16666666, 0, 0),
+"times": PackedFloat32Array(0, 0.91681486)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("HourScreen:modulate:r")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.09693198, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.6333333)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("HourScreen:modulate:g")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.09693198, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.6333333)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("HourScreen:modulate:b")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.09693198, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.6333333)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("HourScreen:modulate:a")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.09693198, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.6333333)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("HourScreen:position:x")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(896, -0.25, 0, 0.25, 0, 925, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.6344526, 0.97913116)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("HourScreen:position:y")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(2, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, -24.999998, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.6344526, 0.97913116)
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_d0okv"]
+_data = {
+&"RESET": SubResource("Animation_wd6rm"),
+&"floating": SubResource("Animation_xsb2q"),
+&"hourui_enter": SubResource("Animation_d0okv")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wd6rm"]
+shader = ExtResource("1_xsb2q")
+shader_parameter/normal_offset = 1.3000001
+shader_parameter/time_influence = 8.06
+shader_parameter/y_div = 2.2
+
+[sub_resource type="LabelSettings" id="LabelSettings_wd6rm"]
+font = ExtResource("3_xsb2q")
+font_size = 160
+font_color = Color(0.35686275, 0.18039216, 0.14901961, 1)
+outline_size = 16
+outline_color = Color(1, 0.78039217, 0.5176471, 1)
+stacked_outline_count = 2
+stacked_outline_0/size = 12
+stacked_outline_0/color = Color(0.9647059, 0.9647059, 0.9647059, 1)
+stacked_outline_1/size = 10
+stacked_outline_1/color = Color(0.35686275, 0.18039216, 0.14901961, 1)
+
+[node name="TimeUI" type="CanvasLayer" unique_id=1398951181]
+layer = 8
+script = ExtResource("1_d0okv")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=542262602]
+libraries/ = SubResource("AnimationLibrary_d0okv")
+autoplay = &"floating"
+
+[node name="SFXPlayer" type="AudioStreamPlayer" parent="." unique_id=1758116185]
+bus = &"SFX"
+
+[node name="HourScreen" type="TextureRect" parent="." unique_id=1238145390]
+modulate = Color(1, 1, 1, 0)
+material = SubResource("ShaderMaterial_wd6rm")
+custom_minimum_size = Vector2(256, 256)
+anchors_preset = -1
+anchor_left = 0.8
+anchor_top = 0.038000003
+anchor_right = 0.97800004
+anchor_bottom = 0.354
+offset_left = -25.600037
+offset_top = -24.624002
+offset_right = 25.344238
+offset_bottom = 26.608002
+grow_horizontal = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(128, 123)
+texture = ExtResource("1_rgikh")
+
+[node name="HourTitle" type="TextureRect" parent="HourScreen" unique_id=4323790]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -256.0
+offset_top = -0.52914435
+offset_bottom = 255.47086
+grow_horizontal = 0
+texture = ExtResource("2_sg6ci")
+
+[node name="HourLabel" type="Label" parent="HourScreen" unique_id=835403573]
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("3_xsb2q")
+text = "0"
+label_settings = SubResource("LabelSettings_wd6rm")
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+
+[node name="SunsetMeter" type="TextureRect" parent="HourScreen" unique_id=262969405]
+use_parent_material = true
+custom_minimum_size = Vector2(256, 256)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_wd6rm")

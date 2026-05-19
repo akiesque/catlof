@@ -71,6 +71,7 @@ shader_parameter/falloff = 2.5
 shader_parameter/color = Color(0, 0, 0, 1)
 
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2064512252]
+layer = 10
 script = ExtResource("1_03ico")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=307112524]

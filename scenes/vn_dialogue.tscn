@@ -945,6 +945,7 @@ bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 100
+visible = false
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1155997001]
 use_parent_material = true

@@ -25,6 +25,7 @@ DialogueManager="*uid://c3rodes2l3gxb"
 GameManager="*uid://c45o4jbcjagpt"
 Transition="*uid://d3b4r1x3ij6gt"
 BagUI="*uid://c22p7pmals1gm"
+HourUi="*uid://0mkbbsny1hq2"
 
 [display]
 

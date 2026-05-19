@@ -26,6 +26,11 @@ func _ready() -> void:
 	visible = true
 
 func _physics_process(delta):
+	if GameManager.is_dialogue_active:
+		velocity = Vector2.ZERO # Stop slide momentum
+		move_and_slide() # Or just return, depending on your setup
+		return
+		
 	# Apply gravity
 	if not is_on_floor():
 		velocity += get_gravity() * delta

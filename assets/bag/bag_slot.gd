@@ -20,7 +20,6 @@ func _ready() -> void:
 	if background_rect:
 		background_rect.texture = TEXTURE_NORMAL
 
-# NEW: An absolute brute-force focus injector that bypasses Godot's timing lag
 func force_focus() -> void:
 	grab_focus()
 	_on_focused()

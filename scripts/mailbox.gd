@@ -13,6 +13,9 @@ func _ready() -> void:
 	interactable.interact = _on_interact
 	
 func _on_interact():
+	if GameManager.is_dialogue_active:
+		return
+		
 	GameManager.next_dialogue_resource = dialogue
 	GameManager.next_dialogue_start = dialogue_start
 	GameManager.next_background_path = bg_image

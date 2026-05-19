@@ -6,7 +6,6 @@ extends Control
 @onready var tab_overlay: TextureRect = $CanvasLayer/BookBG/TabSheetOverlay
 
 #PAGES SECTION
-
 @onready var pages = [
 	$CanvasLayer/BookBG/TabPages/Bag,
 	$CanvasLayer/BookBG/TabPages/Map,
@@ -20,6 +19,8 @@ const BOOK_SHEETS = [
 	preload("res://assets/bag/chara_tab.png"),
 	preload("res://assets/bag/settings_tab.png")
 ]
+
+var is_transitioning: bool = false
 
 #SLOTS FOR BAG UI
 const SLOT_SCENE = preload("res://assets/bag/BagSlot.tscn")
@@ -35,7 +36,7 @@ var current_tab: int = 0
 
 func _ready() -> void:
 	process_mode = Node.PROCESS_MODE_ALWAYS
-	$CanvasLayer.process_mode = Node.PROCESS_MODE_ALWAYS
+	layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	book_bg.process_mode = Node.PROCESS_MODE_ALWAYS
 	tab_overlay.process_mode = Node.PROCESS_MODE_ALWAYS
 	
@@ -43,6 +44,8 @@ func _ready() -> void:
 	close()
 
 func _input(event: InputEvent) -> void:
+	if is_transitioning:
+		return
 	if event.is_action_pressed("bag_open"):
 		if is_open:
 			close()
@@ -62,12 +65,18 @@ func _input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 
 func open() -> void:
+	if GameManager.is_dialogue_active:
+		return
+	is_transitioning = true
 	layer.visible = true 
 	is_open = true
 	get_tree().paused = true 
 	anim.play("open_inventory")
 	populate_slots()
 	switch_to_tab(0)
+	
+	await anim.animation_finished
+	is_transitioning = false
 	
 func populate_slots() -> void:
 	if not grid_container: return
@@ -104,6 +113,7 @@ func update_description_panel(item: BagItem) -> void:
 		if item_desc: item_desc.text = item.desc
 
 func close() -> void:
+	is_transitioning = true
 	is_open = false
 	if anim and layer and anim.has_animation("open_inventory") and layer.visible:
 		anim.play("close_inventory")
@@ -112,6 +122,8 @@ func close() -> void:
 	if layer:
 		layer.visible = false
 	get_tree().paused = false
+	
+	is_transitioning = false
 
 func switch_to_tab(index: int) -> void:
 	current_tab = index
