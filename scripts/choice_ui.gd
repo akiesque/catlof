@@ -6,8 +6,16 @@ signal choice_selected(next_id: String)
 @onready var entr: AnimationPlayer = $CanvasLayer/Control/Sprite2D/Entr
 @onready var layer: CanvasLayer = $CanvasLayer
 @onready var choice_box: VBoxContainer = $CanvasLayer/ChoiceBox/Options
+@onready var sfx_player: AudioStreamPlayer = $CanvasLayer/SFX_Player
+@onready var sprite: AnimatedSprite2D = $CanvasLayer/Control/Sprite2D/AnimatedSprite2D
+
 
 var is_animating: bool = false
+var sfx: AudioStream = null
+
+#preload
+const CHOICES_DING = preload("uid://bbsq8arbhelws")
+const CHOICES_PICK = preload("uid://ddvk7eq5ruegs")
 
 const CHOICE_BTN = preload("res://scenes/choice_button.tscn")
 
@@ -16,6 +24,8 @@ func _ready():
 	layer.visible = false
 
 func display_choices(responses: Array):
+	sfx_player.stream = CHOICES_DING
+	sfx_player.play()
 	is_animating = true 
 	layer.visible = true
 	choice_box.modulate.a = 0 
@@ -48,6 +58,7 @@ func display_choices(responses: Array):
 	
 	choice_box.modulate.a = 1
 	if main_a.has_animation("enter"):
+		sprite.play("blink")
 		main_a.play("enter")
 		entr.play("enter")  
 		await main_a.animation_finished 
@@ -59,11 +70,21 @@ func display_choices(responses: Array):
 			
 	
 func _on_choice_pressed(next_id: String):
+	is_animating = true  
+	sfx_player.stream = CHOICES_PICK
+	sfx_player.play()
 	entr.stop(false)
+	sprite.play("turn_away")
 	for btn in choice_box.get_children():
-		if btn is Button: btn.disabled = true
+		btn.get_node("Button").disabled = true
+		var tween = btn.create_tween()
+		tween.tween_property(btn, "modulate", Color(0.325, 0.407, 0.591, 0.6), 0.15)
+	await get_tree().create_timer(0.3).timeout
+	
 	if main_a.has_animation("enter"):
 		main_a.play_backwards("enter")
 		await main_a.animation_finished
+		is_animating = false
+		
 	layer.visible = false
 	choice_selected.emit(next_id)

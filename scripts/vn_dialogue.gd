@@ -125,12 +125,12 @@ func update_line(title: String):
 		_on_dialogue_ended(null)
 		
 func _show_choices():
-	print("_show_choices called")  # 👈 add this
 	_hide_ctc() 
+	get_viewport().set_input_as_handled() 
 	if choice_ui:
-		print("choice_ui found, calling display")  # 👈 and this
 		if not choice_ui.choice_selected.is_connected(_on_choice_resolved):
 			choice_ui.choice_selected.connect(_on_choice_resolved)
+		await get_tree().process_frame
 		choice_ui.display_choices(current_line.responses)
 
 func _on_choice_resolved(next_id: String):

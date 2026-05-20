@@ -3,7 +3,6 @@ extends NinePatchRect
 @onready var label: Label = $Label
 @onready var btn: Button = $Button
 
-
 func _ready():
 	btn.focus_entered.connect(func(): label.add_theme_color_override("font_color", Color("313039")))
 	btn.focus_exited.connect(func(): label.add_theme_color_override("font_color", Color.WHITE))

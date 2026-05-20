@@ -5,7 +5,9 @@
 [ext_resource type="Texture2D" uid="uid://drihhdmmg3byv" path="res://assets/ui/blink.png" id="2_g3tj1"]
 [ext_resource type="Texture2D" uid="uid://dlywysc0whjrw" path="res://assets/ui/border.png" id="2_petb5"]
 [ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="2_uwqn7"]
+[ext_resource type="Shader" uid="uid://chon45rlde6hm" path="res://scripts/vhs.gdshader" id="4_83sy4"]
 [ext_resource type="Texture2D" uid="uid://c31v0v24vva1o" path="res://assets/tilesets/star.png" id="5_cim78"]
+[ext_resource type="Texture2D" uid="uid://bf442ygcny04x" path="res://assets/ui/turn away.png" id="6_uwqn7"]
 
 [sub_resource type="Animation" id="Animation_mp7kl"]
 length = 0.001
@@ -144,6 +146,18 @@ tracks/5/keys = {
 "update": 0,
 "values": [Vector2(-28, 392), Vector2(371, 337)]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/Border:self_modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.1, 0.8),
+"transitions": PackedFloat32Array(0.35355344, 0.35355344),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g3tj1"]
 _data = {
@@ -153,9 +167,13 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uwqn7"]
 shader = ExtResource("2_uwqn7")
-shader_parameter/normal_offset = 1.30000001937156
-shader_parameter/time_influence = 6.158000292505
-shader_parameter/y_div = 6.5000000968578
+shader_parameter/normal_offset = 1.70000002533204
+shader_parameter/time_influence = 4.5710002171225
+shader_parameter/y_div = 4.90000007301588
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_lsdwh"]
+shader = ExtResource("4_83sy4")
+shader_parameter/shake = 0.0070000003325
 
 [sub_resource type="Animation" id="Animation_5gxoj"]
 length = 0.001
@@ -308,6 +326,10 @@ region = Rect2(128, 0, 128, 128)
 atlas = ExtResource("2_g3tj1")
 region = Rect2(256, 0, 128, 128)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_83sy4"]
+atlas = ExtResource("6_uwqn7")
+region = Rect2(0, 0, 128, 128)
+
 [sub_resource type="SpriteFrames" id="SpriteFrames_cim78"]
 animations = [{
 "frames": [{
@@ -329,6 +351,14 @@ animations = [{
 "loop": true,
 "name": &"blink",
 "speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_83sy4")
+}],
+"loop": true,
+"name": &"turn_away",
+"speed": 5.0
 }]
 
 [sub_resource type="Curve2D" id="Curve2D_u21pq"]
@@ -349,11 +379,14 @@ script = ExtResource("1_g3tj1")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=408227853]
 layer = 25
 
+[node name="SFX_Player" type="AudioStreamPlayer" parent="CanvasLayer" unique_id=1349336212]
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=865988598]
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_g3tj1")
 
 [node name="Border" type="TextureRect" parent="CanvasLayer" unique_id=351736049]
+self_modulate = Color(1, 1, 1, 0)
 material = SubResource("ShaderMaterial_uwqn7")
 anchors_preset = 2
 anchor_top = 1.0
@@ -374,6 +407,17 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.15686275, 0.12156863, 0.34117648, 0)
+
+[node name="Glitch" type="ColorRect" parent="CanvasLayer/Overlay" unique_id=1640816256]
+modulate = Color(1, 1, 1, 0.38039216)
+self_modulate = Color(1, 1, 1, 0.2509804)
+material = SubResource("ShaderMaterial_lsdwh")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 
 [node name="Control" type="Control" parent="CanvasLayer" unique_id=1629064347]
 layout_mode = 3
@@ -400,7 +444,7 @@ libraries/ = SubResource("AnimationLibrary_petb5")
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control/Sprite2D" unique_id=1018995743]
 scale = Vector2(4, 4)
 sprite_frames = SubResource("SpriteFrames_cim78")
-animation = &"blink"
+animation = &"turn_away"
 autoplay = "blink"
 
 [node name="Path2D" type="Path2D" parent="CanvasLayer/Control" unique_id=2043832438]
@@ -432,8 +476,8 @@ texture = ExtResource("5_cim78")
 [node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer" unique_id=411604799]
 offset_left = 371.0
 offset_top = 337.0
-offset_right = 785.00006
-offset_bottom = 621.0
+offset_right = 784.99963
+offset_bottom = 621.00024
 pivot_offset = Vector2(7, 269)
 size_flags_vertical = 6
 focus_mode = 2
