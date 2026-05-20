@@ -58,10 +58,10 @@ func display_choices(responses: Array):
 	
 	choice_box.modulate.a = 1
 	if main_a.has_animation("enter"):
-		sprite.play("blink")
-		main_a.play("enter")
-		entr.play("enter")  
+		entr.play("enter") 
+		main_a.play("enter") 
 		await main_a.animation_finished 
+		#await get_tree().create_timer(0.5).timeout
 
 	if entr.has_animation("loop"):
 		entr.play("loop")
@@ -73,7 +73,7 @@ func _on_choice_pressed(next_id: String):
 	is_animating = true  
 	sfx_player.stream = CHOICES_PICK
 	sfx_player.play()
-	entr.stop(false)
+	entr.stop()
 	sprite.play("turn_away")
 	for btn in choice_box.get_children():
 		btn.get_node("Button").disabled = true
@@ -85,6 +85,7 @@ func _on_choice_pressed(next_id: String):
 		main_a.play_backwards("enter")
 		await main_a.animation_finished
 		is_animating = false
+		sprite.play("blink")
 		
 	layer.visible = false
 	choice_selected.emit(next_id)
