@@ -27,12 +27,23 @@ func display_choices(responses: Array):
 	for i in range(responses.size()):
 		var response = responses[i]
 		var btn = CHOICE_BTN.instantiate() 
-		btn.text = response.text
-		btn.pressed.connect(_on_choice_pressed.bind(response.next_id))
+		btn.get_node("Label").text = response.text
+		btn.get_node("Button").pressed.connect(_on_choice_pressed.bind(response.next_id))
 		choice_box.add_child(btn)
 		
-		if i == 0:
-			btn.grab_focus()
+		await get_tree().process_frame
+
+	var buttons = choice_box.get_children()
+	for i in buttons.size():
+		var btn = buttons[i].get_node("Button")
+		btn.focus_mode = Control.FOCUS_ALL
+		# Only wire up/down, leave left/right empty
+		btn.focus_neighbor_top = buttons[wrap(i - 1, 0, buttons.size())].get_node("Button").get_path()
+		btn.focus_neighbor_bottom = buttons[wrap(i + 1, 0, buttons.size())].get_node("Button").get_path()
+		btn.focus_neighbor_left = btn.get_path() 
+		btn.focus_neighbor_right = btn.get_path()
+
+	buttons[0].get_node("Button").grab_focus()
 	
 	if main_a.has_animation("enter"):
 		main_a.play("enter")

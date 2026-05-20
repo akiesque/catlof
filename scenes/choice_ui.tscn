@@ -82,7 +82,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0, 0.73333335),
 "transitions": PackedFloat32Array(0.25881627, 0.30778614),
 "update": 0,
-"values": [Color(0.15686275, 0.12156863, 0.34117648, 0), Color(0.15686275, 0.12156863, 0.34117648, 0.19607843)]
+"values": [Color(0.15686275, 0.12156863, 0.34117648, 0), Color(0.116052814, 0.13833046, 0.15453342, 0.5882353)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -315,7 +315,7 @@ offset_top = -213.0
 offset_right = 220.0
 offset_bottom = 27.0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.4999998, 1.4999998)
 pivot_offset = Vector2(1, 238)
 texture = ExtResource("2_petb5")
 
@@ -385,10 +385,11 @@ texture = ExtResource("5_cim78")
 [node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer" unique_id=411604799]
 offset_left = 371.0
 offset_top = 337.0
-offset_right = 641.0
-offset_bottom = 432.0
-pivot_offset = Vector2(135, 47)
+offset_right = 785.0
+offset_bottom = 621.0
+pivot_offset = Vector2(208, 139)
 size_flags_vertical = 6
+focus_mode = 2
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
