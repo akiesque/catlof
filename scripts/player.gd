@@ -36,9 +36,7 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 
-	# 3. HANDLE THE "E" INPUT FOR PICKING UP ITEMS
-	# We use is_action_just_pressed so mashing doesn't loop it infinitely
-	if Input.is_action_just_pressed("interact"): # Assumes "E" or ui_accept
+	if Input.is_action_just_pressed("interact"):
 		if pickable():
 			trigger_pickup_sequence()
 			return
@@ -67,13 +65,11 @@ func _physics_process(delta):
 
 #PICKUP SEQUENCE LOGIC
 func trigger_pickup_sequence() -> void:
-	# 1. FIND THE ITEM IMMEDIATELY before setting flags or stalling the frame!
 	var target_item = get_overlapping_loot()
 	
 	if target_item == null:
-		return # If there's no item, don't freeze the player at all!
+		return 
 
-	# Save the item's name right now while we know it exists safely
 	var saved_name = target_item.item_data.name 
 
 	is_picking_up = true
@@ -91,11 +87,9 @@ func trigger_pickup_sequence() -> void:
 	
 	animated_sprite.flip_h = false
 	
-	# 2. Collect it using our stored reference
 	if target_item and target_item.has_method("collect"):
 		target_item.collect(inv)
 		
-		# 3. Call your custom item detector scene to fire the sound and wood label!
 		if item_detector and item_detector.has_method("play_pickup_effects"):
 			item_detector.play_pickup_effects(saved_name)
 	

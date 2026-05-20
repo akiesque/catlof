@@ -16,9 +16,9 @@ func _input(event):
 func _on_focus():
 	label.add_theme_color_override("font_color", Color("313039"))
 	var tween = create_tween()
-	tween.tween_property(self, "position:x", position.x + 10, 0.1)
+	tween.tween_property(self, "position:x", position.x + 25, 0.1)
 
 func _on_unfocus():
 	label.add_theme_color_override("font_color", Color.WHITE)
 	var tween = create_tween()
-	tween.tween_property(self, "position:x", position.x - 10, 0.1)
+	tween.tween_property(self, "position:x", position.x - 25, 0.1)

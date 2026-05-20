@@ -11,6 +11,10 @@ const TEXTURE_SELECTED = preload("res://assets/bag/bag_slot_focused.png")
 var current_item: BagItem = null
 signal item_hovered(item: BagItem)
 
+func _gui_input(event: InputEvent) -> void:
+	if event is InputEventKey:
+		get_viewport().set_input_as_handled()
+
 func _ready() -> void:
 	focus_entered.connect(_on_focused)
 	mouse_entered.connect(_on_focused)

@@ -9,5 +9,10 @@ Casimir: Choose a Response...
 - Option 1
 	Casimir: You chose option 1
 - Option 2
-	Casimir: You chose option 2
+	Casimir: You can use the book now, wow!
+	do GameManager.unlocked_book = true
+- Option 3
+	Casimir: You chose option 3
+- Option 4
+	Casimir: You chose option 4
 => END
