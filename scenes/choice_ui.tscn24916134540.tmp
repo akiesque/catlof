@@ -74,7 +74,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Border:scale")
+tracks/5/path = NodePath("CanvasLayer/Overlay/Border:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -82,18 +82,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Vector2(1.5, 1.5)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Overlay:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_frfir"]
@@ -161,7 +149,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Border:scale")
+tracks/5/path = NodePath("CanvasLayer/Overlay/Border:scale")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -169,18 +157,6 @@ tracks/5/keys = {
 "transitions": PackedFloat32Array(0.22531264, 0.22531264),
 "update": 0,
 "values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Overlay:modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.73333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g3tj1"]
@@ -249,18 +225,6 @@ tracks/3/keys = {
 "update": 0,
 "values": [6.2831855]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath(".:scale")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(4, 4)]
-}
 
 [sub_resource type="Animation" id="Animation_0ustw"]
 resource_name = "enter"
@@ -272,10 +236,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.74666667),
-"transitions": PackedFloat32Array(0.15389314, 0.18946466),
+"times": PackedFloat32Array(0.74666667),
+"transitions": PackedFloat32Array(0.18946466),
 "update": 0,
-"values": [Vector2(3.9999962, -62.230824), Vector2(118.75, -117.61545)]
+"values": [Vector2(118.75, -117.61545)]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -284,10 +248,10 @@ tracks/1/path = NodePath(".:scale")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.73333335),
-"transitions": PackedFloat32Array(0.23325826, 0.18946458),
+"times": PackedFloat32Array(0.76666665),
+"transitions": PackedFloat32Array(0.18946458),
 "update": 0,
-"values": [Vector2(4, 4), Vector2(1.85, 1.85)]
+"values": [Vector2(1.85, 1.85)]
 }
 
 [sub_resource type="Animation" id="Animation_u21pq"]
@@ -409,8 +373,17 @@ layer = 25
 root_node = NodePath("../..")
 libraries/ = SubResource("AnimationLibrary_g3tj1")
 
-[node name="Border" type="TextureRect" parent="CanvasLayer" unique_id=351736049]
+[node name="Overlay" type="ColorRect" parent="CanvasLayer" unique_id=838150682]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15686275, 0.12156863, 0.34117648, 0)
+
+[node name="Border" type="TextureRect" parent="CanvasLayer/Overlay" unique_id=351736049]
 material = SubResource("ShaderMaterial_uwqn7")
+layout_mode = 1
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -422,15 +395,6 @@ grow_vertical = 0
 scale = Vector2(1.5, 1.5)
 pivot_offset = Vector2(1, 238)
 texture = ExtResource("2_petb5")
-
-[node name="Overlay" type="ColorRect" parent="CanvasLayer" unique_id=838150682]
-modulate = Color(1, 1, 1, 0)
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.15686275, 0.12156863, 0.34117648, 0)
 
 [node name="Glitch" type="ColorRect" parent="CanvasLayer/Overlay" unique_id=1640816256]
 modulate = Color(1, 1, 1, 0.38039216)
@@ -467,7 +431,7 @@ libraries/ = SubResource("AnimationLibrary_petb5")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control/Sprite2D" unique_id=1018995743]
 self_modulate = Color(1, 1, 1, 0.833252)
-scale = Vector2(4, 4)
+scale = Vector2(1.85, 1.85)
 sprite_frames = SubResource("SpriteFrames_cim78")
 animation = &"turn_away"
 autoplay = "blink"
@@ -501,8 +465,8 @@ texture = ExtResource("5_cim78")
 [node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer" unique_id=411604799]
 offset_left = 371.0
 offset_top = 337.0
-offset_right = 784.99945
-offset_bottom = 620.99854
+offset_right = 784.99976
+offset_bottom = 620.9986
 pivot_offset = Vector2(7, 269)
 size_flags_vertical = 6
 focus_mode = 2

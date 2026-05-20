@@ -27,6 +27,7 @@ Transition="*uid://d3b4r1x3ij6gt"
 BagUI="*uid://c22p7pmals1gm"
 HourUi="*uid://0mkbbsny1hq2"
 BagManager="*uid://3yceaut6oj40"
+MusicManager="*uid://tccvryer3tyy"
 
 [display]
 

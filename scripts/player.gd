@@ -3,11 +3,16 @@ extends CharacterBody2D
 const SPEED = 130.0
 var dir = "down" 
 
+@onready var sfx_player: AudioStreamPlayer = $AudioStreamPlayer
+
 @onready var animated_sprite = $AnimatedSprite2D
 @export var inv: Bag
 
 @onready var item_detector: Area2D = $ItemDetector
 var is_picking_up: bool = false
+
+var sfx: AudioStream = null
+const PICKUP_RUSTLE = preload("uid://dny55rl6kukhy")
 
 func _ready() -> void:
 	visible = false 
@@ -81,6 +86,8 @@ func trigger_pickup_sequence() -> void:
 		animated_sprite.flip_h = false
 
 	animated_sprite.play("pickup")
+	sfx_player.stream = PICKUP_RUSTLE
+	sfx_player.play()
 	
 	# Wait for your boy to bend down and finish the clip
 	await animated_sprite.animation_finished

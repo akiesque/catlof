@@ -8,7 +8,7 @@ signal choice_selected(next_id: String)
 @onready var choice_box: VBoxContainer = $CanvasLayer/ChoiceBox/Options
 @onready var sfx_player: AudioStreamPlayer = $CanvasLayer/SFX_Player
 @onready var sprite: AnimatedSprite2D = $CanvasLayer/Control/Sprite2D/AnimatedSprite2D
-
+@onready var border: TextureRect = $CanvasLayer/Border
 
 var is_animating: bool = false
 var sfx: AudioStream = null
@@ -20,21 +20,19 @@ const CHOICES_PICK = preload("uid://ddvk7eq5ruegs")
 const CHOICE_BTN = preload("res://scenes/choice_button.tscn")
 
 func _ready():
-	print("choice_box node: ", choice_box)
 	layer.visible = false
+	border.visible = false
 
 func display_choices(responses: Array):
 	sfx_player.stream = CHOICES_DING
 	sfx_player.play()
 	is_animating = true 
 	layer.visible = true
+	
 	choice_box.modulate.a = 0 
 	
 	for child in choice_box.get_children():
 		child.free()
-		
-	print("children after clear: ", choice_box.get_children().size())
-	print("responses count: ", responses.size())
 		
 	for i in range(responses.size()):
 		var response = responses[i]
@@ -58,6 +56,7 @@ func display_choices(responses: Array):
 	
 	choice_box.modulate.a = 1
 	if main_a.has_animation("enter"):
+		border.visible = true
 		entr.play("enter") 
 		main_a.play("enter") 
 		await main_a.animation_finished 
@@ -69,14 +68,16 @@ func display_choices(responses: Array):
 	is_animating = false
 			
 	
-func _on_choice_pressed(next_id: String):
-	is_animating = true  
+func _on_choice_pressed(next_id: String): 
+	if is_animating: return 
+	is_animating = true 
+	sprite.play("turn_away")
 	sfx_player.stream = CHOICES_PICK
 	sfx_player.play()
 	entr.stop()
-	sprite.play("turn_away")
 	for btn in choice_box.get_children():
 		btn.get_node("Button").disabled = true
+		btn.release_focus()
 		var tween = btn.create_tween()
 		tween.tween_property(btn, "modulate", Color(0.325, 0.407, 0.591, 0.6), 0.15)
 	await get_tree().create_timer(0.3).timeout

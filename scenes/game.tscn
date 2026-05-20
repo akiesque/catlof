@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://mis3jo8v22a7"]
 
+[ext_resource type="Script" uid="uid://dxg656e58e38x" path="res://scripts/music_trigger/game.gd" id="1_ca42v"]
 [ext_resource type="Shader" uid="uid://buqv60r6hr7gm" path="res://shaders/clouds.gdshader" id="1_gee14"]
 [ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="1_uwrxv"]
 [ext_resource type="Texture2D" uid="uid://mrdgvnc5ulyu" path="res://assets/backgrounds/clouds.png" id="2_0tnpc"]
@@ -395,6 +396,7 @@ physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_0tnpc")
 
 [node name="Game" type="Node2D" unique_id=932342677]
+script = ExtResource("1_ca42v")
 
 [node name="Sky" type="TextureRect" parent="." unique_id=2119493803]
 material = SubResource("ShaderMaterial_0tnpc")
@@ -462,6 +464,7 @@ tile_set = SubResource("TileSet_iywne")
 position = Vector2(-35, -28)
 
 [node name="Player" parent="." unique_id=1320964713 instance=ExtResource("1_uwrxv")]
+process_mode = 1
 position = Vector2(36, -30)
 
 [node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1294536627]
