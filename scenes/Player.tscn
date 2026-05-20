@@ -285,3 +285,6 @@ shape = SubResource("CapsuleShape2D_p0vlq")
 [node name="InteractComponent" parent="." unique_id=167555890 instance=ExtResource("3_3li8b")]
 
 [node name="ItemDetector" parent="." unique_id=1109934401 instance=ExtResource("7_cw2d6")]
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410985360]
+bus = &"SFX"

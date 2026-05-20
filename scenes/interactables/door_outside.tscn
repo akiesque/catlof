@@ -3,6 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://cnpndcr41sp5" path="res://assets/tilesets/inside_door.png" id="1_6ji2u"]
 [ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_1b54f"]
 [ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="3_yw5bp"]
+[ext_resource type="AudioStream" uid="uid://b2fjxt7lveded" path="res://assets/ui/sfx/close_door.mp3" id="4_yw5bp"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc6wi"]
 radius = 36.0
@@ -21,6 +22,7 @@ needs_up_input = true
 destination_scene = "uid://mis3jo8v22a7"
 spawn_location_name = "FromInside"
 transition_color = Color(0.4079079, 0.63558495, 0.655823, 1)
+sfx_door = ExtResource("4_yw5bp")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=2038051810]
 position = Vector2(0, -5)

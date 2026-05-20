@@ -15,7 +15,7 @@ var target_spawn_id: String = ""
 var player_saved_pos : Vector2
 var use_saved_position : bool = false
 
-#Locking inputs
+#Locking inputs for future stuff
 var unlocked_book := false
 var unlock_crafting := false
 var unlock_cooking := true

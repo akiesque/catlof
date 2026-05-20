@@ -6,12 +6,14 @@ extends Control
 @onready var layer: CanvasLayer = $CanvasLayer
 @onready var anim: AnimationPlayer = $Animation
 @onready var ctc: TextureRect = $CanvasLayer/MarginContainer/DialogueBox/Control/AdvanceCtc
-
 @onready var ctc_anim: AnimationPlayer = $CanvasLayer/MarginContainer/DialogueBox/Control/AnimationPlayer
 
 # Separated CTC SFX and Voice
 @onready var voice_player: AudioStreamPlayer = $VoicePlayer
 @onready var ui_player: AudioStreamPlayer = $CtcPlayer
+
+#Choices
+@onready var choice_ui: Control = $CanvasLayer/ChoiceUI
 
 
 const SFX_CTC = preload("res://assets/ui/sfx/ctc_sfx.mp3")
@@ -81,7 +83,7 @@ func update_line(title: String):
 	current_line = await DialogueManager.get_next_dialogue_line(GameManager.next_dialogue_resource, title)
 	
 	if current_line:
-		_hide_ctc() # REVISED: Kill the twirl while new text loads
+		_hide_ctc() 
 		character_name.text = current_line.character
 		char_dialogue.text = current_line.text
 		char_dialogue.visible_characters = 0
@@ -111,12 +113,29 @@ func update_line(title: String):
 		
 		typing_tween.tween_property(char_dialogue, "visible_characters", total_chars, duration)
 		typing_tween.finished.connect(func(): 
+			print("tween finished!")
+			print("responses size: ", current_line.responses.size())
 			is_typing = false
-			_show_ctc()
-		)
+			if current_line.responses.size() > 0:
+				_show_choices() 
+			else:
+				_show_ctc()
+			)
 	else:
 		_on_dialogue_ended(null)
 		
+func _show_choices():
+	_hide_ctc() 
+	get_viewport().set_input_as_handled() 
+	if choice_ui:
+		if not choice_ui.choice_selected.is_connected(_on_choice_resolved):
+			choice_ui.choice_selected.connect(_on_choice_resolved)
+		await get_tree().process_frame
+		choice_ui.display_choices(current_line.responses)
+
+func _on_choice_resolved(next_id: String):
+	update_line(next_id)
+
 func _show_ctc():
 	ctc.show()
 	if ctc_anim and ctc_anim.has_animation("twirly"):
@@ -129,19 +148,27 @@ func _hide_ctc():
 
 func _input(event):
 	if not layer.visible: return
+	if current_line and current_line.responses.size() > 0 and not is_typing: return
+	if choice_ui.is_animating: return 
 	
 	if event.is_action_pressed("ui_accept"):
+		get_viewport().set_input_as_handled() 
+		if event.is_action_pressed("ui_accept"):
+			get_viewport().set_input_as_handled()  
 		if is_typing:
 			if typing_tween: typing_tween.kill()
 			char_dialogue.visible_characters = -1
 			is_typing = false
-			_show_ctc()
+			if current_line.responses.size() > 0:  
+				_show_choices()
+			else:
+				_show_ctc()
 		elif current_line:
 			ui_player.pitch_scale = 1.0 
 			ui_player.stream = SFX_CTC
 			ui_player.play()
-			
 			update_line(current_line.next_id)
+
 
 func _on_dialogue_ended(_resource):
 	anim.play("exit")

@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b0tu0gm4ixj86" path="res://assets/tilesets/door.png" id="1_qq3h0"]
 [ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_fnoyy"]
+[ext_resource type="AudioStream" uid="uid://bc6ur07vapwia" path="res://assets/ui/sfx/open_door.mp3" id="4_iyt8h"]
 [ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="4_nmwkn"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xetrc"]
@@ -19,6 +20,7 @@ needs_up_input = true
 destination_scene = "uid://dwuw11amb6tk7"
 spawn_location_name = "FromOutside"
 transition_color = Color(0.56310296, 0.7635702, 0.9305151, 1)
+sfx_door = ExtResource("4_iyt8h")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=611041434]
 shape = SubResource("CapsuleShape2D_xetrc")

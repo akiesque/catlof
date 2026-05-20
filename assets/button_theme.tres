@@ -1,0 +1,49 @@
+[gd_resource type="Theme" format=3 uid="uid://cuq4hla60bvkd"]
+
+[ext_resource type="Texture2D" uid="uid://pgc786e0aok7" path="res://assets/ui/choiceBox_hover.png" id="1_3utsd"]
+[ext_resource type="Texture2D" uid="uid://d35edy2rejgl2" path="res://assets/ui/choiceBox_disabled.png" id="1_n6ikf"]
+[ext_resource type="Texture2D" uid="uid://tpff5eousbou" path="res://assets/ui/choiceBox_clicked.png" id="2_n6ikf"]
+[ext_resource type="Texture2D" uid="uid://dpox1g3pwl8k6" path="res://assets/ui/choiceBox.png" id="3_lh5at"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_lh5at"]
+texture = ExtResource("1_n6ikf")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1ioyl"]
+texture = ExtResource("1_3utsd")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8bnyk"]
+texture = ExtResource("1_3utsd")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_esxq7"]
+texture = ExtResource("3_lh5at")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eifbw"]
+texture = ExtResource("2_n6ikf")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[resource]
+Button/colors/font_focus_color = Color(1, 0.74823135, 0.43807712, 1)
+Button/styles/disabled = SubResource("StyleBoxTexture_lh5at")
+Button/styles/focus = SubResource("StyleBoxTexture_1ioyl")
+Button/styles/hover_pressed = SubResource("StyleBoxTexture_8bnyk")
+Button/styles/normal = SubResource("StyleBoxTexture_esxq7")
+Button/styles/pressed = SubResource("StyleBoxTexture_eifbw")

@@ -1,0 +1,1093 @@
+[gd_scene format=3 uid="uid://bvodyppt5g2pc"]
+
+[ext_resource type="Texture2D" uid="uid://b1lbvnh3n6h3l" path="res://assets/ui/dialogueBox.png" id="1_mysaw"]
+[ext_resource type="Script" uid="uid://bg46iwoyjyd4m" path="res://scripts/vn_dialogue.gd" id="1_sn5mt"]
+[ext_resource type="PackedScene" uid="uid://bhf14vkmh2o86" path="res://scenes/choice_ui.tscn" id="2_vy31a"]
+[ext_resource type="Shader" uid="uid://b3ekrw3u7hmtt" path="res://shaders/frost.gdshader" id="3_5kqa1"]
+[ext_resource type="Texture2D" uid="uid://c2ey3jtrqfihl" path="res://assets/ui/ctc.png" id="4_cl3qj"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="5_5kqa1"]
+[ext_resource type="FontFile" uid="uid://b7ycgobmyrjwe" path="res://assets/ui/fonts/Karla-Medium.ttf" id="5_cxvfb"]
+[ext_resource type="FontFile" uid="uid://cj60rdc27g6td" path="res://assets/ui/fonts/Karla-SemiBold.ttf" id="6_cl3qj"]
+[ext_resource type="FontFile" uid="uid://cx03sur0ty3f8" path="res://assets/ui/fonts/Karla-SemiBoldItalic.ttf" id="7_vy31a"]
+[ext_resource type="FontFile" uid="uid://b6vgmo7uki7co" path="res://assets/ui/fonts/Karla-MediumItalic.ttf" id="8_ek6e3"]
+
+[sub_resource type="Animation" id="Animation_2lfgq"]
+length = 0.6333333
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:self_modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/TextureRect:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/TextureRect:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TextureRect:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/TextureRect:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(-660, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect2:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/ColorRect2:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(660, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/MarginContainer:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/MarginContainer:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:r")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:g")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:b")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:a")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:r")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:g")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:b")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CanvasLayer/TextureRect/ColorRect:material:shader_parameter/blur_amount")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/Control:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5kqa1"]
+resource_name = "enter"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(0.17075504, 0.1961461),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CanvasLayer/TextureRect:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, -0.0006014295, -0.0012915451, 0.07700968, 0.16537511, 1.0003147, -0.07744326, 0.33311027, 5.1865976e-05, -0.00022309352),
+"times": PackedFloat32Array(0.1, 0.39968884)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("CanvasLayer/TextureRect:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, 0, 0, 0.00016666668, 0, 1, -0.1665, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0.1, 0.40000004)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = false
+tracks/3/path = NodePath("CanvasLayer/TextureRect:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, 0, 0, 0.050000004, 0, 0, -0.07333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2666667)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = false
+tracks/4/path = NodePath("CanvasLayer/TextureRect:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(480, 0, 0, 0.050000004, -51.666668, 0, -0.07333334, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.2666667)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.026331192, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-660, -0.25, 0, 0.25, 0, -550, -0.026331192, -18.333334, 0, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect2:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.035108253, 0, 0, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/ColorRect2:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(660, -0.25, 0, 0.25, 0, 560, -0.035108253, 16.666666, 0, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.03486953, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.46666667)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.03486953, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.46666667)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.25, 0, 0.25, 0, 1, -0.03486953, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.46666667)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.03486953, -0.16666669, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.46666667)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/MarginContainer:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(60, 0, 0, 0.035414364, 0, 60, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/MarginContainer:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-79, 0, 0, 0.035414364, 18.333334, 31, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.40000004)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:r")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.024256881, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.5420159)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:g")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.024256881, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.5420159)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:b")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.024256881, 0, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.5420159)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:a")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.024256881, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0.33333334, 0.5420159)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:r")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.035967108, 0, 0, 0),
+"times": PackedFloat32Array(0.34126928, 0.5570719)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:g")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.035967108, 0, 0, 0),
+"times": PackedFloat32Array(0.34126928, 0.5570719)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:b")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.035967108, 0, 0, 0),
+"times": PackedFloat32Array(0.34126928, 0.5570719)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 1, -0.035967108, -0.16666667, 0, 0),
+"times": PackedFloat32Array(0.34126928, 0.5570719)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CanvasLayer/TextureRect/ColorRect:material:shader_parameter/blur_amount")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0, 2),
+"points": PackedFloat32Array(2, -0.25, 0, 0.25, 0, 1.5000001, -0.060223993, 0.08333332, 0, 0),
+"times": PackedFloat32Array(0, 0.36134395)
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/Control:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.018301517, 0.5490455),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_nxuv4"]
+resource_name = "exit"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/TextureRect:self_modulate")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.099999994, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/1/type = "bezier"
+tracks/1/imported = false
+tracks/1/enabled = false
+tracks/1/path = NodePath("CanvasLayer/TextureRect:scale:x")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, -0.0006014295, -0.0012915451, 0.07700968, 0.16537511, 1.0003147, -0.07744326, 0.33311027, 5.1865976e-05, -0.00022309352),
+"times": PackedFloat32Array(0.1, 0.39968884)
+}
+tracks/2/type = "bezier"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("CanvasLayer/TextureRect:scale:y")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5, 0, 0, 0.00016666668, 0, 1, -0.1665, 0.16666667, 0, 0),
+"times": PackedFloat32Array(0.1, 0.40000004)
+}
+tracks/3/type = "bezier"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/TextureRect:position:x")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.07333334, 0, 0, 0),
+"times": PackedFloat32Array(0.2666667)
+}
+tracks/4/type = "bezier"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/TextureRect:position:y")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(0, -0.07333334, 0, 0, 0),
+"times": PackedFloat32Array(0.2666667)
+}
+tracks/5/type = "bezier"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("CanvasLayer/ColorRect:position:x")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.026331192, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/6/type = "bezier"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("CanvasLayer/ColorRect:position:y")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(-550, -0.026331192, -18.333334, 0, 0, -660, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/7/type = "bezier"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("CanvasLayer/ColorRect2:position:x")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(0, -0.035108253, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/8/type = "bezier"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("CanvasLayer/ColorRect2:position:y")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(560, -0.035108253, 16.666666, 0, 0, 660, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/9/type = "bezier"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:r")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.23333333, 0.53333336)
+}
+tracks/10/type = "bezier"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:g")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.23333333, 0.53333336)
+}
+tracks/11/type = "bezier"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:b")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.03486953, 0, 0, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.23333333, 0.53333336)
+}
+tracks/12/type = "bezier"
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/path = NodePath("CanvasLayer/MarginContainer/DialogueBox:self_modulate:a")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.03486953, -0.16666669, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.23333333, 0.53333336)
+}
+tracks/13/type = "bezier"
+tracks/13/imported = false
+tracks/13/enabled = true
+tracks/13/path = NodePath("CanvasLayer/MarginContainer:position:x")
+tracks/13/interp = 1
+tracks/13/loop_wrap = true
+tracks/13/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(60, -0.25, 0, 0.25, 0, 60, 0, 0, 0.035414364, 0),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/14/type = "bezier"
+tracks/14/imported = false
+tracks/14/enabled = true
+tracks/14/path = NodePath("CanvasLayer/MarginContainer:position:y")
+tracks/14/interp = 1
+tracks/14/loop_wrap = true
+tracks/14/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(31, -0.25, 0, 0.25, 0, -79, 0, 0, 0.035414364, 18.333334),
+"times": PackedFloat32Array(0, 0.53333336)
+}
+tracks/15/type = "bezier"
+tracks/15/imported = false
+tracks/15/enabled = true
+tracks/15/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:r")
+tracks/15/interp = 1
+tracks/15/loop_wrap = true
+tracks/15/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.024256881, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/16/type = "bezier"
+tracks/16/imported = false
+tracks/16/enabled = true
+tracks/16/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:g")
+tracks/16/interp = 1
+tracks/16/loop_wrap = true
+tracks/16/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.024256881, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/17/type = "bezier"
+tracks/17/imported = false
+tracks/17/enabled = true
+tracks/17/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:b")
+tracks/17/interp = 1
+tracks/17/loop_wrap = true
+tracks/17/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.024256881, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/18/type = "bezier"
+tracks/18/imported = false
+tracks/18/enabled = true
+tracks/18/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName:self_modulate:a")
+tracks/18/interp = 1
+tracks/18/loop_wrap = true
+tracks/18/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.024256881, -0.16666667, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/19/type = "bezier"
+tracks/19/imported = false
+tracks/19/enabled = true
+tracks/19/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:r")
+tracks/19/interp = 1
+tracks/19/loop_wrap = true
+tracks/19/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.035967108, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/20/type = "bezier"
+tracks/20/imported = false
+tracks/20/enabled = true
+tracks/20/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:g")
+tracks/20/interp = 1
+tracks/20/loop_wrap = true
+tracks/20/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.035967108, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/21/type = "bezier"
+tracks/21/imported = false
+tracks/21/enabled = true
+tracks/21/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:b")
+tracks/21/interp = 1
+tracks/21/loop_wrap = true
+tracks/21/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.035967108, 0, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/22/type = "bezier"
+tracks/22/imported = false
+tracks/22/enabled = true
+tracks/22/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue:self_modulate:a")
+tracks/22/interp = 1
+tracks/22/loop_wrap = true
+tracks/22/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1, -0.035967108, -0.16666667, 0, 0, 0, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0.33333334, 0.53333336)
+}
+tracks/23/type = "bezier"
+tracks/23/imported = false
+tracks/23/enabled = true
+tracks/23/path = NodePath("CanvasLayer/TextureRect/ColorRect:material:shader_parameter/blur_amount")
+tracks/23/interp = 1
+tracks/23/loop_wrap = true
+tracks/23/keys = {
+"handle_modes": PackedInt32Array(0, 0),
+"points": PackedFloat32Array(1.5000001, -0.25, 0, 0.25, 0, 3.0000002, -0.06691555, -0.25000003, 0, 0),
+"times": PackedFloat32Array(0, 0.26666668)
+}
+tracks/24/type = "value"
+tracks/24/imported = false
+tracks/24/enabled = true
+tracks/24/path = NodePath("CanvasLayer/MarginContainer/DialogueBox/Control:modulate")
+tracks/24/interp = 1
+tracks/24/loop_wrap = true
+tracks/24/keys = {
+"times": PackedFloat32Array(0.11895986, 0.56734705),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nxuv4"]
+_data = {
+&"RESET": SubResource("Animation_2lfgq"),
+&"enter": SubResource("Animation_5kqa1"),
+&"exit": SubResource("Animation_nxuv4")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5kqa1"]
+shader = ExtResource("3_5kqa1")
+shader_parameter/blur_amount = 2.0
+
+[sub_resource type="Animation" id="Animation_cl3qj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1.2463655, 6.2706985)]
+}
+
+[sub_resource type="Animation" id="Animation_vy31a"]
+resource_name = "twirly"
+length = 1.1666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.36666667, 0.6, 0.8, 0.96666664, 1.1333333),
+"transitions": PackedFloat32Array(0.43527535, 0.34151012, 0.3535535, 0.49999997, 0.3535535),
+"update": 0,
+"values": [0.0, -0.2617993877991494, 0.0, 0.2617993877991494, 0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.20436694, 0.4209349, 0.6405531, 0.8540708, 1.0333333, 1.246851),
+"transitions": PackedFloat32Array(0.30778614, 0.4204482, 0.32987705, 0.4204482, 0.32987705, 0.4204482, 0.32987705),
+"update": 0,
+"values": [Vector2(1.2463655, 6.2706985), Vector2(1.2459993, 4.271), Vector2(1.2463655, 6.2706985), Vector2(1.2459993, 4.271), Vector2(1.2463655, 6.2706985), Vector2(1.2459993, 4.271), Vector2(1.2463655, 6.2706985)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ek6e3"]
+_data = {
+&"RESET": SubResource("Animation_cl3qj"),
+&"twirly": SubResource("Animation_vy31a")
+}
+
+[node name="ConversationUI" type="Control" unique_id=1062700121]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sn5mt")
+
+[node name="Animation" type="AnimationPlayer" parent="." unique_id=1370328540]
+libraries/ = SubResource("AnimationLibrary_nxuv4")
+
+[node name="VoicePlayer" type="AudioStreamPlayer" parent="." unique_id=752744876]
+bus = &"Speaking"
+
+[node name="CtcPlayer" type="AudioStreamPlayer" parent="." unique_id=966616999]
+bus = &"SFX"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
+layer = 20
+visible = false
+
+[node name="ChoiceUI" parent="CanvasLayer" unique_id=492625936 instance=ExtResource("2_vy31a")]
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1155997001]
+use_parent_material = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 2.000122
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(570, 340)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer/TextureRect" unique_id=1573009849]
+material = SubResource("ShaderMaterial_5kqa1")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1306462552]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -660.0
+offset_bottom = -660.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=600092392]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 660.0
+offset_bottom = 659.9934
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=254938698]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="CharacterA" type="Sprite2D" parent="CanvasLayer/Control" unique_id=784373986]
+
+[node name="CharacterB" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1680545880]
+
+[node name="CharacterC" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1444747682]
+
+[node name="CharacterD" type="Sprite2D" parent="CanvasLayer/Control" unique_id=346130715]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=506521021]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 60.0
+offset_top = 31.0
+offset_right = -33.0
+offset_bottom = -390.99994
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DialogueBox" type="NinePatchRect" parent="CanvasLayer/MarginContainer" unique_id=443404838]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("1_mysaw")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer/MarginContainer/DialogueBox" unique_id=1960787041]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 0
+offset_left = 970.0
+offset_top = 150.0
+offset_right = 1010.0
+offset_bottom = 190.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MarginContainer/DialogueBox/Control" unique_id=257499144]
+process_mode = 3
+root_node = NodePath("../AdvanceCtc")
+libraries/ = SubResource("AnimationLibrary_ek6e3")
+
+[node name="AdvanceCtc" type="TextureRect" parent="CanvasLayer/MarginContainer/DialogueBox/Control" unique_id=1762686995]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.753635
+offset_top = -13.729301
+offset_right = 13.246365
+offset_bottom = 18.270699
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset = Vector2(15.693909, 15.163315)
+texture = ExtResource("4_cl3qj")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/DialogueBox" unique_id=1853491787]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 30.0
+offset_right = 1036.0
+offset_bottom = 215.0
+theme_override_constants/separation = 2
+
+[node name="CharacterName" type="Label" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=1344772370]
+self_modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 2
+size_flags_stretch_ratio = 0.0
+theme_override_colors/font_color = Color(1, 0.3019608, 0.3019608, 1)
+theme_override_fonts/font = ExtResource("5_5kqa1")
+theme_override_font_sizes/font_size = 40
+
+[node name="CharDialogue" type="RichTextLabel" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=2122964189]
+modulate = Color(0.4424397, 0.4577822, 0.8922482, 1)
+self_modulate = Color(1, 1, 1, 0)
+custom_minimum_size = Vector2(959, 142)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme_override_colors/default_color = Color(0.26822877, 0.32878408, 0.6945535, 1)
+theme_override_fonts/normal_font = ExtResource("5_cxvfb")
+theme_override_fonts/bold_font = ExtResource("6_cl3qj")
+theme_override_fonts/bold_italics_font = ExtResource("7_vy31a")
+theme_override_fonts/italics_font = ExtResource("8_ek6e3")
+theme_override_font_sizes/normal_font_size = 30
+theme_override_font_sizes/bold_font_size = 30
+theme_override_font_sizes/bold_italics_font_size = 30
+theme_override_font_sizes/italics_font_size = 30
+bbcode_enabled = true

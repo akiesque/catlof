@@ -21,6 +21,7 @@ const BOOK_SHEETS = [
 ]
 
 var is_transitioning: bool = false
+var focused_slot: int = 0
 
 #SLOTS FOR BAG UI
 const SLOT_SCENE = preload("res://assets/bag/BagSlot.tscn")
@@ -39,31 +40,56 @@ func _ready() -> void:
 	layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	book_bg.process_mode = Node.PROCESS_MODE_ALWAYS
 	tab_overlay.process_mode = Node.PROCESS_MODE_ALWAYS
+	inventory_data.inventory_updated.connect(populate_slots) 
 	
 	layer.visible = false
 	close()
 
 func _input(event: InputEvent) -> void:
+	if not GameManager.unlocked_book:
+		return
 	if is_transitioning:
 		return
 	if event.is_action_pressed("bag_open"):
 		if is_open:
 			close()
-			get_viewport().set_input_as_handled()
 		else:
 			if not is_transition_playing():
 				open()
-				get_viewport().set_input_as_handled()
+		get_viewport().set_input_as_handled()
 		return
 
-	if is_open and event is InputEventKey and event.is_pressed() and not event.is_echo():
-		if event.keycode == KEY_Q:
-			switch_to_tab(posmod(current_tab - 1, pages.size()))
-			get_viewport().set_input_as_handled()
-		elif event.keycode == KEY_E:
-			switch_to_tab(posmod(current_tab + 1, pages.size()))
-			get_viewport().set_input_as_handled()
+	if not is_open:
+		return
 
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		match event.physical_keycode:
+			KEY_Q:
+				switch_to_tab(posmod(current_tab - 1, pages.size()))
+				get_viewport().set_input_as_handled()
+			KEY_E:
+				switch_to_tab(posmod(current_tab + 1, pages.size()))
+				get_viewport().set_input_as_handled()
+			KEY_LEFT:
+				navigate_slots(-1)
+				get_viewport().set_input_as_handled()
+			KEY_RIGHT:
+				navigate_slots(1)
+				get_viewport().set_input_as_handled()
+			KEY_UP:
+				navigate_slots(-3)  
+				get_viewport().set_input_as_handled()
+			KEY_DOWN:
+				navigate_slots(3)   # adjust 3 to match your grid column count
+				get_viewport().set_input_as_handled()
+			
+func navigate_slots(delta: int) -> void:
+	if current_tab != 0: return  # only on bag tab
+	var count = grid_container.get_child_count()
+	if count == 0: return
+	focused_slot = clamp(focused_slot + delta, 0, count - 1)
+	grid_container.get_child(focused_slot).force_focus()
+	
 func open() -> void:
 	if GameManager.is_dialogue_active:
 		return
@@ -130,22 +156,18 @@ func close() -> void:
 
 func switch_to_tab(index: int) -> void:
 	current_tab = index
-	
+
 	if tab_overlay and BOOK_SHEETS[index]:
 		tab_overlay.texture = BOOK_SHEETS[index]
-	
+
 	for i in range(pages.size()):
 		if pages[i]:
 			pages[i].visible = (i == index)
 			if i == index:
 				pages[i].show()
-				
-				if i == 0 and grid_container and grid_container.get_child_count() > 0:
-					grid_container.get_child(0).force_focus()
 			else:
 				pages[i].hide()
 				
-	print("Switched UI to Tab Index: ", index)
 
 func is_transition_playing() -> bool:
 	if Transition and Transition.anim_player and Transition.anim_player.is_playing():
