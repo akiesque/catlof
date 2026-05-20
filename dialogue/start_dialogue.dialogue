@@ -5,4 +5,9 @@ Casimir: Hi, I'm Casimir Bohmuwey.
 Casimir: [b]This[/b] [b][i]is just a[/i][/b] test dialogue...
 Casimir: [i]Weird, why is the text so long?[/i]
 do add_hour(1)
+Casimir: Choose a Response...
+- Option 1
+	Casimir: You chose option 1
+- Option 2
+	Casimir: You chose option 2
 => END

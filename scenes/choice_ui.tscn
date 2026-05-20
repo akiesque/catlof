@@ -1,0 +1,360 @@
+[gd_scene format=3 uid="uid://bhf14vkmh2o86"]
+
+[ext_resource type="Texture2D" uid="uid://djdxc0cqci8tc" path="res://assets/ui/circle.png" id="1_frfir"]
+[ext_resource type="Script" uid="uid://ce468cjoeyep" path="res://scripts/choice_ui.gd" id="1_g3tj1"]
+[ext_resource type="Texture2D" uid="uid://drihhdmmg3byv" path="res://assets/ui/blink.png" id="2_g3tj1"]
+[ext_resource type="Texture2D" uid="uid://dlywysc0whjrw" path="res://assets/tilesets/border.png" id="2_petb5"]
+[ext_resource type="Texture2D" uid="uid://dpox1g3pwl8k6" path="res://assets/ui/choiceBox.png" id="3_u21pq"]
+[ext_resource type="Texture2D" uid="uid://c31v0v24vva1o" path="res://assets/tilesets/star.png" id="5_cim78"]
+
+[sub_resource type="Animation" id="Animation_mp7kl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Path2D/PathFollow2D/Star:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Path2D/PathFollow2D:progress_ratio")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Path2D/PathFollow2D/Star:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CanvasLayer/Overlay:color")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0.15686275, 0.12156863, 0.34117648, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_frfir"]
+resource_name = "enter"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Control:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(0.27739242, 0.17677675),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.3, 1.3)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Border:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.73),
+"transitions": PackedFloat32Array(0.23325826, 0.23325826),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.4, 1.4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("CanvasLayer/Path2D/PathFollow2D/Star:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.71),
+"transitions": PackedFloat32Array(0.17075509, 0.2332583),
+"update": 0,
+"values": [Vector2(1e-05, 1e-05), Vector2(1.2, 1.2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("CanvasLayer/Overlay:color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(0.25881627, 0.30778614),
+"update": 0,
+"values": [Color(0.15686275, 0.12156863, 0.34117648, 0), Color(0.15686275, 0.12156863, 0.34117648, 0.19607843)]
+}
+
+[sub_resource type="Animation" id="Animation_cim78"]
+resource_name = "loop"
+length = 4.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(0.27739242, 0.27739242),
+"update": 0,
+"values": [0.1, 1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Path2D/PathFollow2D/Star:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 4),
+"transitions": PackedFloat32Array(0.3298771, 0.18946458),
+"update": 0,
+"values": [-7.417649320975901, 6.2831855]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_g3tj1"]
+_data = {
+&"RESET": SubResource("Animation_mp7kl"),
+&"enter": SubResource("Animation_frfir"),
+&"loop": SubResource("Animation_cim78")
+}
+
+[sub_resource type="Animation" id="Animation_5gxoj"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(4, 4)]
+}
+
+[sub_resource type="Animation" id="Animation_0ustw"]
+resource_name = "enter"
+length = 1.2666667
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(0.31864014, 0.34151015),
+"update": 0,
+"values": [Vector2(21.283642, -9.932367), Vector2(118.75001, -119.99999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.01, 0.73333335),
+"transitions": PackedFloat32Array(0.25000006, 0.28717455),
+"update": 0,
+"values": [Vector2(4, 4), Vector2(1.8, 1.8)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_petb5"]
+_data = {
+&"RESET": SubResource("Animation_5gxoj"),
+&"enter": SubResource("Animation_0ustw")
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0iv8w"]
+atlas = ExtResource("2_g3tj1")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0y54"]
+atlas = ExtResource("2_g3tj1")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1wcwf"]
+atlas = ExtResource("2_g3tj1")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_cim78"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0iv8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0y54")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1wcwf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0y54")
+}, {
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_0iv8w")
+}],
+"loop": true,
+"name": &"blink",
+"speed": 10.0
+}]
+
+[sub_resource type="Curve2D" id="Curve2D_u21pq"]
+_data = {
+"points": PackedVector2Array(-14.666163, 0.6936699, 14.666163, -0.6936699, 139.82036, 10.69339, 0, 0, 0, 0, 208.15369, 40.69339, -4.814233, -10.543459, 4.814233, 10.543459, 248.15369, 93.19339, 0, 0, 0, 0, 258.15366, 152.36005, 5.0891705, -13.57112, -5.0891705, 13.57112, 241.48701, 209.86005, 12.440194, -7.0682917, -12.440194, 7.0682917, 187.32036, 260.6934, 18.094828, 5.6546335, -18.094828, -5.6546335, 93.987015, 272.36002, 12.722926, 8.199219, -12.722926, -8.199219, 38.153687, 239.0267, 3.3927803, 11.874731, -3.3927803, -11.874731, 2.3203526, 185.69339, 0, 0, 0, 0, -0.17964745, 109.86005, -5.77728, 4.796232, 5.77728, -4.796232, 35.653687, 47.360046, -16.945366, 7.5312734, 16.945366, -7.5312734, 87.32035, 18.19339, 0, 0, 0, 0, 87.32035, 18.19339, 0, 0, 0, 0, 87.32035, 18.19339, 5.747551, -2.972871, -5.747551, 2.972871, 139.82036, 10.69339, 0, 0, 0, 0, 139.82036, 10.69339, 0, 0, 0, 0, 139.82036, 10.69339, 0, 0, 0, 0, 139.82036, 10.69339, 0, 0, 0, 0, 139.82036, 10.69339)
+}
+point_count = 19
+
+[node name="ChoiceUI" type="Control" unique_id=492625936]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_g3tj1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=865988598]
+libraries/ = SubResource("AnimationLibrary_g3tj1")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=408227853]
+layer = 25
+
+[node name="Border" type="TextureRect" parent="CanvasLayer" unique_id=351736049]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -8.999996
+offset_top = -232.0
+offset_right = 231.0
+offset_bottom = 8.0
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(1, 238)
+texture = ExtResource("2_petb5")
+
+[node name="Overlay" type="ColorRect" parent="CanvasLayer" unique_id=838150682]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.15686275, 0.12156863, 0.34117648, 0)
+
+[node name="Options" type="VBoxContainer" parent="CanvasLayer" unique_id=1726000939]
+offset_left = 331.0
+offset_top = 302.0
+offset_right = 1111.0
+offset_bottom = 422.0
+size_flags_vertical = 8
+
+[node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer/Options" unique_id=411604799]
+custom_minimum_size = Vector2(20, 100)
+layout_mode = 2
+size_flags_vertical = 8
+texture = ExtResource("3_u21pq")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=1629064347]
+layout_mode = 3
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+
+[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control" unique_id=83155704]
+clip_children = 2
+position = Vector2(6, -7)
+texture = ExtResource("1_frfir")
+offset = Vector2(116, -116)
+
+[node name="Entr" type="AnimationPlayer" parent="CanvasLayer/Control/Sprite2D" unique_id=356430119]
+root_node = NodePath("../AnimatedSprite2D")
+libraries/ = SubResource("AnimationLibrary_petb5")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CanvasLayer/Control/Sprite2D" unique_id=1018995743]
+scale = Vector2(4, 4)
+sprite_frames = SubResource("SpriteFrames_cim78")
+animation = &"blink"
+autoplay = "blink"
+
+[node name="Path2D" type="Path2D" parent="CanvasLayer" unique_id=2043832438]
+position = Vector2(6.215577, 317.16794)
+scale = Vector2(1.2, 1.2)
+curve = SubResource("Curve2D_u21pq")
+
+[node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Path2D" unique_id=1539961971]
+position = Vector2(139.82036, 10.69339)
+rotation = -0.16219337
+rotates = false
+
+[node name="Star" type="TextureRect" parent="CanvasLayer/Path2D/PathFollow2D" unique_id=899372029]
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = -42.22608
+offset_top = -45.420353
+offset_right = 197.77393
+offset_bottom = 194.57965
+grow_vertical = 0
+scale = Vector2(1e-05, 1e-05)
+pivot_offset = Vector2(40.841766, 43.521988)
+texture = ExtResource("5_cim78")

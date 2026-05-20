@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://b1lbvnh3n6h3l" path="res://assets/ui/dialogueBox.png" id="1_mysaw"]
 [ext_resource type="Script" uid="uid://bg46iwoyjyd4m" path="res://scripts/vn_dialogue.gd" id="1_sn5mt"]
+[ext_resource type="PackedScene" uid="uid://bhf14vkmh2o86" path="res://scenes/choice_ui.tscn" id="2_vy31a"]
 [ext_resource type="Shader" uid="uid://b3ekrw3u7hmtt" path="res://shaders/frost.gdshader" id="3_5kqa1"]
 [ext_resource type="Texture2D" uid="uid://c2ey3jtrqfihl" path="res://assets/ui/ctc.png" id="4_cl3qj"]
 [ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="5_5kqa1"]
@@ -946,6 +947,8 @@ bus = &"SFX"
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 20
 visible = false
+
+[node name="ChoiceUI" parent="CanvasLayer" unique_id=492625936 instance=ExtResource("2_vy31a")]
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer" unique_id=1155997001]
 use_parent_material = true
