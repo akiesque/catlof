@@ -2,51 +2,53 @@ extends Control
 
 signal choice_selected(next_id: String)
 
-@onready var choice_box: NinePatchRect = $CanvasLayer/Options/ChoiceBox
-@onready var main_a: AnimationPlayer = $AnimationPlayer
+@onready var main_a: AnimationPlayer = $CanvasLayer/AnimationPlayer
+@onready var entr: AnimationPlayer = $CanvasLayer/Control/Sprite2D/Entr
 @onready var layer: CanvasLayer = $CanvasLayer
+@onready var choice_box: VBoxContainer = $CanvasLayer/ChoiceBox/Options
+
+
+const CHOICE_BTN = preload("res://scenes/choice_button.tscn")
 
 func _ready():
-	hide()
+	print("choice_box node: ", choice_box)
 	layer.visible = false
 
 func display_choices(responses: Array):
-	# 1. Wake the UI
-	self.show()
+	print("--- ChoiceUI Script: display_choices CALLED ---")
 	layer.visible = true
 	
-	# 2. Clear old buttons
 	for child in choice_box.get_children():
-		child.queue_free()
+		child.free()
 		
-	# 3. Build buttons
-	for response in responses:
-		var btn = Button.new()
+	print("children after clear: ", choice_box.get_children().size())
+	print("responses count: ", responses.size())
+		
+	for i in range(responses.size()):
+		var response = responses[i]
+		var btn = CHOICE_BTN.instantiate() 
 		btn.text = response.text
-		btn.custom_minimum_size = Vector2(200, 50) 
-		# This connects the button to the function below
 		btn.pressed.connect(_on_choice_pressed.bind(response.next_id))
-		choice_box.add_child(btn) 
+		choice_box.add_child(btn)
+		
+		if i == 0:
+			btn.grab_focus()
 	
-	# 4. Play Animation
 	if main_a.has_animation("enter"):
 		main_a.play("enter")
+		entr.play("enter")  
+		await main_a.animation_finished 
 
-## THIS IS THE MISSING FUNCTION THAT WAS CAUSING THE ERROR
-func _on_choice_pressed(next_id: String):
-	# Disable buttons to prevent double-clicking
-	for btn in choice_box.get_children():
-		if btn is Button:
-			btn.disabled = true
+	if entr.has_animation("loop"):
+		entr.play("loop")
 			
-	# Play exit animation
+
+func _on_choice_pressed(next_id: String):
+	entr.stop(false)
+	for btn in choice_box.get_children():
+		if btn is Button: btn.disabled = true
 	if main_a.has_animation("enter"):
-		main_a.s("enter")
+		main_a.play_backwards("enter")
 		await main_a.animation_finished
-	
-	# Hide everything
 	layer.visible = false
-	hide()
-	
-	# Emit the signal to let the dialogue script know which choice was picked
 	choice_selected.emit(next_id)

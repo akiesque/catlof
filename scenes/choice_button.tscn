@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://bkuyajtotr42l"]
+
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="1_u2sgh"]
+
+[node name="ChoiceButton" type="Button" unique_id=1961008735]
+custom_minimum_size = Vector2(200, 50)
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_fonts/font = ExtResource("1_u2sgh")
+theme_override_font_sizes/font_size = 25
+text = "Test"

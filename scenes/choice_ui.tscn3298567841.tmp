@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://bhf14vkmh2o86"]
 
-[ext_resource type="Texture2D" uid="uid://flento4g1dpg" path="res://assets/ui/mask.png" id="1_frfir"]
+[ext_resource type="Texture2D" uid="uid://djdxc0cqci8tc" path="res://assets/ui/circle.png" id="1_frfir"]
 [ext_resource type="Script" uid="uid://ce468cjoeyep" path="res://scripts/choice_ui.gd" id="1_g3tj1"]
 [ext_resource type="Texture2D" uid="uid://drihhdmmg3byv" path="res://assets/ui/blink.png" id="2_g3tj1"]
-[ext_resource type="Texture2D" uid="uid://dlywysc0whjrw" path="res://assets/ui/border.png" id="2_petb5"]
+[ext_resource type="Texture2D" uid="uid://dlywysc0whjrw" path="res://assets/tilesets/border.png" id="2_petb5"]
 [ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="2_uwqn7"]
+[ext_resource type="Texture2D" uid="uid://dpox1g3pwl8k6" path="res://assets/ui/choiceBox.png" id="3_u21pq"]
 [ext_resource type="Texture2D" uid="uid://c31v0v24vva1o" path="res://assets/tilesets/star.png" id="5_cim78"]
 
 [sub_resource type="Animation" id="Animation_mp7kl"]
@@ -33,18 +34,6 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(0.15686275, 0.12156863, 0.34117648, 0)]
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/Path2D/PathFollow2D/Star:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
 
 [sub_resource type="Animation" id="Animation_frfir"]
 resource_name = "enter"
@@ -70,7 +59,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.73),
 "transitions": PackedFloat32Array(0.23325826, 0.23325826),
 "update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.5, 1.5)]
+"values": [Vector2(1e-05, 1e-05), Vector2(1.4, 1.4)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -84,18 +73,6 @@ tracks/2/keys = {
 "update": 0,
 "values": [Color(0.15686275, 0.12156863, 0.34117648, 0), Color(0.15686275, 0.12156863, 0.34117648, 0.19607843)]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/Path2D/PathFollow2D/Star:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.7425367),
-"transitions": PackedFloat32Array(0.30778614, 0.30778614),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05), Vector2(1.3, 1.3)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_g3tj1"]
 _data = {
@@ -105,9 +82,9 @@ _data = {
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uwqn7"]
 shader = ExtResource("2_uwqn7")
-shader_parameter/normal_offset = 1.30000001937156
-shader_parameter/time_influence = 6.158000292505
-shader_parameter/y_div = 6.5000000968578
+shader_parameter/normal_offset = 1.80000002682216
+shader_parameter/time_influence = 5.1650002453375
+shader_parameter/y_div = 3.5000000521542
 
 [sub_resource type="Animation" id="Animation_5gxoj"]
 length = 0.001
@@ -138,38 +115,14 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../Path2D/PathFollow2D:progress_ratio")
+tracks/2/path = NodePath("../../Path2D/PathFollow2D/Star:scale")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("../../Path2D/PathFollow2D/Star:scale")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1e-05)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("../../Path2D/PathFollow2D/Star:rotation")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [6.2831855]
+"values": [Vector2(1.3, 1.3)]
 }
 
 [sub_resource type="Animation" id="Animation_0ustw"]
@@ -200,9 +153,9 @@ tracks/1/keys = {
 "values": [Vector2(4, 4), Vector2(1.8, 1.8)]
 }
 
-[sub_resource type="Animation" id="Animation_u21pq"]
-resource_name = "loop"
-length = 2.0333333
+[sub_resource type="Animation" id="Animation_uwqn7"]
+resource_name = "exit_idle"
+length = 1.0666667
 loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -211,40 +164,70 @@ tracks/0/path = NodePath("../../Path2D/PathFollow2D:progress_ratio")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 2.0333333),
-"transitions": PackedFloat32Array(0.25000015, 0.27739242),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.27739242),
+"update": 0,
+"values": [1.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../../Path2D/PathFollow2D/Star:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(0.18946458),
+"update": 0,
+"values": [6.2831855]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../../Path2D/PathFollow2D/Star:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.0333333),
+"transitions": PackedFloat32Array(0.18946458, 0.20306315),
+"update": 0,
+"values": [Vector2(1.3, 1.3), Vector2(1e-05, 1e-05)]
+}
+
+[sub_resource type="Animation" id="Animation_u21pq"]
+resource_name = "loop"
+length = 4.0666666
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("../../Path2D/PathFollow2D:progress_ratio")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 4.0666666),
+"transitions": PackedFloat32Array(0.27739242, 0.27739242),
 "update": 0,
 "values": [0.0, 1.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../Path2D/PathFollow2D/Star:scale")
+tracks/1/path = NodePath("../../Path2D/PathFollow2D/Star:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(2.0333333),
-"transitions": PackedFloat32Array(0.27739236),
+"times": PackedFloat32Array(0, 4.0666666),
+"transitions": PackedFloat32Array(0.3298771, 0.18946458),
 "update": 0,
-"values": [Vector2(1.3, 1.3)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("../../Path2D/PathFollow2D/Star:rotation")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 2.0333333),
-"transitions": PackedFloat32Array(0.27739236, 0.27739236),
-"update": 0,
-"values": [0.06981317, 6.2831855]
+"values": [-6.283185307179586, 6.2831855]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_petb5"]
 _data = {
 &"RESET": SubResource("Animation_5gxoj"),
 &"enter": SubResource("Animation_0ustw"),
+&"exit_idle": SubResource("Animation_uwqn7"),
 &"loop": SubResource("Animation_u21pq")
 }
 
@@ -310,12 +293,12 @@ material = SubResource("ShaderMaterial_uwqn7")
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -20.0
-offset_top = -213.0
-offset_right = 220.0
-offset_bottom = 27.0
+offset_left = -8.999996
+offset_top = -232.0
+offset_right = 231.0
+offset_bottom = 8.0
 grow_vertical = 0
-scale = Vector2(1.5, 1.5)
+scale = Vector2(1.4, 1.4)
 pivot_offset = Vector2(1, 238)
 texture = ExtResource("2_petb5")
 
@@ -332,16 +315,11 @@ layout_mode = 3
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
-offset_left = -18.999998
-offset_top = 16.000061
-offset_right = -18.999998
-offset_bottom = 16.000061
 grow_vertical = 0
 scale = Vector2(1e-05, 1e-05)
 
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Control" unique_id=83155704]
 clip_children = 2
-material = SubResource("ShaderMaterial_uwqn7")
 position = Vector2(6, -7)
 texture = ExtResource("1_frfir")
 offset = Vector2(116, -116)
@@ -364,6 +342,7 @@ curve = SubResource("Curve2D_u21pq")
 [node name="PathFollow2D" type="PathFollow2D" parent="CanvasLayer/Control/Path2D" unique_id=1539961971]
 position = Vector2(256.487, 169.0267)
 rotation = -0.9796019
+progress = 826.42444
 rotates = false
 cubic_interp = false
 loop = false
@@ -378,29 +357,36 @@ offset_right = 197.77393
 offset_bottom = 194.57965
 grow_vertical = 0
 rotation = 6.2831855
-scale = Vector2(1e-05, 1e-05)
+scale = Vector2(1.3, 1.3)
 pivot_offset = Vector2(40.841766, 43.521988)
 texture = ExtResource("5_cim78")
 
 [node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer" unique_id=411604799]
-offset_left = 371.0
-offset_top = 337.0
-offset_right = 641.0
-offset_bottom = 432.0
+offset_left = 299.0
+offset_top = 256.0
+offset_right = 569.0
+offset_bottom = 351.0
 pivot_offset = Vector2(135, 47)
-size_flags_vertical = 6
+size_flags_vertical = 4
+texture = ExtResource("3_u21pq")
 patch_margin_left = 32
 patch_margin_top = 32
 patch_margin_right = 32
 patch_margin_bottom = 32
 
-[node name="Options" type="VBoxContainer" parent="CanvasLayer/ChoiceBox" unique_id=1726000939]
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/ChoiceBox" unique_id=567480283]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = -299.0
+offset_top = -256.0
+offset_right = -299.0
+offset_bottom = -256.0
 grow_horizontal = 2
 grow_vertical = 2
-pivot_offset = Vector2(10, 10)
+
+[node name="Options" type="VBoxContainer" parent="CanvasLayer/ChoiceBox/MarginContainer" unique_id=1726000939]
+layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
