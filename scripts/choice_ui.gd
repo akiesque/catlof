@@ -7,6 +7,7 @@ signal choice_selected(next_id: String)
 @onready var layer: CanvasLayer = $CanvasLayer
 @onready var choice_box: VBoxContainer = $CanvasLayer/ChoiceBox/Options
 
+var is_animating: bool = false
 
 const CHOICE_BTN = preload("res://scenes/choice_button.tscn")
 
@@ -15,8 +16,9 @@ func _ready():
 	layer.visible = false
 
 func display_choices(responses: Array):
-	print("--- ChoiceUI Script: display_choices CALLED ---")
+	is_animating = true 
 	layer.visible = true
+	choice_box.modulate.a = 0 
 	
 	for child in choice_box.get_children():
 		child.free()
@@ -37,14 +39,14 @@ func display_choices(responses: Array):
 	for i in buttons.size():
 		var btn = buttons[i].get_node("Button")
 		btn.focus_mode = Control.FOCUS_ALL
-		# Only wire up/down, leave left/right empty
 		btn.focus_neighbor_top = buttons[wrap(i - 1, 0, buttons.size())].get_node("Button").get_path()
 		btn.focus_neighbor_bottom = buttons[wrap(i + 1, 0, buttons.size())].get_node("Button").get_path()
 		btn.focus_neighbor_left = btn.get_path() 
 		btn.focus_neighbor_right = btn.get_path()
-
+		
 	buttons[0].get_node("Button").grab_focus()
 	
+	choice_box.modulate.a = 1
 	if main_a.has_animation("enter"):
 		main_a.play("enter")
 		entr.play("enter")  
@@ -52,8 +54,10 @@ func display_choices(responses: Array):
 
 	if entr.has_animation("loop"):
 		entr.play("loop")
+		
+	is_animating = false
 			
-
+	
 func _on_choice_pressed(next_id: String):
 	entr.stop(false)
 	for btn in choice_box.get_children():

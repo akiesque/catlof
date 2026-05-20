@@ -149,7 +149,8 @@ func _hide_ctc():
 func _input(event):
 	if not layer.visible: return
 	if current_line and current_line.responses.size() > 0 and not is_typing: return
-
+	if choice_ui.is_animating: return 
+	
 	if event.is_action_pressed("ui_accept"):
 		get_viewport().set_input_as_handled() 
 		if event.is_action_pressed("ui_accept"):
