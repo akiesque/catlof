@@ -179,7 +179,9 @@ func _on_dialogue_ended(_resource):
 	
 	get_tree().paused = false
 	#Call hour UI
-	GameManager.hour_ui() 
+	if GameManager.is_true("show_time"):
+		GameManager.hour_ui()
+		GameManager.set_false("show_time")
 
 	if get_parent():
 		get_parent().process_mode = Node.PROCESS_MODE_INHERIT

@@ -20,6 +20,23 @@ var unlocked_book := false
 var unlock_crafting := false
 var unlock_cooking := false
 
+#Items interacted for the first time
+var flag = {
+	"interacted_table": false,
+	"show_time": false,
+	
+}
+
+# Helper functions for dictionary flag
+func is_true(n: String) -> bool:
+	return flag.get(n, false)
+	
+func set_true(n: String):
+	flag[n] = true
+	
+func set_false(n: String):
+	flag[n] = false
+
 func save_player_state(pos: Vector2):
 	player_saved_pos = pos
 	use_saved_position = true

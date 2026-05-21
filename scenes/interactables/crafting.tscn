@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cygow7eucpdgp"]
+
+[ext_resource type="Script" uid="uid://tbtmy34c5os6" path="res://scripts/crafting.gd" id="1_ytku5"]
+[ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="2_e7ypx"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_tsic6"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7lhle"]
+size = Vector2(100, 44.25)
+
+[node name="CraftCookTable" type="Node2D" unique_id=650274322]
+script = ExtResource("1_ytku5")
+needs_up_input = false
+dialogue = ExtResource("2_e7ypx")
+dialogue_start = "table"
+bg_image = "uid://c0xu4dtmyboi7"
+
+[node name="Table" type="Sprite2D" parent="." unique_id=417131603]
+
+[node name="Interactable" parent="Table" unique_id=894810374 instance=ExtResource("2_tsic6")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Table/Interactable" unique_id=172318032]
+shape = SubResource("RectangleShape2D_7lhle")

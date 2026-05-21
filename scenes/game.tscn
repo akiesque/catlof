@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://crkvhmhd5uf2h" path="res://scripts/forage_spawner.gd" id="13_ir15t"]
 [ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="14_ir15t"]
 [ext_resource type="Resource" uid="uid://c3nxxc5yg2wdx" path="res://assets/bag/items/bloodberry.tres" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://cygow7eucpdgp" path="res://scenes/interactables/crafting.tscn" id="17_rysoc"]
 
 [sub_resource type="Gradient" id="Gradient_0tnpc"]
 interpolation_mode = 2
@@ -471,6 +472,9 @@ position = Vector2(36, -30)
 position = Vector2(2, -48)
 zoom = Vector2(2.6, 2.6)
 limit_smoothed = true
+
+[node name="CraftCookTable" parent="." unique_id=650274322 instance=ExtResource("17_rysoc")]
+position = Vector2(415, -25)
 
 [node name="ForegroundLayers" type="TileMapLayer" parent="." unique_id=319807813]
 position = Vector2(12, 2)

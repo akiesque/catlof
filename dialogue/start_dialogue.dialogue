@@ -1,18 +1,43 @@
+#Use:
+#BagManager for bag related stuff
+#GameManager for saves, player info & variables
 using GameManager
+#SoundManager for sounds
+#PManager for portraits (soon)
+#CurtainCall for cutscenes (soon)
 
 ~ start
 Casimir: Hi, I'm Casimir Bohmuwey.
 Casimir: [b]This[/b] [b][i]is just a[/i][/b] test dialogue...
 Casimir: [i]Weird, why is the text so long?[/i]
 do add_hour(1)
+do set_true("show_time")
 Casimir: Choose a Response...
 - Option 1
-	Casimir: You chose option 1
+	Casimir: You get a bloodberry!
+	do BagManager.give_item("res://assets/bag/items/bloodberry.tres")
 - Option 2
 	Casimir: You can use the book now, wow!
 	do GameManager.unlocked_book = true
 - Option 3
-	Casimir: You chose option 3
+	if BagManager.has_item("Letter"):
+		Casimir: You suddenly dropped the letter!
+		do BagManager.take_item("res://assets/bag/items/letter.tres")
+	else:
+		Casimir: Oh, you don't have the letter anymore.
 - Option 4
-	Casimir: You chose option 4
+	if is_true("interacted_table"):
+		Casimir: I think I want the crafting one instead...
+		set unlock_crafting = true
+		do set_false("interacted_teble")
 => END
+
+~ table
+if unlock_crafting == true:
+	Casimir: I think I can make stuff here!
+if not is_true("interacted_table") and unlock_crafting == false:
+	Casimir: Huh, it's a magical cooking table.
+	Casimir: I don't really have a use for it now.
+	do set_true("interacted_table")
+
+
