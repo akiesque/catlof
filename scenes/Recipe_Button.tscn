@@ -8,6 +8,44 @@
 [ext_resource type="Texture2D" uid="uid://bjrcaxwaiuupo" path="res://assets/ui/recipebox_pressed.png" id="5_m0dyx"]
 [ext_resource type="Texture2D" uid="uid://nu4pqoyasatj" path="res://assets/ui/arrow_hover.png" id="6_b18lw"]
 
+[sub_resource type="Animation" id="Animation_b18lw"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(454, 29.500002)]
+}
+
+[sub_resource type="Animation" id="Animation_8mfbo"]
+resource_name = "bouncey"
+length = 0.6666667
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.33333334, 0.6666667),
+"transitions": PackedFloat32Array(0.37892914, 0.37892914, 0.37892914),
+"update": 0,
+"values": [Vector2(454, 29.500002), Vector2(446, 29.5), Vector2(454, 29.500002)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_f20le"]
+_data = {
+&"RESET": SubResource("Animation_b18lw"),
+&"bouncey": SubResource("Animation_8mfbo")
+}
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0dyx"]
 texture = ExtResource("1_4sfhi")
 texture_margin_left = 32.0
@@ -63,6 +101,11 @@ grow_vertical = 2
 size_flags_vertical = 0
 script = ExtResource("1_jhp7x")
 
+[node name="Eff" type="AnimationPlayer" parent="." unique_id=754357499]
+root_node = NodePath("../Arrow")
+libraries/ = SubResource("AnimationLibrary_f20le")
+autoplay = &"bouncey"
+
 [node name="Button" type="Button" parent="." unique_id=674867006]
 custom_minimum_size = Vector2(530, 95)
 layout_mode = 1
@@ -76,9 +119,10 @@ theme = SubResource("Theme_eboxe")
 [node name="Arrow" type="TextureRect" parent="." unique_id=1105588926]
 layout_mode = 0
 offset_left = 454.0
-offset_top = 21.5
+offset_top = 29.500002
 offset_right = 502.0
-offset_bottom = 69.5
+offset_bottom = 77.5
+scale = Vector2(0.8, 0.8)
 texture = ExtResource("6_b18lw")
 
 [node name="MarginContainer" type="MarginContainer" parent="." unique_id=2070067738]

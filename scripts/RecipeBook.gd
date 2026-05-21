@@ -6,87 +6,12 @@ var current_mode = Type.COOKING
 var cooking_recipes = [
 	{
 		"name": "Bloodberry Smoothie",
+		"desc": 
+			"A smoothie you've never seen before.",
 		"ingredients": [
 			{
 				"name": "Bloodberry",
 				"quantity": 2,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
-				"icon": "res://assets/bag/ingredients/bloodberries.png"
-				}
-			],
-		"icon": "res://assets/bag/special/bloodberry_drink.png"
-	},
-	{
-		"name": "Bloodberry Soup",
-		"ingredients": [
-			{
-				"name": "Bloodberry",
-				"quantity": 1,
 				"icon": "res://assets/bag/ingredients/bloodberries.png"
 				}
 			],

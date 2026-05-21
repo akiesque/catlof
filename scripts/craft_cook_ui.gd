@@ -36,14 +36,20 @@ func _input(event: InputEvent) -> void:
 				else:
 					close_ui()
 				get_viewport().set_input_as_handled()
-			KEY_E:
+			KEY_E: 
+				if current_index != -1:
+					var buttons = container.get_children().filter(func(c): return c.has_method("get_button"))
+					if current_index < buttons.size():
+						buttons[current_index].get_button().emit_signal("pressed")
 				get_viewport().set_input_as_handled()
 			KEY_UP, KEY_DOWN:
 				_navigate(event.physical_keycode)
 				get_viewport().set_input_as_handled()
 
 func _navigate(key: int) -> void:
-	var count = container.get_child_count()
+	# Only count recipe buttons, not detail panels
+	var buttons = container.get_children().filter(func(c): return c.has_method("get_button"))
+	var count = buttons.size()
 	if count == 0:
 		return
 	if current_index == -1:
@@ -54,8 +60,8 @@ func _navigate(key: int) -> void:
 		else:
 			current_index = (current_index - 1 + count) % count
 
-	var target_instance = container.get_child(current_index)
-	var btn = target_instance.get_button() if target_instance.has_method("get_button") else target_instance.find_child("Button", true, false)
+	var target_instance = buttons[current_index]
+	var btn = target_instance.get_button()
 	if btn:
 		btn.grab_focus()
 		await get_tree().process_frame
@@ -108,8 +114,6 @@ func populate_recipes():
 		if actual_button:
 			# Pass BOTH data and detail panel to the button
 			actual_button.pressed.connect(_on_recipe_selected.bind(data, detail, btn_instance))
-
-
 
 func _on_recipe_selected(data: Dictionary, detail_panel: Control, btn_instance: Control):
 	# Close previously open panel

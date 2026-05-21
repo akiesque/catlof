@@ -4,7 +4,7 @@ extends Control
 @onready var description: Label = $HBoxContainer/VBoxContainer/Description
 @onready var btn: Button = $HBoxContainer/Button
 
-var current_data = {}
+var current_data = RecipeBook.get_current_recipes()
 
 func show_recipe(data: Dictionary):
 	current_data = data

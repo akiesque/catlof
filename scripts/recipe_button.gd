@@ -6,6 +6,7 @@ extends Control
 @onready var margin: MarginContainer = $MarginContainer
 const INGREDIENT_SLOT = preload("res://scenes/IngredientSlot.tscn")
 @onready var arrow: TextureRect = $Arrow
+@onready var eff: AnimationPlayer = $Eff
 
 var base_x: float = -9999
 var base_arrow_x: float = -9999
@@ -18,10 +19,7 @@ func _ready():
 func _input(event: InputEvent):
 	if not btn.has_focus():
 		return
-	if event.is_action_pressed("ui_accept"):  
-		btn.button_pressed = true
-		await get_tree().process_frame
-		btn.button_pressed = false
+	if event.is_action_pressed("interact"):
 		btn.emit_signal("pressed")
 		get_viewport().set_input_as_handled()
 
@@ -30,6 +28,7 @@ func _on_focus():
 		base_x = margin.position.x
 	if base_arrow_x == -9999:
 		base_arrow_x = arrow.position.x
+	#eff.play("bouncey")
 	label.add_theme_color_override("font_color", Color("313039"))
 	
 	var tween = create_tween().set_parallel(true)
@@ -39,6 +38,7 @@ func _on_focus():
 	tween.tween_property(arrow, "position:x", base_arrow_x, 0.1) 
 
 func _on_unfocus():
+	eff.stop()
 	label.add_theme_color_override("font_color", Color.WHITE)
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(margin, "position:x", base_x, 0.1)
