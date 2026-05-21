@@ -126,12 +126,13 @@ func _on_recipe_selected(data: Dictionary, detail_panel: Control, btn_instance: 
 
 func _open_detail(panel: Control, data: Dictionary):
 	panel.show()
-	panel.get_node("VBoxContainer/Description").text = data.get("description", "No description.")
+	var description = panel.find_child("Description", true, false)
+	if description:
+		description.text = data.get("description", "No description.")
 	# Tween height open
 	panel.custom_minimum_size.y = 0
 	var tween = create_tween()
 	tween.tween_property(panel, "custom_minimum_size:y", 80.0, 0.15)
-
 func _close_detail(panel: Control):
 	var tween = create_tween()
 	tween.tween_property(panel, "custom_minimum_size:y", 0.0, 0.15)

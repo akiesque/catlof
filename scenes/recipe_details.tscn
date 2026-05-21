@@ -20,6 +20,7 @@ grow_vertical = 2
 script = ExtResource("1_8rtmu")
 
 [node name="BG" type="NinePatchRect" parent="." unique_id=134057430]
+custom_minimum_size = Vector2(530, 95)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -33,6 +34,7 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=754882042]
+custom_minimum_size = Vector2(466, 142)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0

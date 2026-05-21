@@ -12,7 +12,7 @@ func show_recipe(data: Dictionary):
 	description.text = data.get("description", "No description.")
 	show()
 	# Tween slide in from right
-	position.y = 300  # offscreen
+	position.x = 300  # offscreen
 	var tween = create_tween()
 	tween.tween_property(self, "position:x", 0.0, 0.2)
 	btn.grab_focus()
