@@ -97,6 +97,7 @@ func populate_recipes():
 		container.add_child(detail)
 		detail.hide()
 		detail.custom_minimum_size.y = 0
+		detail.set_deferred("size", Vector2(detail.size.x, 0))
 
 		var label = btn_instance.find_child("Label", true, false)
 		if label:
@@ -115,7 +116,7 @@ func populate_recipes():
 			# Pass BOTH data and detail panel to the button
 			actual_button.pressed.connect(_on_recipe_selected.bind(data, detail, btn_instance))
 
-func _on_recipe_selected(data: Dictionary, detail_panel: Control, btn_instance: Control):
+func _on_recipe_selected(data: Dictionary, detail_panel: Control, _btn_instance: Control):
 	# Close previously open panel
 	if open_detail_panel and open_detail_panel != detail_panel:
 		_close_detail(open_detail_panel)
@@ -129,16 +130,20 @@ func _on_recipe_selected(data: Dictionary, detail_panel: Control, btn_instance: 
 		open_detail_panel = detail_panel
 
 func _open_detail(panel: Control, data: Dictionary):
+	panel.modulate.a = 0.0
 	panel.show()
 	var description = panel.find_child("Description", true, false)
 	if description:
 		description.text = data.get("description", "No description.")
-	# Tween height open
 	panel.custom_minimum_size.y = 0
-	var tween = create_tween()
-	tween.tween_property(panel, "custom_minimum_size:y", 80.0, 0.15)
+	var tween = create_tween().set_parallel(true)
+	tween.tween_property(panel, "custom_minimum_size:y", 120.0, 0.2)  # ← increase this until content fits
+	tween.tween_property(panel, "modulate:a", 1.0, 0.2)
+
 func _close_detail(panel: Control):
-	var tween = create_tween()
+	var tween = create_tween().set_parallel(true)
 	tween.tween_property(panel, "custom_minimum_size:y", 0.0, 0.15)
-	await tween.finished
+	tween.tween_property(panel, "modulate:a", 0.0, 0.15)
+	# Wait for the longest tween to finish
+	await get_tree().create_timer(0.15).timeout
 	panel.hide()

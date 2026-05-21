@@ -34,15 +34,15 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=754882042]
-custom_minimum_size = Vector2(466, 142)
+custom_minimum_size = Vector2(470, 145)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 32.0
-offset_top = 28.0
-offset_right = -32.0
-offset_bottom = -30.0
+offset_left = 30.0
+offset_top = 30.0
+offset_right = -30.0
+offset_bottom = -28.0
 grow_horizontal = 2
 grow_vertical = 2
 

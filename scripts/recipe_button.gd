@@ -28,7 +28,7 @@ func _on_focus():
 		base_x = margin.position.x
 	if base_arrow_x == -9999:
 		base_arrow_x = arrow.position.x
-	#eff.play("bouncey")
+	eff.play("bouncey")
 	label.add_theme_color_override("font_color", Color("313039"))
 	
 	var tween = create_tween().set_parallel(true)
