@@ -28,6 +28,13 @@ func has_item(item_name: String) -> bool:
 		if item != null and item.name == item_name:
 			return true
 	return false
+	
+func get_item_count(item_name: String) -> int:
+	var count = 0
+	for item in inventory_data.items:
+		if item != null and item.name == item_name:
+			count += 1
+	return count
 
 
 		

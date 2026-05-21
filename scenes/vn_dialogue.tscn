@@ -982,6 +982,7 @@ bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 20
+visible = false
 
 [node name="ChoiceUI" parent="CanvasLayer" unique_id=492625936 instance=ExtResource("2_vy31a")]
 visible = false

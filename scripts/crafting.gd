@@ -23,7 +23,11 @@ func _on_interact():
 		return
 	if GameManager.is_true("interacted_table") and not GameManager.unlock_crafting:
 		return
-	
+	if GameManager.unlock_crafting or GameManager.unlock_cooking:
+		var a = get_tree().root.find_child("CraftCookUI", true, false)
+		a.open_ui()
+		return
+		
 	GameManager.next_dialogue_resource = dialogue
 	GameManager.next_dialogue_start = dialogue_start
 	GameManager.next_background_path = bg_image
@@ -34,10 +38,6 @@ func _on_interact():
 
 func _process(_delta):
 	var is_locked = GameManager.is_true("interacted_table") and not GameManager.unlock_crafting
-	
-	# Disable the trigger so the component "falls asleep"
-	# use set_deferred to avoid physics errors
 	collision.set_deferred("disabled", is_locked)
 	
-	# Force the visual to match
 	collision.visible = !is_locked

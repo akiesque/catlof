@@ -1,0 +1,118 @@
+[gd_scene format=3 uid="uid://dgsj4t75dxt18"]
+
+[ext_resource type="Texture2D" uid="uid://cibusc08kpa7r" path="res://assets/ui/recipebox_hover.png" id="1_0hxe6"]
+[ext_resource type="Texture2D" uid="uid://cl4a46gf1y2b0" path="res://assets/ui/recipebox_disabled.png" id="1_4sfhi"]
+[ext_resource type="Script" uid="uid://dd4g7nnib88bb" path="res://scripts/recipe_button.gd" id="1_jhp7x"]
+[ext_resource type="Texture2D" uid="uid://bbsxqu7ogcw7h" path="res://assets/ui/recipebox_normal.png" id="2_0hxe6"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="2_eboxe"]
+[ext_resource type="Texture2D" uid="uid://bjrcaxwaiuupo" path="res://assets/ui/recipebox_pressed.png" id="5_m0dyx"]
+[ext_resource type="Texture2D" uid="uid://nu4pqoyasatj" path="res://assets/ui/arrow_hover.png" id="6_b18lw"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_m0dyx"]
+texture = ExtResource("1_4sfhi")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jhp7x"]
+texture = ExtResource("1_0hxe6")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_b18lw"]
+texture = ExtResource("1_0hxe6")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_4sfhi"]
+texture = ExtResource("2_0hxe6")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8mfbo"]
+texture = ExtResource("5_m0dyx")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0
+
+[sub_resource type="Theme" id="Theme_eboxe"]
+Button/styles/disabled = SubResource("StyleBoxTexture_m0dyx")
+Button/styles/focus = SubResource("StyleBoxTexture_jhp7x")
+Button/styles/hover = SubResource("StyleBoxTexture_b18lw")
+Button/styles/normal = SubResource("StyleBoxTexture_4sfhi")
+Button/styles/pressed = SubResource("StyleBoxTexture_8mfbo")
+
+[node name="ButtonControl" type="Control" unique_id=497537053]
+custom_minimum_size = Vector2(530, 95)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -802.0
+offset_bottom = -618.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+script = ExtResource("1_jhp7x")
+
+[node name="Button" type="Button" parent="." unique_id=674867006]
+custom_minimum_size = Vector2(530, 95)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_eboxe")
+
+[node name="Arrow" type="TextureRect" parent="." unique_id=1105588926]
+layout_mode = 0
+offset_left = 454.0
+offset_top = 21.5
+offset_right = 502.0
+offset_bottom = 69.5
+texture = ExtResource("6_b18lw")
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=2070067738]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+
+[node name="VBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=21018790]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_constants/separation = 15
+
+[node name="Icon" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=581247235]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 4
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=1906187127]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 0.0
+theme_override_fonts/font = ExtResource("2_eboxe")
+theme_override_font_sizes/font_size = 25
+text = "Sample                                         "
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer" unique_id=1352969034]
+layout_mode = 2

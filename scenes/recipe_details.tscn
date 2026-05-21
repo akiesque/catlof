@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://bxd3eq5r50ume"]
+
+[ext_resource type="Script" uid="uid://7glj25vekai4" path="res://scripts/recipe_details.gd" id="1_8rtmu"]
+[ext_resource type="Texture2D" uid="uid://bjrcaxwaiuupo" path="res://assets/ui/recipebox_pressed.png" id="1_v71u2"]
+[ext_resource type="FontFile" uid="uid://cx03sur0ty3f8" path="res://assets/ui/fonts/Karla-SemiBoldItalic.ttf" id="2_1anxc"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="2_81hfk"]
+[ext_resource type="FontFile" uid="uid://b6vgmo7uki7co" path="res://assets/ui/fonts/Karla-MediumItalic.ttf" id="3_ycnkk"]
+
+[node name="RecipeDetails" type="Control" unique_id=1077891128]
+custom_minimum_size = Vector2(530, 95)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 1.0
+offset_right = -621.0
+offset_bottom = -448.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8rtmu")
+
+[node name="BG" type="NinePatchRect" parent="." unique_id=134057430]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_v71u2")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=754882042]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 32.0
+offset_top = 28.0
+offset_right = -32.0
+offset_bottom = -30.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=2041991892]
+custom_minimum_size = Vector2(250, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="RecipeName" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=699867311]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme_override_fonts/font = ExtResource("2_1anxc")
+theme_override_font_sizes/font_size = 25
+text = "Recipe Name"
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1382796878]
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_fonts/font = ExtResource("3_ycnkk")
+theme_override_font_sizes/font_size = 12
+text = "Lorem Ipsum Solor dot solo"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=1362522287]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 6
+size_flags_vertical = 4
+theme_override_fonts/font = ExtResource("2_81hfk")
+theme_override_font_sizes/font_size = 35
+text = "MAKE"
+flat = true

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://clvmcblv86g10"
-path="res://.godot/imported/bloodberries.png-d26687af92adbbfaf5e4c68d560eb910.ctex"
+uid="uid://dfowfqnowgbgw"
+path="res://.godot/imported/bloodberry_drink.png-123c4e75d1755440a57dae38848b493e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/bag/bloodberries.png"
-dest_files=["res://.godot/imported/bloodberries.png-d26687af92adbbfaf5e4c68d560eb910.ctex"]
+source_file="res://assets/bag/special/bloodberry_drink.png"
+dest_files=["res://.godot/imported/bloodberry_drink.png-123c4e75d1755440a57dae38848b493e.ctex"]
 
 [params]
 

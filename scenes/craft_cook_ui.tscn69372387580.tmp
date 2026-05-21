@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dafxb0ewjaslo"]
+
+[ext_resource type="Script" uid="uid://ceqwxkghukrjn" path="res://scripts/craft_cook_ui.gd" id="1_aodws"]
+
+[node name="CraftCookUI" type="Control" unique_id=450889185]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(572, 322)
+size_flags_vertical = 4
+script = ExtResource("1_aodws")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=848717269]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1894600077]
+self_modulate = Color(0.51505506, 0.5353894, 0.6707595, 1)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 6
+
+[node name="Upper" type="ColorRect" parent="CanvasLayer/Background" unique_id=1239536473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -573.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.12005126, 0.12005126, 0.12005126, 1)
+
+[node name="Upper2" type="ColorRect" parent="CanvasLayer/Background" unique_id=375682071]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -572.0
+offset_top = -67.0
+offset_right = 585.0
+offset_bottom = 4.0
+grow_horizontal = 2
+grow_vertical = 0
+color = Color(0.12005126, 0.12005126, 0.12005126, 1)
+
+[node name="SidePanelArea" type="VBoxContainer" parent="CanvasLayer" unique_id=756612094]
+anchors_preset = -1
+anchor_left = 0.541
+anchor_right = 0.998
+anchor_bottom = 1.0
+offset_left = -57.231995
+offset_top = 3.0
+offset_right = -56.696045
+offset_bottom = 5.0
+
+[node name="SidePanelBG" type="ColorRect" parent="CanvasLayer/SidePanelArea" unique_id=2008232238]
+custom_minimum_size = Vector2(240, 646)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/SidePanelArea" unique_id=774961440]
+layout_mode = 2
+size_flags_horizontal = 8
+
+[node name="Recipes" type="VBoxContainer" parent="CanvasLayer/SidePanelArea/MarginContainer" unique_id=1634757694]
+layout_mode = 2

@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://cniwkpelufsbp" path="res://assets/pickables/pickup_bloodberry.png" id="1_3kmi5"]
 [ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="2_k2s0c"]
-[ext_resource type="Texture2D" uid="uid://clvmcblv86g10" path="res://assets/bag/bloodberries.png" id="3_je6je"]
+[ext_resource type="Texture2D" uid="uid://clvmcblv86g10" path="res://assets/bag/ingredients/bloodberries.png" id="3_je6je"]
 
 [resource]
 script = ExtResource("2_k2s0c")

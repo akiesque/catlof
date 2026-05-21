@@ -29,12 +29,12 @@ Casimir: Choose a Response...
 	if is_true("interacted_table"):
 		Casimir: I think I want the crafting one instead...
 		set unlock_crafting = true
-		do set_false("interacted_teble")
+		do set_false("interacted_table")
+	else:
+		Casimir: I should go to the table first.
 => END
 
 ~ table
-if unlock_crafting == true:
-	Casimir: I think I can make stuff here!
 if not is_true("interacted_table") and unlock_crafting == false:
 	Casimir: Huh, it's a magical cooking table.
 	Casimir: I don't really have a use for it now.
