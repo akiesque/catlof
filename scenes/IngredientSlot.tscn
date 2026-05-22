@@ -14,6 +14,7 @@ stacked_outline_0/color = Color(0.5882353, 0.45882353, 0.5647059, 1)
 [node name="HBoxContainer" type="HBoxContainer" unique_id=1061016800]
 custom_minimum_size = Vector2(150, 32)
 size_flags_vertical = 4
+mouse_filter = 2
 
 [node name="Ingredients" type="TextureRect" parent="." unique_id=363570293]
 custom_minimum_size = Vector2(48, 48)

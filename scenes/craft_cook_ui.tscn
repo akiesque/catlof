@@ -18,18 +18,21 @@ grow_horizontal = 2
 grow_vertical = 2
 pivot_offset = Vector2(572, 322)
 size_flags_vertical = 4
+mouse_filter = 1
 script = ExtResource("1_aodws")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=848717269]
 layer = 15
 
-[node name="RecipeDetails" parent="CanvasLayer" unique_id=1077891128 instance=ExtResource("2_ihpch")]
-
 [node name="CraftQuantity" parent="CanvasLayer" unique_id=1634722844 instance=ExtResource("3_r43jv")]
-offset_left = 319.0
-offset_top = 397.0
-offset_right = -598.0
-offset_bottom = -80.0
+z_index = 1
+offset_left = 257.0
+offset_top = 338.0
+offset_right = -592.0
+offset_bottom = -139.0
+mouse_filter = 0
+
+[node name="RecipeDetails" parent="CanvasLayer" unique_id=1077891128 instance=ExtResource("2_ihpch")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
 
@@ -42,6 +45,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
+mouse_filter = 1
 
 [node name="Upper" type="ColorRect" parent="CanvasLayer/Background" unique_id=1239536473]
 layout_mode = 1
@@ -77,6 +81,7 @@ offset_left = -57.231995
 offset_top = 3.0
 offset_right = -56.696045
 offset_bottom = 5.0
+mouse_filter = 1
 
 [node name="SidePanelBG" type="ColorRect" parent="CanvasLayer/SidePanelArea" unique_id=2008232238]
 custom_minimum_size = Vector2(240, 646)
@@ -86,6 +91,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 1
 
 [node name="Panel" type="MarginContainer" parent="CanvasLayer/SidePanelArea" unique_id=2094474523]
 layout_mode = 1
@@ -111,6 +117,7 @@ color = Color(0.52327585, 0.6697128, 0.6519127, 1)
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/SidePanelArea/Panel" unique_id=2065553164]
 custom_minimum_size = Vector2(0, -2)
 layout_mode = 2
+mouse_filter = 0
 theme_override_constants/scrollbar_v_separation = -4
 horizontal_scroll_mode = 0
 

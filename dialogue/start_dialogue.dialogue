@@ -18,7 +18,7 @@ Casimir: Choose a Response...
 	do BagManager.give_item("res://assets/bag/items/bloodberry.tres")
 - Option 2
 	Casimir: You can use the book now, wow!
-	do GameManager.unlocked_book = true
+#	do GameManager.unlocked_book = true
 - Option 3
 	if BagManager.has_item("Letter"):
 		Casimir: You suddenly dropped the letter!

@@ -2,12 +2,13 @@
 
 [ext_resource type="Texture2D" uid="uid://cniwkpelufsbp" path="res://assets/pickables/pickup_bloodberry.png" id="1_3kmi5"]
 [ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="2_k2s0c"]
-[ext_resource type="Texture2D" uid="uid://clvmcblv86g10" path="res://assets/bag/ingredients/bloodberries.png" id="3_je6je"]
+[ext_resource type="Texture2D" uid="uid://clvmcblv86g10" path="res://assets/bag/ingredients/bloodberries.png" id="3_3kmi5"]
 
 [resource]
 script = ExtResource("2_k2s0c")
 name = "Bloodberry"
-texture = ExtResource("3_je6je")
+texture = ExtResource("3_3kmi5")
 pickup = ExtResource("1_3kmi5")
 desc = "Berries that taste like blood. A common forage found throughout the forests of Cloudvale."
+quantity = 100
 metadata/_custom_type_script = "uid://c0wwlqkowni6"

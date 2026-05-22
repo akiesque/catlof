@@ -1,6 +1,5 @@
-extends Control
+extends Button
 
-@onready var btn: Button = $Button
 @onready var label: Label = $MarginContainer/VBoxContainer/Label
 @onready var ingredients_container: HBoxContainer = $MarginContainer/VBoxContainer/HBoxContainer
 @onready var margin: MarginContainer = $MarginContainer
@@ -14,25 +13,23 @@ var base_arrow_x: float = -9999
 var current_ingredients_data = []
 
 func _ready():
-	btn.focus_entered.connect(_on_focus)
-	btn.focus_exited.connect(_on_unfocus)
-	arrow.modulate.a = 0.0 
+	focus_entered.connect(_on_focus)
+	focus_exited.connect(_on_unfocus)
+	mouse_entered.connect(func(): 
+		grab_focus()
+	)
+	button_down.connect(_on_pressed)
+	button_up.connect(_on_released)  
+	arrow.modulate.a = 0.0
 	BagManager.inventory_changed.connect(refresh_ingredients)
 	
-func _input(event: InputEvent):
-	if not btn.has_focus():
-		return
-	if event.is_action_pressed("interact"):
-		btn.emit_signal("pressed")
-		get_viewport().set_input_as_handled()
-
 func _on_focus():
 	if base_x == -9999:
 		base_x = margin.position.x
 	if base_arrow_x == -9999:
 		base_arrow_x = arrow.position.x
 	eff.play("bouncey")
-	label.add_theme_color_override("font_color", Color("313039"))
+	label.add_theme_color_override("font_color", Color("9586b6"))
 	
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(margin, "position:x", base_x + 20, 0.1)
@@ -42,16 +39,21 @@ func _on_focus():
 
 func _on_unfocus():
 	eff.stop()
-	label.add_theme_color_override("font_color", Color.WHITE)
+	label.add_theme_color_override("font_color", Color('f2f4f6'))
 	var tween = create_tween().set_parallel(true)
 	tween.tween_property(margin, "position:x", base_x, 0.1)
 	
 	tween.tween_property(arrow, "modulate:a", 0.0, 0.1)
 	tween.tween_property(arrow, "position:x", base_arrow_x + -10.0, 0.1)  
 
+func _on_pressed():
+	label.add_theme_color_override("font_color", Color("f2f4f6"))
+
+func _on_released():
+	label.add_theme_color_override("font_color", Color("8c8dad"))
 
 func get_button() -> Button:
-	return btn
+	return
 
 func populate_ingredients(ingredients: Array):
 	current_ingredients_data = ingredients
@@ -64,9 +66,9 @@ func refresh_ingredients():
 		var slot = INGREDIENT_SLOT.instantiate()
 		ingredients_container.add_child(slot)
 		
-		var icon = slot.find_child("Ingredients", true, false)
-		if icon and ing.has("icon"):
-			icon.texture = load(ing["icon"])
+		var icon_node = slot.find_child("Ingredients", true, false)
+		if icon_node and ing.has("icon"):
+			icon_node.texture = load(ing["icon"])
 			
 		var quantity = slot.find_child("Quantity", true, false)
 		if quantity:

@@ -11,7 +11,6 @@
 [ext_resource type="Texture2D" uid="uid://ddr7tjwjmmjcb" path="res://assets/ui/plus_button_focus.png" id="9_y8bw4"]
 
 [node name="CraftQuantity" type="Control" unique_id=1634722844]
-process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,17 +19,16 @@ offset_right = -917.0
 offset_bottom = -477.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
 script = ExtResource("1_tljhl")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1271602247]
-process_mode = 3
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 0
 texture = ExtResource("2_5cyox")
 patch_margin_left = 32
 patch_margin_top = 32
@@ -38,7 +36,6 @@ patch_margin_right = 32
 patch_margin_bottom = 32
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect" unique_id=151906259]
-process_mode = 3
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -53,9 +50,7 @@ grow_horizontal = 2
 grow_vertical = 2
 
 [node name="Quantity" type="Label" parent="NinePatchRect/VBoxContainer" unique_id=1077608914]
-process_mode = 3
 layout_mode = 2
-mouse_filter = 1
 theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)
 theme_override_fonts/font = ExtResource("2_if87o")
 theme_override_font_sizes/font_size = 23
@@ -64,14 +59,12 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer" unique_id=242012659]
-process_mode = 3
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_constants/separation = 24
 
 [node name="Minus" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=979005419]
-process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("2_nnvwo")
 texture_pressed = ExtResource("4_rh5ky")
@@ -80,7 +73,6 @@ texture_disabled = ExtResource("4_rh5ky")
 texture_focused = ExtResource("6_5cyox")
 
 [node name="ToMake" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=159175432]
-process_mode = 3
 layout_mode = 2
 mouse_filter = 1
 theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)
@@ -89,7 +81,6 @@ theme_override_font_sizes/font_size = 40
 text = "0"
 
 [node name="Plus" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=2018844980]
-process_mode = 3
 layout_mode = 2
 texture_normal = ExtResource("3_if87o")
 texture_pressed = ExtResource("6_fqtyv")
@@ -98,7 +89,6 @@ texture_disabled = ExtResource("6_fqtyv")
 texture_focused = ExtResource("9_y8bw4")
 
 [node name="Button" type="Button" parent="NinePatchRect/VBoxContainer" unique_id=2000081220]
-process_mode = 3
 custom_minimum_size = Vector2(32, 32)
 layout_mode = 2
 theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)

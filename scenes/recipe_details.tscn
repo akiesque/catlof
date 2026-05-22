@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c5nh1d0f1vts2" path="res://assets/ui/make_button_disable.png" id="7_nolaq"]
 
 [node name="RecipeDetails" type="Control" unique_id=1077891128]
+process_mode = 3
 clip_contents = true
 custom_minimum_size = Vector2(530, 95)
 layout_mode = 3
@@ -79,12 +80,15 @@ theme_override_font_sizes/font_size = 18
 text = "Lorem Ipsum Solor dot solo"
 
 [node name="Button" type="TextureButton" parent="MarginContainer/HBoxContainer" unique_id=478811691]
+process_mode = 3
 custom_minimum_size = Vector2(80, 80)
 layout_mode = 2
 size_flags_horizontal = 6
 size_flags_vertical = 4
 focus_mode = 1
 texture_normal = ExtResource("5_iyx6e")
+texture_pressed = ExtResource("6_mxmdt")
+texture_hover = ExtResource("6_mxmdt")
 texture_disabled = ExtResource("7_nolaq")
 texture_focused = ExtResource("6_mxmdt")
 ignore_texture_size = true
