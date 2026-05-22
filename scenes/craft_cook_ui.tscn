@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ceqwxkghukrjn" path="res://scripts/craft_cook_ui.gd" id="1_aodws"]
 [ext_resource type="PackedScene" uid="uid://bxd3eq5r50ume" path="res://scenes/recipe_details.tscn" id="2_ihpch"]
+[ext_resource type="PackedScene" uid="uid://cgwes45i8k7eg" path="res://scenes/craft_quantity.tscn" id="3_r43jv"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_aodws"]
 font_size = 80
@@ -23,6 +24,12 @@ script = ExtResource("1_aodws")
 layer = 15
 
 [node name="RecipeDetails" parent="CanvasLayer" unique_id=1077891128 instance=ExtResource("2_ihpch")]
+
+[node name="CraftQuantity" parent="CanvasLayer" unique_id=1634722844 instance=ExtResource("3_r43jv")]
+offset_left = 319.0
+offset_top = 397.0
+offset_right = -598.0
+offset_bottom = -80.0
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
 

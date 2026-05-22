@@ -11,10 +11,13 @@ const INGREDIENT_SLOT = preload("res://scenes/IngredientSlot.tscn")
 var base_x: float = -9999
 var base_arrow_x: float = -9999
 
+var current_ingredients_data = []
+
 func _ready():
 	btn.focus_entered.connect(_on_focus)
 	btn.focus_exited.connect(_on_unfocus)
 	arrow.modulate.a = 0.0 
+	BagManager.inventory_changed.connect(refresh_ingredients)
 	
 func _input(event: InputEvent):
 	if not btn.has_focus():
@@ -51,9 +54,13 @@ func get_button() -> Button:
 	return btn
 
 func populate_ingredients(ingredients: Array):
+	current_ingredients_data = ingredients
+	refresh_ingredients()
+	
+func refresh_ingredients():
 	for child in ingredients_container.get_children():
-		child.queue_free()
-	for ing in ingredients:
+		child.free()
+	for ing in current_ingredients_data:
 		var slot = INGREDIENT_SLOT.instantiate()
 		ingredients_container.add_child(slot)
 		
@@ -65,10 +72,14 @@ func populate_ingredients(ingredients: Array):
 		if quantity:
 			if quantity.label_settings:
 				quantity.label_settings = quantity.label_settings.duplicate()
+			
 			quantity.text = str(ing["quantity"])
-			var has_enough = BagManager.get_item_count(ing["name"]) >= ing["quantity"]
+			
+			var player_count = BagManager.get_item_count(ing["name"])
+			print("Checking ingredient: '", ing["name"], "' | player has: ", player_count, " | needs: ", ing["quantity"])
+			var has_enough = player_count >= ing["quantity"]
+			
 			if not has_enough:
-				if quantity.label_settings:
-					quantity.label_settings.font_color = Color.RED
-				else:
-					quantity.add_theme_color_override("font_color", Color.RED)
+				quantity.label_settings.font_color = Color('b92734') # RED
+			else:
+					quantity.label_settings.font_color = Color('6b6184')

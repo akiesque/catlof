@@ -6,7 +6,34 @@ var current_mode = Type.COOKING
 var cooking_recipes = [
 	{
 		"name": "Bloodberry Smoothie",
-		"desc": 
+		"description": 
+			"A smoothie you've never seen before.",
+		"ingredients": [
+			{
+				"name": "Bloodberry",
+				"quantity": 2,
+				"icon": "res://assets/bag/ingredients/bloodberries.png"
+				}
+			],
+		"icon": "res://assets/bag/special/bloodberry_drink.png"
+	},
+	{
+		"name": "Bloodberry Smoothie",
+		"description": 
+			"A smoothie you've never seen before.",
+		"result_path": "res://assets/bag/special/Bloodberry_Smoothie.tres",
+		"ingredients": [
+			{
+				"name": "Bloodberry",
+				"quantity": 2,
+				"icon": "res://assets/bag/ingredients/bloodberries.png"
+				}
+			],
+		"icon": "res://assets/bag/special/bloodberry_drink.png"
+	},
+	{
+		"name": "Bloodberry Smoothie",
+		"description": 
 			"A smoothie you've never seen before.",
 		"ingredients": [
 			{
