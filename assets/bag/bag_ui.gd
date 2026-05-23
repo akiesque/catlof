@@ -14,6 +14,7 @@ extends Control
 ]
 
 var selected_item: BagItem = null
+var selected_slot = null
 
 const BOOK_SHEETS = [
 	preload("res://assets/bag/bag_tab.png"),
@@ -55,19 +56,20 @@ func _input(event: InputEvent) -> void:
 		else: open()
 		get_viewport().set_input_as_handled()
 		return
-		if not is_open:
-			return
-
-		if event is InputEventKey and event.is_pressed() and not event.is_echo():
-			match event.physical_keycode:
-				KEY_Q:
-					switch_to_tab(posmod(current_tab - 1, pages.size()))
-					get_viewport().set_input_as_handled()  # ← stops Q from closing other things
-					return
-				KEY_E:
-					switch_to_tab(posmod(current_tab + 1, pages.size()))
-					get_viewport().set_input_as_handled()  # ← stops E from interacting
-					return
+		
+	if not is_open:
+		return
+		
+	if event is InputEventKey and event.is_pressed() and not event.is_echo():
+		match event.physical_keycode:
+			KEY_Q:
+				switch_to_tab(posmod(current_tab - 1, pages.size()))
+				get_viewport().set_input_as_handled() 
+				return
+			KEY_E:
+				switch_to_tab(posmod(current_tab + 1, pages.size()))
+				get_viewport().set_input_as_handled() 
+				return
 			
 func navigate_slots(delta: int) -> void:
 	if current_tab != 0: return  # only on bag tab
@@ -77,8 +79,8 @@ func navigate_slots(delta: int) -> void:
 	grid_container.get_child(focused_slot).force_focus()
 	
 func _on_slot_hovered(item: BagItem) -> void:
-	if selected_item:
-		return
+	if selected_slot:
+		return 
 	update_description_panel(item)
 	
 func open() -> void:
@@ -117,16 +119,22 @@ func populate_slots() -> void:
 			slot.display_item(null) 
 		
 		slot.item_hovered.connect(_on_slot_hovered)
-		slot.item_clicked.connect(_on_slot_clicked) 
+		slot.item_clicked.connect(func(item): _on_slot_clicked(item, slot))
 
-func _on_slot_clicked(item: BagItem) -> void:
-	if selected_item == item:
-		# Click same slot again to deselect
-		selected_item = null
+func _on_slot_clicked(item: BagItem, slot) -> void:
+	# Deselect previous
+	if selected_slot and is_instance_valid(selected_slot):
+		selected_slot.set_selected(false)
+	
+	# Toggle if same slot
+	if selected_slot == slot:
+		selected_slot = null
 		update_description_panel(null)
-	else:
-		selected_item = item
-		update_description_panel(item)
+		return
+	
+	selected_slot = slot
+	slot.set_selected(true)
+	update_description_panel(item)
 
 func update_description_panel(item: BagItem) -> void:
 	if item == null:
@@ -140,7 +148,9 @@ func close() -> void:
 	UIManager.set_open("BagUI", false)
 	is_open = false
 	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
-	selected_item = null 
+	if selected_slot and is_instance_valid(selected_slot):
+		selected_slot.set_selected(false)
+	selected_slot = null
 	if anim and layer and anim.has_animation("open_inventory") and layer.visible:
 		anim.play("close_inventory")
 		await anim.animation_finished
@@ -150,8 +160,9 @@ func close() -> void:
 
 func switch_to_tab(index: int) -> void:
 	current_tab = index
-	selected_item = null 
-
+	if selected_slot and is_instance_valid(selected_slot):
+		selected_slot.set_selected(false)
+	selected_slot = null
 	if tab_overlay and BOOK_SHEETS[index]:
 		tab_overlay.texture = BOOK_SHEETS[index]
 
