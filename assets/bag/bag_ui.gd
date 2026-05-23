@@ -55,25 +55,19 @@ func _input(event: InputEvent) -> void:
 		else: open()
 		get_viewport().set_input_as_handled()
 		return
-	if not is_open:
-		return
-	if event is InputEventKey and event.is_pressed() and not event.is_echo():
-		match event.physical_keycode:
-			KEY_Q:
-				switch_to_tab(posmod(current_tab - 1, pages.size()))
-				get_viewport().set_input_as_handled()
-			KEY_E:
-				switch_to_tab(posmod(current_tab + 1, pages.size()))
-				get_viewport().set_input_as_handled()
+		if not is_open:
+			return
 
-	if event is InputEventKey and event.is_pressed() and not event.is_echo():
-		match event.physical_keycode:
-			KEY_Q:
-				switch_to_tab(posmod(current_tab - 1, pages.size()))
-				get_viewport().set_input_as_handled()
-			KEY_E:
-				switch_to_tab(posmod(current_tab + 1, pages.size()))
-				get_viewport().set_input_as_handled()
+		if event is InputEventKey and event.is_pressed() and not event.is_echo():
+			match event.physical_keycode:
+				KEY_Q:
+					switch_to_tab(posmod(current_tab - 1, pages.size()))
+					get_viewport().set_input_as_handled()  # ← stops Q from closing other things
+					return
+				KEY_E:
+					switch_to_tab(posmod(current_tab + 1, pages.size()))
+					get_viewport().set_input_as_handled()  # ← stops E from interacting
+					return
 			
 func navigate_slots(delta: int) -> void:
 	if current_tab != 0: return  # only on bag tab
