@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dhadqt4em6s0k" path="res://assets/bag/bag_slot.gd" id="1_jw2ew"]
 [ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="1_rcu26"]
+[ext_resource type="Texture2D" uid="uid://c2syquemfra4g" path="res://assets/bag/bag_slot_focused.png" id="2_ms5nb"]
 [ext_resource type="Texture2D" uid="uid://54fri2gefghp" path="res://assets/bag/bag_slot.png" id="2_px56c"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_px56c"]
@@ -16,13 +17,16 @@ stacked_outline_1/size = 7
 stacked_outline_1/color = Color(0.99602526, 0.9965628, 0.9969675, 1)
 
 [node name="ItemSlot" type="TextureButton" unique_id=888408386]
+process_mode = 3
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(140, 128)
 offset_right = 140.0
 offset_bottom = 128.0
 pivot_offset = Vector2(68, 62)
-toggle_mode = true
-action_mode = 0
+texture_normal = ExtResource("2_px56c")
+texture_pressed = ExtResource("2_ms5nb")
+texture_hover = ExtResource("2_ms5nb")
+texture_focused = ExtResource("2_ms5nb")
 ignore_texture_size = true
 stretch_mode = 0
 script = ExtResource("1_jw2ew")

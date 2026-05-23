@@ -36,23 +36,22 @@ func display_choices(responses: Array):
 		
 	for i in range(responses.size()):
 		var response = responses[i]
-		var btn = CHOICE_BTN.instantiate() 
-		btn.get_node("Label").text = response.text
-		btn.get_node("Button").pressed.connect(_on_choice_pressed.bind(response.next_id))
+		var btn = CHOICE_BTN.instantiate()  #
+		btn.text = response.text
+		btn.pressed.connect(_on_choice_pressed.bind(response.next_id))
 		choice_box.add_child(btn)
-		
 		await get_tree().process_frame
 
 	var buttons = choice_box.get_children()
 	for i in buttons.size():
-		var btn = buttons[i].get_node("Button")
+		var btn = buttons[i]  # btn IS the Button, no get_node needed
 		btn.focus_mode = Control.FOCUS_ALL
-		btn.focus_neighbor_top = buttons[wrap(i - 1, 0, buttons.size())].get_node("Button").get_path()
-		btn.focus_neighbor_bottom = buttons[wrap(i + 1, 0, buttons.size())].get_node("Button").get_path()
-		btn.focus_neighbor_left = btn.get_path() 
+		btn.focus_neighbor_top = buttons[wrap(i - 1, 0, buttons.size())].get_path()
+		btn.focus_neighbor_bottom = buttons[wrap(i + 1, 0, buttons.size())].get_path()
+		btn.focus_neighbor_left = btn.get_path()
 		btn.focus_neighbor_right = btn.get_path()
-		
-	buttons[0].get_node("Button").grab_focus()
+
+	buttons[0].grab_focus()
 	
 	choice_box.modulate.a = 1
 	if main_a.has_animation("enter"):
@@ -76,7 +75,7 @@ func _on_choice_pressed(next_id: String):
 	sfx_player.play()
 	entr.stop()
 	for btn in choice_box.get_children():
-		btn.get_node("Button").disabled = true
+		btn.disabled = true 
 		btn.release_focus()
 		var tween = btn.create_tween()
 		tween.tween_property(btn, "modulate", Color(0.325, 0.407, 0.591, 0.6), 0.15)

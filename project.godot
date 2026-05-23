@@ -21,11 +21,13 @@ buses/default_bus_layout="uid://6g3e7ryvpwy6"
 
 [autoload]
 
+UIManager="*uid://d0l7lvj3s56xr"
+BagUI="*uid://c22p7pmals1gm"
+CraftCookUI="*uid://dafxb0ewjaslo"
 DialogueManager="*uid://c3rodes2l3gxb"
 GameManager="*uid://c45o4jbcjagpt"
 Transition="*uid://d3b4r1x3ij6gt"
-BagUI="*uid://c22p7pmals1gm"
-HourUi="*uid://0mkbbsny1hq2"
+HourUI="*uid://0mkbbsny1hq2"
 BagManager="*uid://3yceaut6oj40"
 MusicManager="*uid://tccvryer3tyy"
 RecipeBook="*uid://c7h1cfm6ri6u8"

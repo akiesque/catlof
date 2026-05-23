@@ -37,7 +37,7 @@ func _on_make_button_pressed():
 	
 	var max_can_make = possible_counts.min()
 	print("Max can make: ", max_can_make)
-	var main_ui = get_tree().root.find_child("CraftCookUI", true, false)
+	var main_ui = CraftCookUI 
 	
 	if max_can_make > 1:
 		main_ui.set_buttons_disabled(true)

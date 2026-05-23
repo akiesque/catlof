@@ -24,8 +24,7 @@ func _on_interact():
 	if GameManager.is_true("interacted_table") and not GameManager.unlock_crafting:
 		return
 	if GameManager.unlock_crafting or GameManager.unlock_cooking:
-		var a = get_tree().root.find_child("CraftCookUI", true, false)
-		a.open_ui()
+		CraftCookUI.open_ui()
 		return
 		
 	GameManager.next_dialogue_resource = dialogue

@@ -5,7 +5,6 @@
 [ext_resource type="PackedScene" uid="uid://bvodyppt5g2pc" path="res://scenes/vn_dialogue.tscn" id="2_mdl7e"]
 [ext_resource type="Resource" uid="uid://b4oul4f1sy5as" path="res://assets/bag/playerbag.tres" id="2_qu4a1"]
 [ext_resource type="PackedScene" uid="uid://c6sen7yvnme66" path="res://scenes/interact_component.tscn" id="3_3li8b"]
-[ext_resource type="PackedScene" uid="uid://dafxb0ewjaslo" path="res://scenes/craft_cook_ui.tscn" id="3_khinc"]
 [ext_resource type="Texture2D" uid="uid://ckpv5whkeat07" path="res://assets/sprites/pickupcasimir-pickup.png" id="5_70d11"]
 [ext_resource type="PackedScene" uid="uid://choth4xdhl6po" path="res://scenes/notif_pickup.tscn" id="7_cw2d6"]
 
@@ -270,14 +269,6 @@ inv = ExtResource("2_qu4a1")
 [node name="DialogUI" type="CanvasLayer" parent="." unique_id=13547527]
 visible = false
 
-[node name="CraftCookUI" parent="DialogUI" unique_id=450889185 instance=ExtResource("3_khinc")]
-visible = false
-
-[node name="ConversationUI" parent="DialogUI" unique_id=1062700121 instance=ExtResource("2_mdl7e")]
-process_mode = 3
-visible = false
-z_index = 5
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136892245]
 sprite_frames = SubResource("SpriteFrames_0rnld")
 animation = &"pickup"
@@ -293,3 +284,8 @@ shape = SubResource("CapsuleShape2D_p0vlq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410985360]
 bus = &"SFX"
+
+[node name="ConversationUI" parent="." unique_id=1062700121 instance=ExtResource("2_mdl7e")]
+process_mode = 3
+visible = false
+z_index = 5

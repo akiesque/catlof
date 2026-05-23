@@ -73,6 +73,7 @@ shader_parameter/color = Color(0, 0, 0, 1)
 [node name="CanvasLayer" type="CanvasLayer" unique_id=2064512252]
 layer = 10
 script = ExtResource("1_03ico")
+transition_color = null
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=307112524]
 libraries/ = SubResource("AnimationLibrary_nstyg")
@@ -84,3 +85,4 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2

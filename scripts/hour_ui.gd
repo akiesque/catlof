@@ -15,24 +15,25 @@ func _ready() -> void:
 	visible = false 
 
 func _on_hour_changed(new_hour: int) -> void:
-	# Update the label text dynamically when the hour changes
 	hour_label.text = str(new_hour)
 	sfx.stream = HOUR_UPDATE
 	sfx.play()
 	
-
 func _on_show_hour_ui() -> void:
 	if GameManager.hourui_firsttime:
+		UIManager.set_open("HourUI", true)
 		visible = true
 		anim.play("hourui_enter")
 		await anim.animation_finished 
 		GameManager.apply_the_new_hour()
 		anim.play("floating")
 		GameManager.hourui_firsttime = false
+		UIManager.set_open("HourUI", false)
 	else:
 		await get_tree().create_timer(0.4).timeout
 		GameManager.apply_the_new_hour()
 		anim.play("floating")
 
 func _on_hide_hour_ui() -> void:
+	UIManager.set_open("HourUI", false)
 	visible = false

@@ -13,9 +13,15 @@ const TRANSITION = preload("uid://dt77saequ7x3o")
 			tween.tween_property(color_rect.material, "shader_parameter/color", value, 0.7)
 
 func play_fade_out(custom_color: Color = Color.BLACK):
+	UIManager.set_open("Transition", true)
 	self.transition_color = custom_color
 	anim_player.play("fade_out")
+	await anim_player.animation_finished
+	UIManager.set_open("Transition", false)
 
 func play_fade_in(custom_color: Color = Color.BLACK):
+	UIManager.set_open("Transition", true)
 	self.transition_color = custom_color
 	anim_player.play("fade_in")
+	await anim_player.animation_finished
+	UIManager.set_open("Transition", false)

@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://cuq4hla60bvkd"]
 
 [ext_resource type="Texture2D" uid="uid://pgc786e0aok7" path="res://assets/ui/choiceBox_hover.png" id="1_3utsd"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="1_esxq7"]
 [ext_resource type="Texture2D" uid="uid://d35edy2rejgl2" path="res://assets/ui/choiceBox_disabled.png" id="1_n6ikf"]
 [ext_resource type="Texture2D" uid="uid://tpff5eousbou" path="res://assets/ui/choiceBox_clicked.png" id="2_n6ikf"]
 [ext_resource type="Texture2D" uid="uid://dpox1g3pwl8k6" path="res://assets/ui/choiceBox.png" id="3_lh5at"]
@@ -41,9 +42,16 @@ texture_margin_right = 32.0
 texture_margin_bottom = 32.0
 
 [resource]
-Button/colors/font_focus_color = Color(1, 0.74823135, 0.43807712, 1)
+Button/colors/font_color = Color(0.88235295, 0.8980392, 0.9098039, 1)
+Button/colors/font_disabled_color = Color(0.5647059, 0.60784316, 0.76862746, 1)
+Button/colors/font_focus_color = Color(0.3764706, 0.38039216, 0.5686275, 1)
+Button/colors/font_hover_color = Color(0.3762, 0.38265997, 0.57, 1)
+Button/colors/font_hover_pressed_color = Color(0.5513896, 0.55716646, 0.64014494, 1)
+Button/colors/font_pressed_color = Color(0.5529412, 0.5568628, 0.6392157, 1)
+Button/font_sizes/font_size = 24
+Button/fonts/font = ExtResource("1_esxq7")
 Button/styles/disabled = SubResource("StyleBoxTexture_lh5at")
 Button/styles/focus = SubResource("StyleBoxTexture_1ioyl")
-Button/styles/hover_pressed = SubResource("StyleBoxTexture_8bnyk")
+Button/styles/hover = SubResource("StyleBoxTexture_8bnyk")
 Button/styles/normal = SubResource("StyleBoxTexture_esxq7")
 Button/styles/pressed = SubResource("StyleBoxTexture_eifbw")

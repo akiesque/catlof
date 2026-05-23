@@ -18,7 +18,7 @@ func _ready() -> void:
 	layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	
 func _on_quantity_confirmed(amount: int):
-	set_buttons_disabled(false)  # ← re-enable
+	set_buttons_disabled(false) 
 	if open_detail_panel:
 		var data = open_detail_panel.current_data
 		do_craft(data, amount)
@@ -27,12 +27,16 @@ func do_craft(recipe_data: Dictionary, craft_count: int):
 	open_detail_panel = null
 	for ing in recipe_data["ingredients"]:
 		BagManager.remove_item_by_name(ing["name"], ing["quantity"] * craft_count)
+	print("result_path exists: ", recipe_data.has("result_path"))  # ← add
 	if recipe_data.has("result_path"):
+		print("Adding: ", recipe_data["result_path"])  # ← add
 		BagManager.add_item_by_path(recipe_data["result_path"], craft_count)
-	print("Crafted ", craft_count, "x ", recipe_data["name"])
-	populate_recipes()
+	await populate_recipes()
+	get_tree().paused = true
 
 func _input(event: InputEvent) -> void:
+	if UIManager.is_blocked():
+		return
 	# DEBUG - remove before release
 	if event.is_action_pressed("Test"):
 		if is_open:
@@ -64,20 +68,20 @@ func _input(event: InputEvent) -> void:
 				get_viewport().set_input_as_handled()
 				
 func open_ui():
+	UIManager.set_open("CraftCookUI", true)
 	is_open = true
 	layer.visible = true
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	populate_recipes()
-	show()
 
 func close_ui():
+	UIManager.set_open("CraftCookUI", false)
 	is_open = false
 	open_detail_panel = null
-	hide()
 	layer.visible = false
 	get_tree().paused = false
-	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	#Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 
 func populate_recipes():
 	for child in container.get_children():
