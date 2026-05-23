@@ -263,15 +263,12 @@ radius = 6.0
 height = 72.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1320964713]
+process_mode = 1
 script = ExtResource("1_v6fml")
 inv = ExtResource("2_qu4a1")
 
 [node name="DialogUI" type="CanvasLayer" parent="." unique_id=13547527]
 visible = false
-
-[node name="ConversationUI" parent="DialogUI" unique_id=1062700121 instance=ExtResource("2_mdl7e")]
-process_mode = 3
-z_index = 5
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=2136892245]
 sprite_frames = SubResource("SpriteFrames_0rnld")
@@ -288,3 +285,8 @@ shape = SubResource("CapsuleShape2D_p0vlq")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=410985360]
 bus = &"SFX"
+
+[node name="ConversationUI" parent="." unique_id=1062700121 instance=ExtResource("2_mdl7e")]
+process_mode = 3
+visible = false
+z_index = 5

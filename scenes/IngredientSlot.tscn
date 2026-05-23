@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://dtx5xiui62uyo"]
+
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="1_rcb8r"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_m0dyx"]
+font = ExtResource("1_rcb8r")
+font_size = 25
+font_color = Color(0.41960785, 0.38039216, 0.5176471, 1)
+outline_size = 3
+stacked_outline_count = 1
+stacked_outline_0/size = 8
+stacked_outline_0/color = Color(0.5882353, 0.45882353, 0.5647059, 1)
+
+[node name="HBoxContainer" type="HBoxContainer" unique_id=1061016800]
+custom_minimum_size = Vector2(150, 32)
+size_flags_vertical = 4
+mouse_filter = 2
+
+[node name="Ingredients" type="TextureRect" parent="." unique_id=363570293]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Quantity" type="Label" parent="Ingredients" unique_id=1626973583]
+layout_mode = 0
+offset_left = 10.0
+offset_top = 23.0
+offset_right = 47.0
+offset_bottom = 49.0
+pivot_offset = Vector2(9, 6)
+theme_override_fonts/font = ExtResource("1_rcb8r")
+theme_override_font_sizes/font_size = 10
+text = "999"
+label_settings = SubResource("LabelSettings_m0dyx")
+horizontal_alignment = 2
+vertical_alignment = 2

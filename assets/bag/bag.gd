@@ -24,3 +24,22 @@ func add_item(new_item: BagItem) -> void:
 	items.append(item_spawn)
 	print("Bag expanded. Added to end: ", item_spawn.name)
 	inventory_updated.emit()
+	
+func remove_item(item_to_remove: BagItem) -> void:
+	if item_to_remove == null: return
+	
+	for i in range(items.size()):
+		var item = items[i]
+		if item != null and item.name == item_to_remove.name:
+			item.quantity -= 1
+			
+			if item.quantity <= 0:
+				items[i] = null 
+				print("Removed last ", item.name)
+			else:
+				print("Removed one ", item.name, ". Remaining: ", item.quantity)
+			
+			inventory_updated.emit() # Refresh UI
+			return
+	
+	print("Item not found in bag: ", item_to_remove.name)

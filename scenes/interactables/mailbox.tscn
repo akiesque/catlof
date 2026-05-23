@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://c86ofimjpwimo"]
 
 [ext_resource type="Texture2D" uid="uid://c3ghmpc46avsb" path="res://assets/tilesets/mailbox.png" id="1_3pt3y"]
-[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/mailbox.gd" id="1_drhfn"]
+[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/interact.gd" id="1_drhfn"]
 [ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="2_as08p"]
 [ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="3_drhfn"]
 

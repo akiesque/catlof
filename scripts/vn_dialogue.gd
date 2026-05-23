@@ -14,7 +14,7 @@ extends Control
 
 #Choices
 @onready var choice_ui: Control = $CanvasLayer/ChoiceUI
-
+var choice_visible :=  false
 
 const SFX_CTC = preload("res://assets/ui/sfx/ctc_sfx.mp3")
 
@@ -35,6 +35,7 @@ func _ready():
 	layer.visible = false
 	self.hide()
 	DialogueManager.dialogue_ended.connect(_on_dialogue_ended)
+	choice_ui.choice_selected.connect(_on_choice_resolved)
 	
 func _process(_delta):
 	if not is_typing: return
@@ -83,12 +84,11 @@ func update_line(title: String):
 	current_line = await DialogueManager.get_next_dialogue_line(GameManager.next_dialogue_resource, title)
 	
 	if current_line:
-		_hide_ctc() 
+		_hide_ctc()
 		character_name.text = current_line.character
 		char_dialogue.text = current_line.text
 		char_dialogue.visible_characters = 0
 		
-		# Set up character aesthetics
 		match current_line.character:
 			"Casimir":
 				current_voice_sfx = VOICES["Casimir"]
@@ -100,40 +100,39 @@ func update_line(title: String):
 				current_voice_sfx = VOICES["Default"]
 				character_name.add_theme_color_override("font_color", Color.BLACK)
 		
-		last_played_character_index = 0 
+		last_played_character_index = 0
 		is_typing = true
 		
-		if typing_tween: typing_tween.kill()
+		if typing_tween:
+			typing_tween.kill()
 		typing_tween = create_tween()
-		
 		typing_tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
 		
 		var total_chars = char_dialogue.get_total_character_count()
-		var duration = total_chars * 0.04
-		
-		typing_tween.tween_property(char_dialogue, "visible_characters", total_chars, duration)
-		typing_tween.finished.connect(func(): 
-			print("tween finished!")
-			print("responses size: ", current_line.responses.size())
-			is_typing = false
-			if current_line.responses.size() > 0:
-				_show_choices() 
-			else:
-				_show_ctc()
-			)
+		typing_tween.tween_property(char_dialogue, "visible_characters", total_chars, total_chars * 0.04)
+		typing_tween.tween_callback(_on_typing_finished)
 	else:
 		_on_dialogue_ended(null)
 		
+func _on_typing_finished():
+	if typing_tween == null: return
+	print("tween finished!")
+	is_typing = false
+	if current_line and current_line.responses.size() > 0:
+		_show_choices()
+	else:
+		_show_ctc()
+
 func _show_choices():
-	_hide_ctc() 
-	get_viewport().set_input_as_handled() 
+	choice_visible = true
+	_hide_ctc()
 	if choice_ui:
-		if not choice_ui.choice_selected.is_connected(_on_choice_resolved):
-			choice_ui.choice_selected.connect(_on_choice_resolved)
 		await get_tree().process_frame
 		choice_ui.display_choices(current_line.responses)
 
 func _on_choice_resolved(next_id: String):
+	choice_visible = false
+	current_line = null 
 	update_line(next_id)
 
 func _show_ctc():
@@ -148,23 +147,23 @@ func _hide_ctc():
 
 func _input(event):
 	if not layer.visible: return
-	if current_line and current_line.responses.size() > 0 and not is_typing: return
-	if choice_ui.is_animating: return 
+	if choice_visible: return
+	if choice_ui.is_animating: return
 	
 	if event.is_action_pressed("ui_accept"):
-		get_viewport().set_input_as_handled() 
-		if event.is_action_pressed("ui_accept"):
-			get_viewport().set_input_as_handled()  
+		get_viewport().set_input_as_handled()
 		if is_typing:
-			if typing_tween: typing_tween.kill()
+			if typing_tween: 
+				typing_tween.kill()
+				typing_tween = null  
 			char_dialogue.visible_characters = -1
 			is_typing = false
-			if current_line.responses.size() > 0:  
+			if current_line and current_line.responses.size() > 0:
 				_show_choices()
 			else:
 				_show_ctc()
 		elif current_line:
-			ui_player.pitch_scale = 1.0 
+			ui_player.pitch_scale = 1.0
 			ui_player.stream = SFX_CTC
 			ui_player.play()
 			update_line(current_line.next_id)
@@ -174,12 +173,18 @@ func _on_dialogue_ended(_resource):
 	anim.play("exit")
 	await anim.animation_finished
 	GameManager.is_dialogue_active = false
+	UIManager.set_open("Dialogue", false)
 	layer.visible = false
 	self.hide()
+	if get_parent():
+		get_parent().process_mode = Node.PROCESS_MODE_PAUSABLE 
 	
-	get_tree().paused = false
-	#Call hour UI
-	GameManager.hour_ui() 
+	if not UIManager.is_any_ui_open():
+		get_tree().paused = false
+	
+	if GameManager.is_true("show_time"):
+		GameManager.hour_ui()
+		GameManager.set_false("show_time")
 
 	if get_parent():
 		get_parent().process_mode = Node.PROCESS_MODE_INHERIT

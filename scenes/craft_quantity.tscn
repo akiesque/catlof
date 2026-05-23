@@ -1,0 +1,112 @@
+[gd_scene format=3 uid="uid://cgwes45i8k7eg"]
+
+[ext_resource type="Script" uid="uid://ck486f6mqhvp0" path="res://scripts/craft_quantity.gd" id="1_tljhl"]
+[ext_resource type="Texture2D" uid="uid://cibusc08kpa7r" path="res://assets/ui/recipebox_hover.png" id="2_5cyox"]
+[ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="2_if87o"]
+[ext_resource type="Texture2D" uid="uid://cs8tmsnjh587t" path="res://assets/ui/minus_button.png" id="2_nnvwo"]
+[ext_resource type="Texture2D" uid="uid://b3ra8or6xmyey" path="res://assets/ui/plus_button.png" id="3_if87o"]
+[ext_resource type="Texture2D" uid="uid://mx7pnyfpdlkm" path="res://assets/ui/minus_button_disable.png" id="4_rh5ky"]
+[ext_resource type="Texture2D" uid="uid://beaoid08skrc8" path="res://assets/ui/minus_button_focus.png" id="6_5cyox"]
+[ext_resource type="Texture2D" uid="uid://dpeam67u5bxtn" path="res://assets/ui/plus_button_disable.png" id="6_fqtyv"]
+[ext_resource type="Texture2D" uid="uid://ddr7tjwjmmjcb" path="res://assets/ui/plus_button_focus.png" id="9_y8bw4"]
+
+[node name="CraftQuantity" type="Control" unique_id=1634722844]
+process_mode = 3
+custom_minimum_size = Vector2(250, 170)
+layout_mode = 3
+anchors_preset = 0
+offset_right = 235.0
+offset_bottom = 170.0
+script = ExtResource("1_tljhl")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="." unique_id=1271602247]
+process_mode = 3
+custom_minimum_size = Vector2(250, 170)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5cyox")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect" unique_id=151906259]
+process_mode = 3
+custom_minimum_size = Vector2(163, 114)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -77.0
+offset_top = -43.5
+offset_right = 77.0
+offset_bottom = 43.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Quantity" type="Label" parent="NinePatchRect/VBoxContainer" unique_id=1077608914]
+process_mode = 3
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)
+theme_override_fonts/font = ExtResource("2_if87o")
+theme_override_font_sizes/font_size = 23
+text = "How many?"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer" unique_id=242012659]
+process_mode = 3
+custom_minimum_size = Vector2(163, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 12
+
+[node name="Minus" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=979005419]
+process_mode = 3
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("2_nnvwo")
+texture_pressed = ExtResource("4_rh5ky")
+texture_hover = ExtResource("6_5cyox")
+texture_disabled = ExtResource("4_rh5ky")
+texture_focused = ExtResource("6_5cyox")
+
+[node name="ToMake" type="Label" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=159175432]
+process_mode = 3
+custom_minimum_size = Vector2(60, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)
+theme_override_fonts/font = ExtResource("2_if87o")
+theme_override_font_sizes/font_size = 40
+text = "0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Plus" type="TextureButton" parent="NinePatchRect/VBoxContainer/HBoxContainer" unique_id=2018844980]
+process_mode = 3
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_if87o")
+texture_pressed = ExtResource("6_fqtyv")
+texture_hover = ExtResource("9_y8bw4")
+texture_disabled = ExtResource("6_fqtyv")
+texture_focused = ExtResource("9_y8bw4")
+
+[node name="Button" type="Button" parent="NinePatchRect/VBoxContainer" unique_id=2000081220]
+process_mode = 3
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.54901963, 0.5529412, 0.6784314, 1)
+theme_override_colors/font_focus_color = Color(0.49163333, 0.434, 0.7, 1)
+theme_override_fonts/font = ExtResource("2_if87o")
+theme_override_font_sizes/font_size = 25
+action_mode = 0
+text = "OK"
+flat = true

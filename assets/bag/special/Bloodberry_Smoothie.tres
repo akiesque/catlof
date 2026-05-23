@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="BagItem" format=3 uid="uid://838txh2a620w"]
+
+[ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="1_37k3o"]
+[ext_resource type="Texture2D" uid="uid://dfowfqnowgbgw" path="res://assets/bag/special/bloodberry_drink.png" id="2_l7mox"]
+
+[resource]
+script = ExtResource("1_37k3o")
+name = "Bloodberry Smoothie"
+texture = ExtResource("2_l7mox")
+desc = "A common drink made out of crushed bloodberries. It doesn't taste like blood, just red pigmented water."
+metadata/_custom_type_script = "uid://c0wwlqkowni6"

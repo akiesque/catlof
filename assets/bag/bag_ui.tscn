@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e7c5xujc447d" path="res://assets/bag/inventory_right.png" id="3_dl16x"]
 [ext_resource type="FontFile" uid="uid://d1qqwtnmw252e" path="res://assets/ui/fonts/Jersey25-Regular.ttf" id="3_hlioe"]
 [ext_resource type="FontFile" uid="uid://b7ycgobmyrjwe" path="res://assets/ui/fonts/Karla-Medium.ttf" id="4_28ki7"]
+[ext_resource type="Texture2D" uid="uid://cd8f6glmyurek" path="res://assets/ui/itemname.png" id="5_lsxrs"]
 [ext_resource type="FontFile" uid="uid://cj60rdc27g6td" path="res://assets/ui/fonts/Karla-SemiBold.ttf" id="5_uavcl"]
 [ext_resource type="FontFile" uid="uid://cx03sur0ty3f8" path="res://assets/ui/fonts/Karla-SemiBoldItalic.ttf" id="6_lsxrs"]
 [ext_resource type="FontFile" uid="uid://b6vgmo7uki7co" path="res://assets/ui/fonts/Karla-MediumItalic.ttf" id="7_02fno"]
@@ -37,7 +38,7 @@ tracks/1/keys = {
 tracks/2/type = "bezier"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control/ArrowLeft:position:x")
+tracks/2/path = NodePath("CanvasLayer/BookBG/ArrowLeft:position:x")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -48,7 +49,7 @@ tracks/2/keys = {
 tracks/3/type = "bezier"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control/ArrowLeft:position:y")
+tracks/3/path = NodePath("CanvasLayer/BookBG/ArrowLeft:position:y")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -59,7 +60,7 @@ tracks/3/keys = {
 tracks/4/type = "bezier"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("CanvasLayer/Control/ArrowRight:position:x")
+tracks/4/path = NodePath("CanvasLayer/BookBG/ArrowRight:position:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -70,49 +71,13 @@ tracks/4/keys = {
 tracks/5/type = "bezier"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("CanvasLayer/Control/ArrowRight:position:y")
+tracks/5/path = NodePath("CanvasLayer/BookBG/ArrowRight:position:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "handle_modes": PackedInt32Array(0),
 "points": PackedFloat32Array(50, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0)
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("CanvasLayer/Control:self_modulate")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("CanvasLayer/Control:modulate")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 0)]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("CanvasLayer/Control:position")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -150)]
 }
 
 [sub_resource type="Animation" id="Animation_dwvyf"]
@@ -139,30 +104,6 @@ tracks/1/keys = {
 "points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 660, 0, 0, 0.15, -110.00001),
 "times": PackedFloat32Array(0, 0.7)
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.03333336, 0.20000002),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.022390604, 0.7040388),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, 16), Vector2(0, -150)]
-}
 
 [sub_resource type="Animation" id="Animation_4p6be"]
 resource_name = "open_inventory"
@@ -188,30 +129,6 @@ tracks/1/keys = {
 "points": PackedFloat32Array(660, 0, 0, 0.15, -110.00001, 0, -0.25, 0, 0.25, 0),
 "times": PackedFloat32Array(0, 0.57535654)
 }
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("CanvasLayer/Control:modulate")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0.46666667, 0.73333335),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("CanvasLayer/Control:position")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0.004038832, 0.59774715),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Vector2(0, -150), Vector2(0, 16)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_dwvyf"]
 _data = {
@@ -221,6 +138,7 @@ _data = {
 }
 
 [node name="BagUI" type="Control" unique_id=10907286]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -239,7 +157,7 @@ layer = 9
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_bottom = -0.0008544922
+offset_bottom = -0.0007324219
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_8hsri")
@@ -251,6 +169,24 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="ArrowLeft" type="TextureRect" parent="CanvasLayer/BookBG" unique_id=1348717188]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 50.0
+offset_right = 56.000023
+offset_bottom = 98.00012
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("2_dwvyf")
+
+[node name="ArrowRight" type="TextureRect" parent="CanvasLayer/BookBG" unique_id=834653227]
+layout_mode = 0
+offset_left = 400.0
+offset_top = 50.0
+offset_right = 448.0
+offset_bottom = 98.000046
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_dl16x")
 
 [node name="TabPages" type="Control" parent="CanvasLayer/BookBG" unique_id=649381959]
 layout_mode = 1
@@ -287,21 +223,44 @@ columns = 3
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/BookBG/TabPages/Bag" unique_id=313755466]
 layout_mode = 0
-offset_left = 113.0
-offset_top = 294.0
-offset_right = 510.0
-offset_bottom = 475.0
-theme_override_constants/separation = 40
+offset_left = 80.0
+offset_top = 275.0
+offset_right = 528.0
+offset_bottom = 507.0
+theme_override_constants/separation = 30
 
-[node name="ItemLabel" type="Label" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=339721249]
-custom_minimum_size = Vector2(-10, 40)
+[node name="LabelContainer" type="NinePatchRect" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=1947579163]
 layout_mode = 2
+size_flags_vertical = 4
+texture = ExtResource("5_lsxrs")
+patch_margin_left = 32
+patch_margin_top = 32
+patch_margin_right = 32
+patch_margin_bottom = 32
+
+[node name="ItemLabel" type="Label" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer/LabelContainer" unique_id=339721249]
+custom_minimum_size = Vector2(-10, 40)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 27.0
+offset_top = 10.0
+offset_right = -23.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_fonts/font = ExtResource("3_hlioe")
 theme_override_font_sizes/font_size = 30
 vertical_alignment = 1
 
-[node name="ItemDesc" type="RichTextLabel" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=2073252929]
-custom_minimum_size = Vector2(0, 109)
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer" unique_id=498153062]
+layout_mode = 2
+theme_override_constants/margin_left = 25
+theme_override_constants/margin_bottom = 0
+
+[node name="ItemDesc" type="RichTextLabel" parent="CanvasLayer/BookBG/TabPages/Bag/VBoxContainer/MarginContainer" unique_id=2073252929]
+custom_minimum_size = Vector2(0, 110)
 layout_mode = 2
 theme_override_fonts/normal_font = ExtResource("4_28ki7")
 theme_override_fonts/bold_font = ExtResource("5_uavcl")
@@ -338,33 +297,3 @@ anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 focus_mode = 1
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=577158908]
-modulate = Color(1, 1, 1, 0)
-self_modulate = Color(1, 1, 1, 0)
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = -150.0
-offset_bottom = -150.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ArrowLeft" type="TextureRect" parent="CanvasLayer/Control" unique_id=1348717188]
-layout_mode = 0
-offset_left = 8.0
-offset_top = 50.0
-offset_right = 56.000023
-offset_bottom = 98.00012
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("2_dwvyf")
-
-[node name="ArrowRight" type="TextureRect" parent="CanvasLayer/Control" unique_id=834653227]
-layout_mode = 0
-offset_left = 400.0
-offset_top = 50.0
-offset_right = 448.0
-offset_bottom = 98.000046
-scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_dl16x")
