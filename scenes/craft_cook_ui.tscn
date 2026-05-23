@@ -24,14 +24,6 @@ script = ExtResource("1_aodws")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=848717269]
 layer = 15
 
-[node name="CraftQuantity" parent="CanvasLayer" unique_id=1634722844 instance=ExtResource("3_r43jv")]
-z_index = 1
-offset_left = 257.0
-offset_top = 338.0
-offset_right = -592.0
-offset_bottom = -139.0
-mouse_filter = 0
-
 [node name="RecipeDetails" parent="CanvasLayer" unique_id=1077891128 instance=ExtResource("2_ihpch")]
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
@@ -138,3 +130,16 @@ size_flags_horizontal = 4
 size_flags_vertical = 0
 text = "Recipes"
 label_settings = SubResource("LabelSettings_aodws")
+
+[node name="CraftQuantity" parent="CanvasLayer" unique_id=1634722844 instance=ExtResource("3_r43jv")]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -265.0
+offset_top = 55.0
+offset_right = -15.0
+offset_bottom = 225.0
+grow_horizontal = 2
+grow_vertical = 2

@@ -10,5 +10,4 @@ name = "Bloodberry"
 texture = ExtResource("3_3kmi5")
 pickup = ExtResource("1_3kmi5")
 desc = "Berries that taste like blood. A common forage found throughout the forests of Cloudvale."
-quantity = 100
 metadata/_custom_type_script = "uid://c0wwlqkowni6"
