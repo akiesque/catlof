@@ -29,7 +29,11 @@ func _ready() -> void:
 	visible = true
 
 func _physics_process(delta):
-	# 2. HARD LOCK FOR DIALOGUE OR PICKUP ANIMATION
+	if get_tree().paused:
+		velocity = Vector2.ZERO
+		move_and_slide()
+		return
+		
 	if GameManager.is_dialogue_active or is_picking_up:
 		velocity = Vector2.ZERO 
 		move_and_slide() 

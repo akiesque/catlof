@@ -1,5 +1,7 @@
 extends Node
 
+signal flag_changed
+
 func _ready():
 	pass
 	
@@ -18,7 +20,6 @@ var use_saved_position : bool = false
 #Locking inputs for future stuff
 var unlocked_book := true
 var unlock_crafting := false
-var unlock_cooking := false
 
 #Items interacted for the first time
 var flag = {
@@ -33,9 +34,11 @@ func is_true(n: String) -> bool:
 	
 func set_true(n: String):
 	flag[n] = true
+	flag_changed.emit()
 	
 func set_false(n: String):
 	flag[n] = false
+	flag_changed.emit()
 
 func save_player_state(pos: Vector2):
 	player_saved_pos = pos

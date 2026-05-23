@@ -37,6 +37,10 @@ var is_open: bool = false
 var current_tab: int = 0
 
 func _ready() -> void:
+	get_tree().node_added.connect(func(node):
+		if not get_tree().paused and is_open:
+			print("UNPAUSED UNEXPECTEDLY! Node added: ", node.name)
+	)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer.process_mode = Node.PROCESS_MODE_ALWAYS
 	book_bg.process_mode = Node.PROCESS_MODE_ALWAYS
@@ -50,6 +54,8 @@ func _input(event: InputEvent) -> void:
 	if UIManager.is_blocked():
 		return
 	if not GameManager.unlocked_book:
+		return
+	if GameManager.is_dialogue_active:  
 		return
 	if event.is_action_pressed("bag_open"):
 		if is_open: close()
@@ -84,11 +90,14 @@ func _on_slot_hovered(item: BagItem) -> void:
 	update_description_panel(item)
 	
 func open() -> void:
+	print("open() - is_any_ui_open: ", UIManager.is_any_ui_open())
+	print("open() - ui_states: ", UIManager.ui_states)
 	if UIManager.is_any_ui_open():
 		return
 	UIManager.set_open("BagUI", true)
 	layer.visible = true
 	is_open = true
+	print("PAUSED by: ", get_stack())
 	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
 	anim.play("open_inventory")

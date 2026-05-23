@@ -39,5 +39,6 @@ if not is_true("interacted_table") and unlock_crafting == false:
 	Casimir: Huh, it's a magical cooking table.
 	Casimir: I don't really have a use for it now.
 	do set_true("interacted_table")
+=> END
 
 

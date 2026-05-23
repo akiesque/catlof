@@ -173,11 +173,15 @@ func _on_dialogue_ended(_resource):
 	anim.play("exit")
 	await anim.animation_finished
 	GameManager.is_dialogue_active = false
+	UIManager.set_open("Dialogue", false)
 	layer.visible = false
 	self.hide()
+	if get_parent():
+		get_parent().process_mode = Node.PROCESS_MODE_PAUSABLE 
 	
-	get_tree().paused = false
-	#Call hour UI
+	if not UIManager.is_any_ui_open():
+		get_tree().paused = false
+	
 	if GameManager.is_true("show_time"):
 		GameManager.hour_ui()
 		GameManager.set_false("show_time")

@@ -12,6 +12,10 @@ var is_open := false
 var open_detail_panel = null
 
 func _ready() -> void:
+	get_tree().node_added.connect(func(node):
+		if not get_tree().paused and is_open:
+			print("UNPAUSED UNEXPECTEDLY! Node added: ", node.name)
+	)
 	layer.visible = false
 	recipe_details.hide()
 	quantity_craft.craft_confirmed.connect(_on_quantity_confirmed)
@@ -37,17 +41,9 @@ func do_craft(recipe_data: Dictionary, craft_count: int):
 func _input(event: InputEvent) -> void:
 	if UIManager.is_blocked():
 		return
-	# DEBUG - remove before release
-	if event.is_action_pressed("Test"):
-		if is_open:
-			close_ui()
-		else:
-			open_ui()
-		return
 
 	if not is_open:
 		return
-
 	if quantity_craft.visible:
 		# Only allow closing quantity popup with Q
 		if event is InputEventKey and event.is_pressed() and not event.is_echo():
@@ -71,9 +67,19 @@ func open_ui():
 	UIManager.set_open("CraftCookUI", true)
 	is_open = true
 	layer.visible = true
-	get_tree().paused = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
-	populate_recipes()
+	await populate_recipes()
+	get_tree().paused = true
+	print("PAUSED NOW: ", get_tree().paused)
+	# Check a moment later if still paused
+	await get_tree().create_timer(0.1).timeout
+	print("STILL PAUSED AFTER 0.1s: ", get_tree().paused)
+	get_tree().paused = true	# Find player and check its mode
+	var player = get_tree().root.find_child("Player", true, false)
+	if player:
+		print("Player process mode: ", player.process_mode)
+		print("Player can_process: ", player.can_process())
+
 
 func close_ui():
 	UIManager.set_open("CraftCookUI", false)
@@ -90,9 +96,11 @@ func populate_recipes():
 	var recipes = RecipeBook.get_current_recipes()
 	for data in recipes:
 		var btn_instance = RECIPE_BUTTON.instantiate()
+		btn_instance.process_mode = Node.PROCESS_MODE_ALWAYS 
 		container.add_child(btn_instance)
 
 		var detail = RECIPE_DETAILS.instantiate()
+		detail.process_mode = Node.PROCESS_MODE_ALWAYS 
 		container.add_child(detail)
 		detail.process_mode = Node.PROCESS_MODE_ALWAYS
 		detail.hide()

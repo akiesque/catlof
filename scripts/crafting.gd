@@ -13,17 +13,24 @@ const CRAFTINGTABLE = preload("uid://daw2nvwoji81r")
 
 func _ready():
 	interactable.interact = _on_interact
-	if GameManager.unlock_crafting:
-		table.texture = CRAFTINGTABLE
-	else:
-		table.texture = COOKINGTABLE
+	_update_collision()
+	GameManager.flag_changed.connect(_update_collision)
+
+func _update_collision() -> void:
+	var is_locked = GameManager.is_true("interacted_table") and not GameManager.unlock_crafting
+	collision.set_deferred("disabled", is_locked)
+	collision.visible = !is_locked
+
+# DELETE _process entirely
 		
 func _on_interact():
 	if GameManager.is_dialogue_active:
 		return
+	if UIManager.is_any_ui_open():  
+		return
 	if GameManager.is_true("interacted_table") and not GameManager.unlock_crafting:
 		return
-	if GameManager.unlock_crafting or GameManager.unlock_cooking:
+	if GameManager.unlock_crafting:
 		CraftCookUI.open_ui()
 		return
 		
@@ -35,8 +42,8 @@ func _on_interact():
 	if ui:
 		ui.start_ui()
 
-func _process(_delta):
-	var is_locked = GameManager.is_true("interacted_table") and not GameManager.unlock_crafting
-	collision.set_deferred("disabled", is_locked)
-	
-	collision.visible = !is_locked
+#func _process(_delta):
+	#var is_locked = GameManager.is_true("interacted_table") and not GameManager.unlock_crafting
+	#collision.set_deferred("disabled", is_locked)
+	#
+	#collision.visible = !is_locked

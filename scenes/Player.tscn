@@ -263,6 +263,7 @@ radius = 6.0
 height = 72.0
 
 [node name="Player" type="CharacterBody2D" unique_id=1320964713]
+process_mode = 1
 script = ExtResource("1_v6fml")
 inv = ExtResource("2_qu4a1")
 

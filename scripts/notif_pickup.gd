@@ -21,7 +21,6 @@ func play_pickup_effects(item_name: String) -> void:
 		sfx_player.play()
 		
 	if notif_label:
-		# --- FIXED: REMOVED THE SELF-KILLING TWEEN LINES ---
 		
 		# 2. Setup text and reset positions
 		notif_label.position.y = original_y_pos

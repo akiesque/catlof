@@ -14,8 +14,19 @@ var ui_states: Dictionary = {
 const NON_BLOCKING = ["HourUI", "Transition"]
 
 func _ready() -> void:
-	DialogueManager.dialogue_started.connect(func(_r): set_open("Dialogue", true))
-	DialogueManager.dialogue_ended.connect(func(_r): set_open("Dialogue", false))
+	print("DialogueManager signals: ", DialogueManager.get_signal_list().map(func(s): return s["name"]))
+	DialogueManager.dialogue_started.connect(func(_r): 
+		print("Dialogue started!")
+		set_open("Dialogue", true)
+	)
+	DialogueManager.dialogue_ended.connect(func(_r): 
+		print("Dialogue ended!")
+		set_open("Dialogue", false)
+	)
+# Helper in UIManager
+func blocker() -> void:
+	if not is_any_ui_open():
+		get_tree().paused = false
 
 func is_any_ui_open() -> bool:
 	for key in ui_states:
@@ -28,6 +39,8 @@ func is_any_ui_open() -> bool:
 func is_blocked() -> bool:
 	# Block input if transition is playing
 	if ui_states.get("Transition", false):
+		return true
+	if GameManager.hourui_firsttime and ui_states.get("HourUI", false):
 		return true
 	return false
 
