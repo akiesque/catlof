@@ -2,7 +2,286 @@
 
 [ext_resource type="Script" uid="uid://ceqwxkghukrjn" path="res://scripts/craft_cook_ui.gd" id="1_aodws"]
 [ext_resource type="PackedScene" uid="uid://bxd3eq5r50ume" path="res://scenes/recipe_details.tscn" id="2_ihpch"]
+[ext_resource type="Texture2D" uid="uid://dcp0llg8l2fn" path="res://assets/ui/craft_ui/craft_fg.png" id="3_a1ija"]
+[ext_resource type="Texture2D" uid="uid://b54u88s4gyflk" path="res://assets/ui/craft_ui/craft-blink.png" id="3_ge3gq"]
+[ext_resource type="Shader" uid="uid://6fidj1mtimwq" path="res://shaders/movingbg.gdshader" id="3_h6uye"]
 [ext_resource type="PackedScene" uid="uid://cgwes45i8k7eg" path="res://scenes/craft_quantity.tscn" id="3_r43jv"]
+[ext_resource type="Texture2D" uid="uid://dnu2e2ohc5ab3" path="res://assets/ui/craft_ui/bg.png" id="3_xtuvr"]
+[ext_resource type="Texture2D" uid="uid://dfowfqnowgbgw" path="res://assets/bag/special/bloodberry_drink.png" id="5_f6sm3"]
+[ext_resource type="Texture2D" uid="uid://dodi1i61yura5" path="res://assets/ui/craft_ui/leftarm.png" id="5_ni8kh"]
+[ext_resource type="Texture2D" uid="uid://cguhb17at5tky" path="res://assets/ui/craft_ui/rightarm.png" id="6_f6sm3"]
+
+[sub_resource type="Animation" id="Animation_f6sm3"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Casimir:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(542, 329)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(19, 9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xtuvr"]
+resource_name = "open"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Background/TextureRect:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.76666665),
+"transitions": PackedFloat32Array(0.2871746, 0.2871746),
+"update": 0,
+"values": [Vector2(0, 550), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Background/Casimir:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.03333334, 0.8666667),
+"transitions": PackedFloat32Array(0.26794347, 0.26794347),
+"update": 0,
+"values": [Vector2(542, 979), Vector2(542, 329)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Background/Control:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.033333335, 0.8666667),
+"transitions": PackedFloat32Array(0.26794347, 0.26794347),
+"update": 0,
+"values": [Vector2(19, 669), Vector2(19, 9)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Background:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.73333335),
+"transitions": PackedFloat32Array(0.27739236, 0.27739236),
+"update": 0,
+"values": [Vector2(0, 650), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wgm00"]
+_data = {
+&"RESET": SubResource("Animation_f6sm3"),
+&"open": SubResource("Animation_xtuvr")
+}
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_bxh0b"]
+shader = ExtResource("3_h6uye")
+shader_parameter/speed = 0.1
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ni8kh"]
+atlas = ExtResource("3_ge3gq")
+region = Rect2(0, 0, 426, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_f6sm3"]
+atlas = ExtResource("3_ge3gq")
+region = Rect2(426, 0, 426, 270)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xtuvr"]
+atlas = ExtResource("3_ge3gq")
+region = Rect2(852, 0, 426, 270)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h6uye"]
+animations = [{
+"frames": [{
+"duration": 15.0,
+"texture": SubResource("AtlasTexture_ni8kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6sm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtuvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6sm3")
+}, {
+"duration": 20.0,
+"texture": SubResource("AtlasTexture_ni8kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6sm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtuvr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ni8kh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_f6sm3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xtuvr")
+}],
+"loop": true,
+"name": &"loop",
+"speed": 10.0
+}]
+
+[sub_resource type="Animation" id="Animation_bxh0b"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Right:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="Animation" id="Animation_h6uye"]
+resource_name = "loop"
+length = 2.6333334
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1.2621205, 2.604546),
+"transitions": PackedFloat32Array(0.26794344, 0.329877, 0.26794344),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(12, 2.9999998), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("../Right:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 2.6333334),
+"transitions": PackedFloat32Array(0.2871746, 0.2871746, 0.2871746),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-2, 8), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../Right:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.2736477, 2.6225848),
+"transitions": PackedFloat32Array(0.2871746, 0.2871746, 0.2871746),
+"update": 0,
+"values": [0.0, 0.03490658503988659, 0.0]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath(".:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.2666667, 2.6),
+"transitions": PackedFloat32Array(0.26794344, 0.25881627, 0.26794344),
+"update": 0,
+"values": [0.0, -0.03490658503988659, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_bxh0b"]
+_data = {
+&"RESET": SubResource("Animation_bxh0b"),
+&"loop": SubResource("Animation_h6uye")
+}
 
 [sub_resource type="LabelSettings" id="LabelSettings_aodws"]
 font_size = 80
@@ -26,18 +305,22 @@ layer = 15
 
 [node name="RecipeDetails" parent="CanvasLayer" unique_id=1077891128 instance=ExtResource("2_ihpch")]
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
+[node name="MainAnims" type="AnimationPlayer" parent="CanvasLayer" unique_id=1829938616]
+libraries/ = SubResource("AnimationLibrary_wgm00")
+autoplay = &"open"
 
-[node name="Background" type="ColorRect" parent="CanvasLayer" unique_id=1894600077]
-self_modulate = Color(0.51505506, 0.5353894, 0.6707595, 1)
+[node name="Background" type="TextureRect" parent="CanvasLayer" unique_id=357664125]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_bxh0b")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_bottom = 0.00012207031
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 6
-mouse_filter = 1
+texture = ExtResource("3_xtuvr")
 
 [node name="Upper" type="ColorRect" parent="CanvasLayer/Background" unique_id=1239536473]
 layout_mode = 1
@@ -64,6 +347,73 @@ grow_horizontal = 2
 grow_vertical = 0
 color = Color(0.12005126, 0.12005126, 0.12005126, 1)
 
+[node name="Casimir" type="AnimatedSprite2D" parent="CanvasLayer/Background" unique_id=1284804539]
+position = Vector2(542, 329)
+scale = Vector2(2.3703704, 2.3703704)
+sprite_frames = SubResource("SpriteFrames_h6uye")
+animation = &"loop"
+autoplay = "loop"
+frame_progress = 0.112549596
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Background" unique_id=181142705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = -0.00048828125
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_a1ija")
+expand_mode = 1
+
+[node name="ItemImage" type="TextureRect" parent="CanvasLayer/Background" unique_id=165226984]
+custom_minimum_size = Vector2(128, 128)
+layout_mode = 0
+offset_left = 247.0
+offset_top = 284.0
+offset_right = 503.0
+offset_bottom = 540.0
+texture = ExtResource("5_f6sm3")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Control" type="Control" parent="CanvasLayer/Background" unique_id=1898056486]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 19.0
+offset_top = 9.0
+offset_right = -28.0
+offset_bottom = 8.999878
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimatingArms" type="AnimationPlayer" parent="CanvasLayer/Background/Control" unique_id=219619275]
+root_node = NodePath("../Left")
+libraries/ = SubResource("AnimationLibrary_bxh0b")
+autoplay = &"loop"
+
+[node name="Right" type="TextureRect" parent="CanvasLayer/Background/Control" unique_id=1209848705]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(163, 639)
+texture = ExtResource("6_f6sm3")
+
+[node name="Left" type="TextureRect" parent="CanvasLayer/Background/Control" unique_id=749595282]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset = Vector2(595.3397, 395.38464)
+texture = ExtResource("5_ni8kh")
+
 [node name="SidePanelArea" type="Control" parent="CanvasLayer" unique_id=158302679]
 layout_mode = 3
 anchor_left = 0.541
@@ -76,6 +426,7 @@ offset_bottom = 5.0
 mouse_filter = 1
 
 [node name="SidePanelBG" type="ColorRect" parent="CanvasLayer/SidePanelArea" unique_id=2008232238]
+self_modulate = Color(1, 1, 1, 0.35686275)
 custom_minimum_size = Vector2(240, 646)
 layout_mode = 1
 anchors_preset = 15
@@ -104,7 +455,7 @@ theme_override_constants/margin_bottom = 10
 
 [node name="SidePanelBG" type="ColorRect" parent="CanvasLayer/SidePanelArea/Panel" unique_id=1799393136]
 layout_mode = 2
-color = Color(0.52327585, 0.6697128, 0.6519127, 1)
+color = Color(1, 1, 1, 0)
 
 [node name="ScrollContainer" type="ScrollContainer" parent="CanvasLayer/SidePanelArea/Panel" unique_id=2065553164]
 custom_minimum_size = Vector2(0, -2)

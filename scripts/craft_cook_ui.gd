@@ -5,6 +5,10 @@ extends Control
 @onready var recipe_details: Control = $CanvasLayer/RecipeDetails
 @onready var quantity_craft: Control = $CanvasLayer/CraftQuantity
 
+@onready var main_anim: AnimationPlayer = $CanvasLayer/MainAnims
+@onready var arm_anim: AnimationPlayer = $CanvasLayer/Background/Control/AnimatingArms
+
+
 const RECIPE_DETAILS = preload("uid://bxd3eq5r50ume")
 const RECIPE_BUTTON = preload("uid://dgsj4t75dxt18")
 
@@ -68,6 +72,8 @@ func open_ui():
 	is_open = true
 	layer.visible = true
 	Input.mouse_mode = Input.MOUSE_MODE_VISIBLE
+	main_anim.play("open")
+	arm_anim.play("loop")
 	await populate_recipes()
 	get_tree().paused = true
 	print("PAUSED NOW: ", get_tree().paused)

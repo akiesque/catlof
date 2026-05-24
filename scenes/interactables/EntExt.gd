@@ -16,7 +16,6 @@ func _ready() -> void:
 	Transition.play_fade_in(transition_color)
 
 func _on_interact_triggered():
-	# only shows the 'E' key when player faces the door
 	var player = get_tree().get_first_node_in_group("Player")
 	
 	if player:
