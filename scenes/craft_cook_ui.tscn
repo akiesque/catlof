@@ -353,7 +353,7 @@ scale = Vector2(2.3703704, 2.3703704)
 sprite_frames = SubResource("SpriteFrames_h6uye")
 animation = &"loop"
 autoplay = "loop"
-frame_progress = 0.112549596
+frame_progress = 0.92308086
 
 [node name="TextureRect" type="TextureRect" parent="CanvasLayer/Background" unique_id=181142705]
 layout_mode = 1

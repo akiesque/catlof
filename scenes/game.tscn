@@ -64,7 +64,7 @@ shader_parameter/color_gardient = ExtResource("2_0tnpc")
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vtaks"]
 size = Vector2(83.26315, 453.47363)
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_p57ef"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rysoc"]
 texture = ExtResource("3_lnu2h")
 texture_region_size = Vector2i(48, 48)
 2:0/0 = 0
@@ -143,15 +143,15 @@ texture_region_size = Vector2i(48, 48)
 5:6/0 = 0
 5:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dinhu"]
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ssvqc"]
 texture = ExtResource("5_kvpfn")
 texture_region_size = Vector2i(48, 48)
 0:0/size_in_atlas = Vector2i(12, 5)
 0:0/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_u5sy4"]
-sources/0 = SubResource("TileSetAtlasSource_p57ef")
-sources/3 = SubResource("TileSetAtlasSource_dinhu")
+sources/0 = SubResource("TileSetAtlasSource_rysoc")
+sources/3 = SubResource("TileSetAtlasSource_ssvqc")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_gee14"]
 shader = ExtResource("3_u5sy4")
@@ -470,6 +470,7 @@ position = Vector2(36, -30)
 [node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1294536627]
 position = Vector2(2, -48)
 zoom = Vector2(2.6, 2.6)
+limit_left = -400
 limit_smoothed = true
 
 [node name="CraftCookTable" parent="." unique_id=650274322 instance=ExtResource("17_rysoc")]
