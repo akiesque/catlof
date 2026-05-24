@@ -1,9 +1,25 @@
 [gd_scene format=3 uid="uid://ddsn2qyl27a1b"]
 
+[ext_resource type="Texture2D" uid="uid://ce4njrn81ho7j" path="res://assets/tilesets/upstairs_door.png" id="1_ojp8l"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_xy0e5"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="3_s48xp"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ojp8l"]
+radius = 38.0
+height = 144.0
+
 [node name="UpstairsDoor" type="Node2D" unique_id=1802410735]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2097773517]
+texture = ExtResource("1_ojp8l")
 
-[node name="Area2D" type="Area2D" parent="." unique_id=1012096916]
+[node name="Interactable" parent="." unique_id=894810374 instance=ExtResource("2_xy0e5")]
+script = ExtResource("3_s48xp")
+needs_up_input = true
+destination_scene = "uid://cxjq8mdyrn48h"
+spawn_location_name = "FromDownstairs"
+transition_color = Color(0.42134234, 0.42475882, 0.5040639, 1)
+sfx_door = null
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=418825360]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1720561359]
+shape = SubResource("CapsuleShape2D_ojp8l")

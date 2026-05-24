@@ -1,12 +1,11 @@
-[gd_scene format=4 uid="uid://dwuw11amb6tk7"]
+[gd_scene format=4 uid="uid://cxjq8mdyrn48h"]
 
-[ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="1_urk4m"]
-[ext_resource type="PackedScene" uid="uid://ddsn2qyl27a1b" path="res://scenes/interactables/upstairs.tscn" id="3_ap140"]
-[ext_resource type="PackedScene" uid="uid://bljrbpmbiaiec" path="res://scenes/interactables/door_outside.tscn" id="3_bwqj8"]
-[ext_resource type="Texture2D" uid="uid://d2dt1k6p1qma3" path="res://assets/tilesets/tileset_casiroom.png" id="3_kypo0"]
+[ext_resource type="Texture2D" uid="uid://d2dt1k6p1qma3" path="res://assets/tilesets/tileset_casiroom.png" id="1_dwnce"]
+[ext_resource type="PackedScene" uid="uid://cl7rrmy5wi5cl" path="res://scenes/interactables/door_downstairs.tscn" id="2_dwnce"]
+[ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="3_0ya21"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxx8o"]
-texture = ExtResource("3_kypo0")
+texture = ExtResource("1_dwnce")
 texture_region_size = Vector2i(48, 48)
 1:0/0 = 0
 2:0/0 = 0
@@ -74,7 +73,7 @@ sources/1 = SubResource("TileSetAtlasSource_rxx8o")
 size = Vector2(83.26315, 453.47363)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ap140"]
-texture = ExtResource("3_kypo0")
+texture = ExtResource("1_dwnce")
 texture_region_size = Vector2i(48, 48)
 0:0/0 = 0
 1:0/0 = 0
@@ -156,23 +155,17 @@ scale = Vector2(0.62673616, 0.62673616)
 position = Vector2(1185.1079, 159.09143)
 shape = SubResource("RectangleShape2D_bwqj8")
 
-[node name="DoorOutside" parent="." unique_id=181197232 instance=ExtResource("3_bwqj8")]
-position = Vector2(-44, -28)
+[node name="FromDownstairs" type="Marker2D" parent="." unique_id=11250672]
+position = Vector2(-43, -18)
 
-[node name="UpstairsDoor" parent="." unique_id=1802410735 instance=ExtResource("3_ap140")]
-position = Vector2(537, -37)
+[node name="DoorDownstairs" parent="." unique_id=181197232 instance=ExtResource("2_dwnce")]
+position = Vector2(-43, -25)
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=885842228]
 tile_map_data = PackedByteArray("AAD4/wAAAQAEAAAAAAD4/wEAAQAFAAAAAAD5/wAAAQAEAAAAAAD5/wEAAQAFAAAAAAD6/wAAAQAEAAAAAAD6/wEAAQAFAAAAAAD7/wAAAQAEAAAAAAD7/wEAAQAFAAAAAAD8/wAAAQAEAAAAAAD8/wEAAQAFAAAAAAD9/wAAAQAEAAAAAAD9/wEAAQAFAAAAAAD+/wAAAQAEAAAAAAD+/wEAAQAFAAAAAAD//wAAAQAEAAAAAAD//wEAAQAFAAAAAAAAAAAAAQAEAAAAAAAAAAEAAQAFAAAAAAABAAAAAQAEAAAAAAABAAEAAQAFAAAAAAACAAAAAQAEAAAAAAACAAEAAQAFAAAAAAADAAAAAQAEAAAAAAADAAEAAQAFAAAAAAAEAAAAAQAEAAAAAAAEAAEAAQAFAAAAAAAFAAAAAQAEAAAAAAAFAAEAAQAFAAAAAAAGAAAAAQAEAAAAAAAGAAEAAQAFAAAAAAAHAAAAAQAEAAAAAAAHAAEAAQAFAAAAAAAIAAAAAQAEAAAAAAAIAAEAAQAFAAAAAAAJAAAAAQAEAAAAAAAJAAEAAQAFAAAAAAD3/wAAAQAEAAAAAAD2/wAAAQAEAAAAAAD1/wAAAQAEAAAAAAAKAAAAAQAEAAAAAAALAAAAAQAEAAAAAAAMAAAAAQAEAAAAAAANAAAAAQAEAAAAAAAOAAAAAQAEAAAAAAAPAAAAAQAEAAAAAAAQAAAAAQAEAAAAAAARAAAAAQAEAAAAAAASAAAAAQAEAAAAAAD0/wEAAQAFAAAAAAD0/wIAAQAFAAAAAAD1/wEAAQAFAAAAAAD1/wIAAQAFAAAAAAD2/wEAAQAFAAAAAAD2/wIAAQAFAAAAAAD3/wEAAQAFAAAAAAD3/wIAAQAFAAAAAAD4/wIAAQAFAAAAAAD5/wIAAQAFAAAAAAD6/wIAAQAFAAAAAAD7/wIAAQAFAAAAAAD8/wIAAQAFAAAAAAD9/wIAAQAFAAAAAAD+/wIAAQAFAAAAAAD//wIAAQAFAAAAAAAAAAIAAQAFAAAAAAABAAIAAQAFAAAAAAACAAIAAQAFAAAAAAADAAIAAQAFAAAAAAAEAAIAAQAFAAAAAAAFAAIAAQAFAAAAAAAGAAIAAQAFAAAAAAAHAAIAAQAFAAAAAAAIAAIAAQAFAAAAAAAJAAIAAQAFAAAAAAAKAAEAAQAFAAAAAAAKAAIAAQAFAAAAAAALAAEAAQAFAAAAAAALAAIAAQAFAAAAAAAMAAEAAQAFAAAAAAAMAAIAAQAFAAAAAAANAAEAAQAFAAAAAAANAAIAAQAFAAAAAAAOAAEAAQAFAAAAAAAOAAIAAQAFAAAAAAAOAAMAAQAFAAAAAAAPAAEAAQAFAAAAAAAPAAIAAQAFAAAAAAAPAAMAAQAFAAAAAAAQAAEAAQAFAAAAAAAQAAIAAQAFAAAAAAAQAAMAAQAFAAAAAAARAAEAAQAFAAAAAAARAAIAAQAFAAAAAAARAAMAAQAFAAAAAAASAAEAAQAFAAAAAAASAAIAAQAFAAAAAAASAAMAAQAFAAAAAAATAAEAAQAFAAAAAAATAAIAAQAFAAAAAAATAAMAAQAFAAAAAAAUAAEAAQAFAAAAAAAUAAIAAQAFAAAAAAAUAAMAAQAFAAAAAAAVAAEAAQAFAAAAAAAVAAIAAQAFAAAAAAAVAAMAAQAFAAAAAAA=")
 tile_set = SubResource("TileSet_bwqj8")
 
-[node name="FromOutside" type="Marker2D" parent="." unique_id=11250672]
-position = Vector2(-43, -20)
-
-[node name="FromUpstairs" type="Marker2D" parent="." unique_id=577394841]
-position = Vector2(537, -15)
-
-[node name="Player" parent="." unique_id=1320964713 instance=ExtResource("1_urk4m")]
+[node name="Player" parent="." unique_id=1320964713 instance=ExtResource("3_0ya21")]
 position = Vector2(-43, -18)
 
 [node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1922041369]
