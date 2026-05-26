@@ -1129,6 +1129,38 @@ grow_vertical = 2
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1701482648]
 root_node = NodePath("../CharacterA")
 
+[node name="CharacterB" type="TextureRect" parent="CanvasLayer/Control" unique_id=1318534280]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 156.99997
+offset_top = 196.0
+offset_right = -695.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
+
+[node name="CharacterD" type="TextureRect" parent="CanvasLayer/Control" unique_id=847326876]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 750.0
+offset_top = 196.0
+offset_right = -102.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
+
 [node name="CharacterA" type="TextureRect" parent="CanvasLayer/Control" unique_id=1327571376]
 custom_minimum_size = Vector2(300, 450)
 layout_mode = 1
@@ -1145,39 +1177,7 @@ scale = Vector2(1.05, 1.05)
 pivot_offset = Vector2(153, 227)
 stretch_mode = 5
 
-[node name="CharacterB" type="TextureRect" parent="CanvasLayer/Control" unique_id=1318534280]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 787.0
-offset_top = 196.0
-offset_right = -65.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.05, 1.05)
-pivot_offset = Vector2(153, 227)
-stretch_mode = 5
-
 [node name="CharacterC" type="TextureRect" parent="CanvasLayer/Control" unique_id=1350155594]
-custom_minimum_size = Vector2(300, 450)
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 787.0
-offset_top = 196.0
-offset_right = -65.0
-offset_bottom = -2.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(1.05, 1.05)
-pivot_offset = Vector2(153, 227)
-stretch_mode = 5
-
-[node name="CharacterD" type="TextureRect" parent="CanvasLayer/Control" unique_id=847326876]
 custom_minimum_size = Vector2(300, 450)
 layout_mode = 1
 anchors_preset = 15

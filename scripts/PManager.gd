@@ -4,6 +4,8 @@ extends Node
 const FRAME_WIDTH: int = 300
 const FRAME_HEIGHT: int = 450
 
+const SCOOT_OFFSET: float = 100.0
+
 # Map your grid coordinates (Column, Row) per character sheet
 const PORTRAIT_MAP: Dictionary = {
 	"Casimir": {
@@ -16,9 +18,20 @@ const PORTRAIT_MAP: Dictionary = {
 		"sheet_path":  "res://assets/sprites/dialogue/m_neutral.png",
 		"expressions": {
 			"m_neutral": Vector2(0, 0),
-			#"c_shocked": Vector2(1, 0)
 		}
-	}
+	},
+	"Heinester": {
+		"sheet_path":  "res://assets/sprites/dialogue/m_neutral.png",
+		"expressions": {
+			"neutral": Vector2(0, 0),
+		}
+	},
+	"Belomere": {
+		"sheet_path":  "res://assets/sprites/dialogue/happy.png",
+		"expressions": {
+			"b_neutral": Vector2(0, 0),
+		}
+	},
 }
 
 # --- STATE & POSITION NODES ---
@@ -48,6 +61,7 @@ func register_positions(node_a: TextureRect, node_b: TextureRect, node_c: Textur
 	for node in [pos_A, pos_B, pos_C, pos_D]:
 		if node:
 			node.set_meta("start_x", node.position.x)
+			node.set_meta("start_y", node.position.y) # Fixed: Storing start_y for clean drop-down exits
 			node.hide()
 
 func _get_node_from_string(slot_name: String) -> TextureRect:
@@ -80,30 +94,26 @@ func show(character_name: String, expression: String, position_slot: String) -> 
 	atlas_tex.region = Rect2(grid_pos.x * FRAME_WIDTH, grid_pos.y * FRAME_HEIGHT, FRAME_WIDTH, FRAME_HEIGHT)
 	target_node.texture = atlas_tex
 
+	# Layering: Bring active speaker to front on EVERY line
+	target_node.move_to_front()
+
 	var is_new_to_slot = slot_occupation[position_slot] != character_name
 	if is_new_to_slot:
 		slot_occupation[position_slot] = character_name
-		var start_x = target_node.get_meta("start_x", target_node.position.x)
-		target_node.position.x = start_x - 30 
+		var base_x = target_node.get_meta("start_x", target_node.position.x)
+		var entry_offset = _get_scoot_modifier(position_slot)
+		
+		var slide_direction: float = -30.0
+		if position_slot == "CharacterC" or position_slot == "CharacterD":
+			slide_direction = 30.0
+		
+		# Set entrance slide position
+		target_node.position.x = (base_x + entry_offset) + slide_direction 
 		target_node.modulate = Color(1, 1, 1, 0)
 		target_node.show()
 
-	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	
-	for slot in slot_occupation.keys():
-		if slot_occupation[slot] == "": 
-			continue
-			
-		var node: TextureRect = _get_node_from_string(slot)
-		if not node: continue
-		var base_x = node.get_meta("start_x", node.position.x)
-		
-		if slot == position_slot:
-			tween.tween_property(node, "position:x", base_x, TWEEN_DURATION)
-			tween.tween_property(node, "modulate", LIT_COLOR, TWEEN_DURATION)
-		else:
-			tween.tween_property(node, "position:x", base_x + 15, TWEEN_DURATION)
-			tween.tween_property(node, "modulate", DIM_COLOR, TWEEN_DURATION)
+	# Process layout, shading, and dynamic scooting adjustments for everyone
+	_update_character_tweens(position_slot)
 
 func hide(character_name: String) -> void:
 	for slot in slot_occupation.keys():
@@ -112,11 +122,14 @@ func hide(character_name: String) -> void:
 			
 			var node: TextureRect = _get_node_from_string(slot)
 			if node:
-				var target_x = node.get_meta("start_x", node.position.x) - 30
+				var target_y = node.get_meta("start_y", node.position.y) + 30
 				var tween = create_tween().set_parallel(true)
-				tween.tween_property(node, "position:x", target_x, TWEEN_DURATION)
+				tween.tween_property(node, "position:y", target_y, TWEEN_DURATION)
 				tween.tween_property(node, "modulate:a", 0.0, TWEEN_DURATION)
-				tween.chain().perform(_hide, [node])
+				tween.chain().tween_callback(_hide.bind(node))
+			
+			# Let remaining characters slide back if a blocking layout element vanishes
+			_update_character_tweens("")
 			break
 
 func _hide(node: TextureRect) -> void:
@@ -127,3 +140,42 @@ func hide_all() -> void:
 		if slot_occupation[slot] != "":
 			var char_name = slot_occupation[slot]
 			hide(char_name)
+
+# --- INTERNAL SYSTEM HELPERS ---
+
+## Calculates if crowded outer layout spots (B & D) force A or C to move over
+func _get_scoot_modifier(slot_name: String) -> float:
+	# If B is active, push A leftward (-x)
+	if slot_name == "CharacterA" and slot_occupation["CharacterB"] != "":
+		return -SCOOT_OFFSET
+	# If D is active, push C rightward (+x)
+	if slot_name == "CharacterC" and slot_occupation["CharacterD"] != "":
+		return SCOOT_OFFSET
+	return 0.0
+
+## Unified loop handling position shifts and focus tints smoothly
+func _update_character_tweens(speaking_slot: String) -> void:
+	if slot_occupation.values().all(func(char_name): return char_name == ""):
+		return
+		
+	var tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
+	
+	for slot in slot_occupation.keys():
+		if slot_occupation[slot] == "": 
+			continue
+			
+		var node: TextureRect = _get_node_from_string(slot)
+		if not node: continue
+		
+		var base_x = node.get_meta("start_x", node.position.x)
+		var scoot_modifier = _get_scoot_modifier(slot)
+		var final_target_x = base_x + scoot_modifier
+		
+		if slot == speaking_slot:
+			tween.tween_property(node, "position:x", final_target_x, TWEEN_DURATION)
+			tween.tween_property(node, "modulate", LIT_COLOR, TWEEN_DURATION)
+		else:
+			# Minor backstep depth illusion for out-of-focus elements
+			var focus_backstep = 15.0 if (slot == "CharacterA" or slot == "CharacterB") else -15.0
+			tween.tween_property(node, "position:x", final_target_x + focus_backstep, TWEEN_DURATION)
+			tween.tween_property(node, "modulate", DIM_COLOR, TWEEN_DURATION)
