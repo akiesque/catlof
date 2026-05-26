@@ -40,7 +40,8 @@ Casimir: Choose a Response...
 		Belomere: Ah, four people in a screen...
 		Belomere: Efficient.
 		do PManager.show("Vivienne", "m_neutral", "CharacterC")
-		Vivienne: Oooh! 
+		do bounce("CharacterC")
+		Vivienne: Oooh! That's [wave]soooo[/wave] cool!
 		do hide_all()
 	else:
 		Casimir: Oh, you don't have the letter anymore.

@@ -179,3 +179,44 @@ func _update_character_tweens(speaking_slot: String) -> void:
 			var focus_backstep = 15.0 if (slot == "CharacterA" or slot == "CharacterB") else -15.0
 			tween.tween_property(node, "position:x", final_target_x + focus_backstep, TWEEN_DURATION)
 			tween.tween_property(node, "modulate", DIM_COLOR, TWEEN_DURATION)
+
+
+## Usage: do PManager.bounce("CharacterA")
+func bounce(position_slot: String) -> void:
+	var target_node: TextureRect = _get_node_from_string(position_slot)
+	if target_node == null or not target_node.visible:
+		return
+		
+	# Grab the current position they are resting at (including scoot modifiers)
+	var current_y = target_node.position.y
+	var jump_height = 25.0 # How high they hop up in pixels
+	
+	# Create a quick sequential tween for the up-and-down motion
+	var bounce_tween = create_tween().set_trans(Tween.TRANS_QUAD).set_ease(Tween.EASE_OUT)
+	
+	# Phase 1: Hop up elegantly
+	bounce_tween.tween_property(target_node, "position:y", current_y - jump_height, 0.12)
+	# Phase 2: Snap back down cleanly with a tiny gravity ease-in
+	bounce_tween.set_ease(Tween.EASE_IN)
+	bounce_tween.tween_property(target_node, "position:y", current_y, 0.12)
+
+
+## Usage: do PManager.shake("CharacterA")
+func shake(position_slot: String) -> void:
+	var target_node: TextureRect = _get_node_from_string(position_slot)
+	if target_node == null or not target_node.visible:
+		return
+		
+	var original_x = target_node.position.x
+	var shake_intensity = 12.0 # How violent the shake is in pixels
+	var shake_speed = 0.04     # Timing of each vibration back-and-forth
+	
+	var shake_tween = create_tween().set_trans(Tween.TRANS_LINEAR)
+	
+	# Rapidly oscillate their X coordinate back and forth
+	shake_tween.tween_property(target_node, "position:x", original_x - shake_intensity, shake_speed)
+	shake_tween.tween_property(target_node, "position:x", original_x + shake_intensity, shake_speed)
+	shake_tween.tween_property(target_node, "position:x", original_x - (shake_intensity * 0.6), shake_speed)
+	shake_tween.tween_property(target_node, "position:x", original_x + (shake_intensity * 0.6), shake_speed)
+	# Return perfectly back to home position
+	shake_tween.tween_property(target_node, "position:x", original_x, shake_speed)
