@@ -14,13 +14,13 @@ var ui_states: Dictionary = {
 const NON_BLOCKING = ["HourUI", "Transition"]
 
 func _ready() -> void:
-	print("DialogueManager signals: ", DialogueManager.get_signal_list().map(func(s): return s["name"]))
+	#print("DialogueManager signals: ", DialogueManager.get_signal_list().map(func(s): return s["name"]))
 	DialogueManager.dialogue_started.connect(func(_r): 
-		print("Dialogue started!")
+		#print("Dialogue started!")
 		set_open("Dialogue", true)
 	)
 	DialogueManager.dialogue_ended.connect(func(_r): 
-		print("Dialogue ended!")
+		#print("Dialogue ended!")
 		set_open("Dialogue", false)
 	)
 # Helper in UIManager

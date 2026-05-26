@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
+const SPEED = 160.0
 const SPRINT_SPEED = 220.0
 var dir = "down" 
 
@@ -53,8 +53,9 @@ func _physics_process(delta):
 			
 	# sprint anim
 	var current_speed = SPEED
-	if Input.is_action_pressed("sprint"): 
-		current_speed = SPRINT_SPEED
+	if GameManager.sprint_unlock:
+		if Input.is_action_pressed("sprint"): 
+			current_speed = SPRINT_SPEED
 
 	# Horizontal axis
 	var horizontal_direction := Input.get_axis("move_left", "move_right")

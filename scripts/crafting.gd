@@ -21,8 +21,6 @@ func _update_collision() -> void:
 	collision.set_deferred("disabled", is_locked)
 	collision.visible = !is_locked
 
-# DELETE _process entirely
-		
 func _on_interact():
 	if GameManager.is_dialogue_active:
 		return

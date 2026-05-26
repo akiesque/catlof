@@ -41,4 +41,13 @@ if not is_true("interacted_table") and unlock_crafting == false:
 	do set_true("interacted_table")
 => END
 
+~ globe
+Casimir: This is a replica model of the world we live in, [b]Krubilei[/b].
+Casimir: Our world is created by the God of Destruction, Qhosthos.
+Casimir: But here in Cloudvale, our small town is watched over by an omniscent being we call the Prophet.
+=> END
 
+~ desk
+Casimir: These are photos of me and my childhood friend, Hein.
+Casimir: He lives a few steps away.
+=> END

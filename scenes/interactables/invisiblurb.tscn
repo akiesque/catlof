@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://d0pqmc48l7wca"]
+
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_4mo2l"]
+[ext_resource type="Script" uid="uid://sr4ve0de4kbt" path="res://scripts/invisiblurbtor.gd" id="1_wmfma"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wmfma"]
+size = Vector2(44.5, 56.75)
+
+[node name="Invisiblurb" type="Node2D" unique_id=896232069]
+script = ExtResource("1_wmfma")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1071114790]
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_4mo2l")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=631237974]
+shape = SubResource("RectangleShape2D_wmfma")

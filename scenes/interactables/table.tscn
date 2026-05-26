@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://xprakkqan0ke"]
+
+[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/interact.gd" id="1_f1ge0"]
+[ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="2_p56b6"]
+[ext_resource type="Texture2D" uid="uid://b24kh5b5a8xs8" path="res://assets/tilesets/items_table.png" id="3_jlgbv"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="4_s28hl"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6bfl"]
+size = Vector2(54, 44)
+
+[node name="Table" type="Node2D" unique_id=1527519422]
+script = ExtResource("1_f1ge0")
+needs_up_input = false
+dialogue = ExtResource("2_p56b6")
+dialogue_start = "desk"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841922687]
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("3_jlgbv")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("4_s28hl")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=1974613144]
+position = Vector2(1, 12)
+shape = SubResource("RectangleShape2D_y6bfl")

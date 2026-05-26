@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://cc6jcme1py2mv"
+path="res://.godot/imported/hidden.dialogue-bce173eaf44ed95f540edb01e8a92b17.tres"
+
+[deps]
+
+source_file="res://dialogue/hidden.dialogue"
+dest_files=["res://.godot/imported/hidden.dialogue-bce173eaf44ed95f540edb01e8a92b17.tres"]
+
+[params]
+
+defaults=true

@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://d1vseaclqv0e"]
+
+[ext_resource type="Texture2D" uid="uid://iowyxw4rj6bl" path="res://assets/tilesets/items_globe.png" id="1_1e2vk"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_3qy6d"]
+[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/interact.gd" id="1_m2726"]
+[ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="2_3gptq"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m2726"]
+radius = 38.0
+height = 76.0
+
+[node name="Globe" type="Node2D" unique_id=1527519422]
+script = ExtResource("1_m2726")
+needs_up_input = false
+dialogue = ExtResource("2_3gptq")
+dialogue_start = "globe"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841922687]
+texture = ExtResource("1_1e2vk")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_3qy6d")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=1974613144]
+shape = SubResource("CapsuleShape2D_m2726")

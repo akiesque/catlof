@@ -31,9 +31,14 @@ func _process(_delta: float) -> void:
 				is_facing_wrong = true
 		
 		if target.is_interactable and not is_facing_wrong:
-			interact_label.visible = true
-			if bounce.current_animation != "floating":
-				bounce.play("floating")
+			# Check if the target explicitly wants to hide its UI
+			if "show_ui" in target and not target.show_ui:
+				interact_label.visible = false
+				bounce.stop()
+			else:
+				interact_label.visible = true
+				if bounce.current_animation != "floating":
+					bounce.play("floating")
 		else:
 			interact_label.visible = false
 			bounce.stop()

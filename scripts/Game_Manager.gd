@@ -20,11 +20,16 @@ var use_saved_position : bool = false
 #Locking inputs for future stuff
 var unlocked_book := true
 var unlock_crafting := false
+var sprint_unlock := true # change upon release
 
 #Items interacted for the first time
 var flag = {
 	"interacted_table": false,
 	"show_time": false,
+	"about_tourists": false,
+	"about_sirens": false,
+	"about_elementals": false,
+	"about_dragonborns": false,
 	
 }
 
