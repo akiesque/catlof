@@ -12,6 +12,12 @@ extends Control
 @onready var voice_player: AudioStreamPlayer = $VoicePlayer
 @onready var ui_player: AudioStreamPlayer = $CtcPlayer
 
+#Positions:
+@onready var character_a: TextureRect = $CanvasLayer/Control/CharacterA
+@onready var character_b: TextureRect = $CanvasLayer/Control/CharacterB
+@onready var character_c: TextureRect = $CanvasLayer/Control/CharacterC
+@onready var character_d: TextureRect = $CanvasLayer/Control/CharacterD
+
 #Choices
 @onready var choice_ui: Control = $CanvasLayer/ChoiceUI
 var choice_visible :=  false
@@ -31,6 +37,7 @@ var current_voice_sfx: AudioStream = null
 var last_played_character_index: int = 0
 
 func _ready():
+	PManager.register_positions(character_a, character_b, character_c, character_d)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer.visible = false
 	self.hide()

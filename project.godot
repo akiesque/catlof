@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://6g3e7ryvpwy6"
 [autoload]
 
 UIManager="*uid://d0l7lvj3s56xr"
+PManager="*uid://dke7shyds4fxf"
 BagUI="*uid://c22p7pmals1gm"
 CraftCookUI="*uid://dafxb0ewjaslo"
 DialogueManager="*uid://c3rodes2l3gxb"

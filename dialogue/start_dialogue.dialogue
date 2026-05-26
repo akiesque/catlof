@@ -3,7 +3,8 @@
 #GameManager for saves, player info & variables
 using GameManager
 #SoundManager for sounds
-#PManager for portraits (soon)
+using PManager 
+#for portraits (soon)
 #CurtainCall for cutscenes (soon)
 
 ~ start
@@ -21,8 +22,15 @@ Casimir: Choose a Response...
 #	do GameManager.unlocked_book = true
 - Option 3
 	if BagManager.has_item("Letter"):
-		Casimir: You suddenly dropped the letter!
-		do BagManager.take_item("res://assets/bag/items/letter.tres")
+#		Casimir: You suddenly dropped the letter!
+#		do BagManager.take_item("res://assets/bag/items/letter.tres")
+		do PManager.show("Casimir", "c_happy", "CharacterA")
+		Casimir: I am standing over on the left side!
+		do PManager.show("Vivienne", "m_neutral", "CharacterC")
+		Vivenne: And I am standing on the right-middle side. Casimir should look dim now!
+		do PManager.show("Casimir", "c_happy", "CharacterA")
+		Casimir: Yep! Now I lit right back up when I started talking again.
+		do PManager.hide("Vivenne")
 	else:
 		Casimir: Oh, you don't have the letter anymore.
 - Option 4

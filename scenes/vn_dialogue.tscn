@@ -983,7 +983,6 @@ bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 20
-visible = false
 
 [node name="ChoiceUI" parent="CanvasLayer" unique_id=492625936 instance=ExtResource("2_vy31a")]
 visible = false
@@ -1029,20 +1028,6 @@ offset_bottom = 659.9934
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
-
-[node name="Control" type="Control" parent="CanvasLayer" unique_id=254938698]
-layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="CharacterA" type="Sprite2D" parent="CanvasLayer/Control" unique_id=784373986]
-
-[node name="CharacterB" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1680545880]
-
-[node name="CharacterC" type="Sprite2D" parent="CanvasLayer/Control" unique_id=1444747682]
-
-[node name="CharacterD" type="Sprite2D" parent="CanvasLayer/Control" unique_id=346130715]
 
 [node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=506521021]
 anchors_preset = 15
@@ -1132,3 +1117,78 @@ bbcode_enabled = true
 script = ExtResource("11_ek6e3")
 skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
 metadata/_custom_type_script = "uid://g32um0mltv5d"
+
+[node name="Control" type="Control" parent="CanvasLayer" unique_id=254938698]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Transition" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1701482648]
+root_node = NodePath("../CharacterA")
+
+[node name="CharacterA" type="TextureRect" parent="CanvasLayer/Control" unique_id=1327571376]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 64.0
+offset_top = 193.99998
+offset_right = -788.0
+offset_bottom = -4.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
+
+[node name="CharacterB" type="TextureRect" parent="CanvasLayer/Control" unique_id=1318534280]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 787.0
+offset_top = 196.0
+offset_right = -65.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
+
+[node name="CharacterC" type="TextureRect" parent="CanvasLayer/Control" unique_id=1350155594]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 787.0
+offset_top = 196.0
+offset_right = -65.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
+
+[node name="CharacterD" type="TextureRect" parent="CanvasLayer/Control" unique_id=847326876]
+custom_minimum_size = Vector2(300, 450)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 787.0
+offset_top = 196.0
+offset_right = -65.0
+offset_bottom = -2.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.05, 1.05)
+pivot_offset = Vector2(153, 227)
+stretch_mode = 5
