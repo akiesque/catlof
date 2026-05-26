@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bjrha4wecsv1u"]
+
+[ext_resource type="Texture2D" uid="uid://c2qhud4sx0fu7" path="res://assets/tilesets/chest_library.png" id="1_6vl4s"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_nvuik"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6vl4s"]
+size = Vector2(70, 39)
+
+[node name="Chest" type="Node2D" unique_id=976254030]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1539498838]
+texture = ExtResource("1_6vl4s")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_nvuik")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=580561058]
+shape = SubResource("RectangleShape2D_6vl4s")

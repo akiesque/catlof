@@ -1,6 +1,7 @@
 extends CharacterBody2D
 
-const SPEED = 130.0
+const SPEED = 160.0
+const SPRINT_SPEED = 220.0
 var dir = "down" 
 
 @onready var sfx_player: AudioStreamPlayer = $AudioStreamPlayer
@@ -49,10 +50,16 @@ func _physics_process(delta):
 		if pickable():
 			trigger_pickup_sequence()
 			return
+			
+	# sprint anim
+	var current_speed = SPEED
+	if GameManager.sprint_unlock:
+		if Input.is_action_pressed("sprint"): 
+			current_speed = SPRINT_SPEED
 
 	# Horizontal axis
 	var horizontal_direction := Input.get_axis("move_left", "move_right")
-	velocity.x = horizontal_direction * SPEED
+	velocity.x = horizontal_direction * current_speed
 	
 	# Input directions & Sprite Flipping
 	if Input.is_action_pressed("move_right"):

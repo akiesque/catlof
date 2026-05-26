@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cnb62qcbh8kv3"]
+
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_s2515"]
+[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/interact.gd" id="1_v2urv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2urv"]
+size = Vector2(36.625, 52.09375)
+
+[node name="Blurb" type="Node2D" unique_id=1653541290]
+script = ExtResource("1_v2urv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=539441726]
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_s2515")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=140296663]
+shape = SubResource("RectangleShape2D_v2urv")

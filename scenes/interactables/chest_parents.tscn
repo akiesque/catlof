@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://0rq8dd6ahaxg"]
+
+[ext_resource type="Script" uid="uid://bwklio8ean2xs" path="res://scripts/interact.gd" id="1_h1otr"]
+[ext_resource type="Texture2D" uid="uid://c2rpdpvpiwmsl" path="res://assets/tilesets/chest.png" id="1_m7d2f"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_ww75c"]
+[ext_resource type="Resource" uid="uid://bvam8mpu31s7k" path="res://dialogue/books.dialogue" id="2_53f0u"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ww75c"]
+size = Vector2(63, 34)
+
+[node name="ChestParents" type="Node2D" unique_id=476045902]
+scale = Vector2(1.2, 1.2)
+script = ExtResource("1_h1otr")
+dialogue = ExtResource("2_53f0u")
+dialogue_start = "chest"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1725349399]
+texture = ExtResource("1_m7d2f")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_ww75c")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=579597790]
+position = Vector2(0, -1)
+shape = SubResource("RectangleShape2D_ww75c")

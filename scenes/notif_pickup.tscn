@@ -5,8 +5,8 @@
 [ext_resource type="AudioStream" uid="uid://dry5sihk63hp1" path="res://assets/ui/sfx/pickup.mp3" id="2_jmdf5"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_70d11"]
-radius = 16.0
-height = 72.0
+radius = 21.0
+height = 196.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_jmdf5"]
 font = ExtResource("2_1lptj")
@@ -30,7 +30,7 @@ stream = ExtResource("2_jmdf5")
 bus = &"SFX"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=203915909]
-position = Vector2(0, 9)
+position = Vector2(0, -10)
 shape = SubResource("CapsuleShape2D_70d11")
 
 [node name="NotifLabel" type="Label" parent="." unique_id=281602633]

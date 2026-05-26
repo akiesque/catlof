@@ -2,7 +2,7 @@ extends Control
 
 @onready var background_rect: TextureRect = $CanvasLayer/TextureRect
 @onready var character_name: Label = $CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharacterName
-@onready var char_dialogue: RichTextLabel = $CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue
+@onready var char_dialogue: DialogueLabel = $CanvasLayer/MarginContainer/DialogueBox/VBoxContainer/CharDialogue
 @onready var layer: CanvasLayer = $CanvasLayer
 @onready var anim: AnimationPlayer = $Animation
 @onready var ctc: TextureRect = $CanvasLayer/MarginContainer/DialogueBox/Control/AdvanceCtc
@@ -86,8 +86,10 @@ func update_line(title: String):
 	if current_line:
 		_hide_ctc()
 		character_name.text = current_line.character
-		char_dialogue.text = current_line.text
-		char_dialogue.visible_characters = 0
+		
+		# --- MODIFIED FOR DIALOGUBLABEL ---
+		# Instead of manually setting text, give it the whole current_line object
+		char_dialogue.dialogue_line = current_line
 		
 		match current_line.character:
 			"Casimir":
@@ -103,20 +105,18 @@ func update_line(title: String):
 		last_played_character_index = 0
 		is_typing = true
 		
-		if typing_tween:
-			typing_tween.kill()
-		typing_tween = create_tween()
-		typing_tween.set_process_mode(Tween.TWEEN_PROCESS_IDLE)
+		# Tell the label to start typing out. It handles speeds and [wait] tags natively!
+		char_dialogue.type_out()
 		
-		var total_chars = char_dialogue.get_total_character_count()
-		typing_tween.tween_property(char_dialogue, "visible_characters", total_chars, total_chars * 0.04)
-		typing_tween.tween_callback(_on_typing_finished)
+		# Wait until the label signals that it's completely done typing
+		await char_dialogue.finished_typing
+		_on_typing_finished()
 	else:
 		_on_dialogue_ended(null)
 		
 func _on_typing_finished():
-	if typing_tween == null: return
-	print("tween finished!")
+	if not is_typing: return 
+	
 	is_typing = false
 	if current_line and current_line.responses.size() > 0:
 		_show_choices()
@@ -153,21 +153,14 @@ func _input(event):
 	if event.is_action_pressed("ui_accept"):
 		get_viewport().set_input_as_handled()
 		if is_typing:
-			if typing_tween: 
-				typing_tween.kill()
-				typing_tween = null  
-			char_dialogue.visible_characters = -1
-			is_typing = false
-			if current_line and current_line.responses.size() > 0:
-				_show_choices()
-			else:
-				_show_ctc()
+			# DialogueLabel has a built-in skip feature that handles completions beautifully
+			char_dialogue.skip_typing()
+			_on_typing_finished() 
 		elif current_line:
 			ui_player.pitch_scale = 1.0
 			ui_player.stream = SFX_CTC
 			ui_player.play()
 			update_line(current_line.next_id)
-
 
 func _on_dialogue_ended(_resource):
 	anim.play("exit")

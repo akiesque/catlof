@@ -10,6 +10,7 @@
 [ext_resource type="FontFile" uid="uid://cj60rdc27g6td" path="res://assets/ui/fonts/Karla-SemiBold.ttf" id="6_cl3qj"]
 [ext_resource type="FontFile" uid="uid://cx03sur0ty3f8" path="res://assets/ui/fonts/Karla-SemiBoldItalic.ttf" id="7_vy31a"]
 [ext_resource type="FontFile" uid="uid://b6vgmo7uki7co" path="res://assets/ui/fonts/Karla-MediumItalic.ttf" id="8_ek6e3"]
+[ext_resource type="Script" uid="uid://g32um0mltv5d" path="res://addons/dialogue_manager/dialogue_label.gd" id="11_ek6e3"]
 
 [sub_resource type="Animation" id="Animation_2lfgq"]
 length = 0.6333333
@@ -1050,7 +1051,7 @@ anchor_bottom = 1.0
 offset_left = 60.0
 offset_top = 31.0
 offset_right = -33.0
-offset_bottom = -391.0003
+offset_bottom = -391.00024
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1111,7 +1112,7 @@ theme_override_colors/font_color = Color(1, 0.3019608, 0.3019608, 1)
 theme_override_fonts/font = ExtResource("5_5kqa1")
 theme_override_font_sizes/font_size = 40
 
-[node name="CharDialogue" type="RichTextLabel" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=2122964189]
+[node name="CharDialogue" type="RichTextLabel" parent="CanvasLayer/MarginContainer/DialogueBox/VBoxContainer" unique_id=602665598]
 modulate = Color(0.4424397, 0.4577822, 0.8922482, 1)
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(959, 142)
@@ -1128,3 +1129,6 @@ theme_override_font_sizes/bold_font_size = 30
 theme_override_font_sizes/bold_italics_font_size = 30
 theme_override_font_sizes/italics_font_size = 30
 bbcode_enabled = true
+script = ExtResource("11_ek6e3")
+skip_pause_at_abbreviations = PackedStringArray("Mr", "Mrs", "Ms", "Dr", "etc", "eg", "ex")
+metadata/_custom_type_script = "uid://g32um0mltv5d"

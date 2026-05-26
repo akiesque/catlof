@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cl7rrmy5wi5cl"]
+
+[ext_resource type="Texture2D" uid="uid://cnpndcr41sp5" path="res://assets/tilesets/inside_door.png" id="1_dpe4s"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_c337g"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="3_ya6p1"]
+[ext_resource type="AudioStream" uid="uid://cs0i4bbikpxiq" path="res://assets/ui/sfx/stairs_down.mp3" id="4_dpe4s"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_yc6wi"]
+radius = 36.0
+height = 172.0
+
+[node name="DoorDownstairs" type="Node2D" unique_id=181197232]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=298127100]
+position = Vector2(0, 5)
+scale = Vector2(1, 1.21875)
+texture = ExtResource("1_dpe4s")
+offset = Vector2(0, -9.846153)
+
+[node name="Interactable" parent="." unique_id=894810374 instance=ExtResource("2_c337g")]
+script = ExtResource("3_ya6p1")
+needs_up_input = true
+destination_scene = "uid://dwuw11amb6tk7"
+spawn_location_name = "FromUpstairs"
+transition_color = Color(0.4079079, 0.63558495, 0.655823, 1)
+sfx_door = ExtResource("4_dpe4s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=2038051810]
+position = Vector2(0, -5)
+shape = SubResource("CapsuleShape2D_yc6wi")

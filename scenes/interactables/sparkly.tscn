@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://cht4wes1s8qiy"]
+
+[ext_resource type="Texture2D" uid="uid://bblkc5wiw5kix" path="res://assets/tilesets/sparkle.png" id="3_3wdg2"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="4_40xx3"]
+[ext_resource type="Script" uid="uid://j5ov05ulvkg7" path="res://scripts/interactor.gd" id="5_1jipe"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1jipe"]
+atlas = ExtResource("3_3wdg2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2jcwc"]
+atlas = ExtResource("3_3wdg2")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_40xx3"]
+atlas = ExtResource("3_3wdg2")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_etxqu"]
+atlas = ExtResource("3_3wdg2")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pr6a4"]
+atlas = ExtResource("3_3wdg2")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44r3e"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1jipe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2jcwc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_40xx3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_etxqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pr6a4")
+}],
+"loop": true,
+"name": &"shiny",
+"speed": 8.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_y6bfl"]
+size = Vector2(11.069011, 110.28125)
+
+[node name="Sparkly" type="Node2D" unique_id=1527519422]
+script = ExtResource("5_1jipe")
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1417698438]
+scale = Vector2(1.5, 1.5)
+sprite_frames = SubResource("SpriteFrames_44r3e")
+animation = &"shiny"
+autoplay = "shiny"
+frame_progress = 0.075399555
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("4_40xx3")]
+visible = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=1974613144]
+shape = SubResource("RectangleShape2D_y6bfl")
