@@ -983,7 +983,6 @@ bus = &"SFX"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1416356507]
 layer = 20
-visible = false
 
 [node name="ChoiceUI" parent="CanvasLayer" unique_id=492625936 instance=ExtResource("2_vy31a")]
 visible = false
@@ -1037,7 +1036,7 @@ anchor_bottom = 1.0
 offset_left = 60.0
 offset_top = 31.0
 offset_right = -33.0
-offset_bottom = -391.0002
+offset_bottom = -391.00018
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -1052,11 +1051,18 @@ patch_margin_bottom = 32
 
 [node name="Control" type="Control" parent="CanvasLayer/MarginContainer/DialogueBox" unique_id=1960787041]
 modulate = Color(1, 1, 1, 0)
-anchors_preset = 0
-offset_left = 970.0
-offset_top = 150.0
-offset_right = 1010.0
-offset_bottom = 190.0
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -89.0
+offset_top = 31.5
+offset_right = -49.0
+offset_bottom = 71.5
+grow_horizontal = 0
+grow_vertical = 2
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/MarginContainer/DialogueBox/Control" unique_id=257499144]
 process_mode = 3
@@ -1064,21 +1070,23 @@ root_node = NodePath("../AdvanceCtc")
 libraries/ = SubResource("AnimationLibrary_ek6e3")
 
 [node name="AdvanceCtc" type="TextureRect" parent="CanvasLayer/MarginContainer/DialogueBox/Control" unique_id=1762686995]
+custom_minimum_size = Vector2(32, 32)
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 6
+anchor_left = 1.0
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = -18.753635
+offset_left = -38.753635
 offset_top = -13.729301
-offset_right = 13.246365
+offset_right = -6.7536354
 offset_bottom = 18.270699
-grow_horizontal = 2
+grow_horizontal = 0
 grow_vertical = 2
 scale = Vector2(2, 2)
 pivot_offset = Vector2(15.693909, 15.163315)
 texture = ExtResource("4_cl3qj")
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/DialogueBox" unique_id=1853491787]
 layout_mode = 0
@@ -1130,32 +1138,32 @@ grow_vertical = 2
 [node name="Transition" type="AnimationPlayer" parent="CanvasLayer/Control" unique_id=1701482648]
 root_node = NodePath("../CharacterA")
 
-[node name="CharacterB" type="TextureRect" parent="CanvasLayer/Control" unique_id=1318534280]
-custom_minimum_size = Vector2(300, 450)
+[node name="CharacterB" type="TextureRect" parent="CanvasLayer/Control" unique_id=1918818573]
+custom_minimum_size = Vector2(300, 706)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 155.0
-offset_top = 195.0
-offset_right = -697.0
-offset_bottom = -3.0
+offset_left = 234.65001
+offset_top = -19.650013
+offset_right = -617.35
+offset_bottom = 38.349976
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
 pivot_offset = Vector2(153, 227)
 stretch_mode = 5
 
-[node name="CharacterD" type="TextureRect" parent="CanvasLayer/Control" unique_id=847326876]
-custom_minimum_size = Vector2(300, 450)
+[node name="CharacterD" type="TextureRect" parent="CanvasLayer/Control" unique_id=689806868]
+custom_minimum_size = Vector2(300, 706)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 700.0
-offset_top = 195.0
-offset_right = -152.0
-offset_bottom = -3.0
+offset_left = 616.0
+offset_top = -19.650013
+offset_right = -236.0
+offset_bottom = 38.349976
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
@@ -1163,31 +1171,31 @@ pivot_offset = Vector2(153, 227)
 stretch_mode = 5
 
 [node name="CharacterA" type="TextureRect" parent="CanvasLayer/Control" unique_id=1327571376]
-custom_minimum_size = Vector2(300, 450)
+custom_minimum_size = Vector2(300, 706)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 64.0
-offset_top = 195.0
-offset_right = -788.0
-offset_bottom = -3.0
+offset_left = 67.00001
+offset_top = -19.650013
+offset_right = -785.0
+offset_bottom = 38.349976
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)
 pivot_offset = Vector2(153, 227)
 stretch_mode = 5
 
-[node name="CharacterC" type="TextureRect" parent="CanvasLayer/Control" unique_id=1350155594]
-custom_minimum_size = Vector2(300, 450)
+[node name="CharacterC" type="TextureRect" parent="CanvasLayer/Control" unique_id=932950301]
+custom_minimum_size = Vector2(300, 706)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 787.0
-offset_top = 195.0
-offset_right = -65.0
-offset_bottom = -3.0
+offset_left = 790.0
+offset_top = -19.650013
+offset_right = -62.0
+offset_bottom = 38.349976
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(1.05, 1.05)

@@ -1,4 +1,6 @@
 using GameManager
+using PManager
+
 ~ bookshelf
 There are many books in the shelf. 
 Most of them are about Cloudvale Town. 
@@ -6,11 +8,13 @@ Casimir likes reading history and cultures a lot.
 => END
 
 ~ sirens
+do show("Casimir", "c_default", "CharacterA")
 Casimir: There's a book here about us——the Sirens.
 Casimir: Sirens like me are noticeable. You can tell if there are any symbols in our bodies. It's like a birthmark.
 Casimir: When Sirens pass away, they become pearls. The quality of the pearl depends on the siren.
 Casimir: The brighter it is, the happier their life must've been, and the bigger it is, the more memories they have.
 do set_true("about_sirens")
+do hide_all()
 => END
 
 ~ dragonborns

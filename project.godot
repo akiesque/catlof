@@ -51,6 +51,7 @@ folder_colors={
 [global_group]
 
 ingredients="pickable items"
+Player=""
 
 [input]
 

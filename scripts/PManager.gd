@@ -2,16 +2,24 @@ extends Node
 
 # --- CONFIGURATION ---
 const FRAME_WIDTH: int = 300
-const FRAME_HEIGHT: int = 450
+const FRAME_HEIGHT: int = 706
 
-const SCOOT_OFFSET: float = 100.0
+const SCOOT_OFFSET: float = 60.0
 
 # Map your grid coordinates (Column, Row) per character sheet
 const PORTRAIT_MAP: Dictionary = {
 	"Casimir": {
-		"sheet_path": "res://assets/sprites/dialogue/happy.png",
+		"sheet_path": "res://assets/sprites/dialogue/casimir.png",
 		"expressions": {
-			"c_happy": Vector2(0, 0),
+			"c_default": Vector2(0, 0),
+			"c_neutral": Vector2(1, 0),
+			"c_smile": Vector2(2, 0),
+			"c_conf": Vector2(0, 1),
+			"c_teary": Vector2(1, 1),
+			"c_angry": Vector2(2, 1),
+			"c_happy": Vector2(0, 2),
+			"c_flushed": Vector2(1, 2),
+			"c_shocked": Vector2(2, 2),
 		}
 	},
 	"Vivienne": {
@@ -21,17 +29,26 @@ const PORTRAIT_MAP: Dictionary = {
 		}
 	},
 	"Heinester": {
-		"sheet_path":  "res://assets/sprites/dialogue/m_neutral.png",
+		"sheet_path":  "res://assets/sprites/dialogue/heinester.png",
 		"expressions": {
-			"neutral": Vector2(0, 0),
+			"h_neutral": Vector2(0, 0),
+			"h_happy ": Vector2(0, 1),
+			"h_frown": Vector2(0, 2),
+			"h_shock": Vector2(1, 0),
+			"h_conf": Vector2(1, 1),
+			"h_mad": Vector2(1, 2),
+			"h_smile": Vector2(2, 0),
+			"h_sparkle": Vector2(2, 1),
+			"h_flustered": Vector2(2, 2),
+			
 		}
 	},
-	"Belomere": {
-		"sheet_path":  "res://assets/sprites/dialogue/happy.png",
-		"expressions": {
-			"b_neutral": Vector2(0, 0),
-		}
-	},
+	#"Belomere": {
+		#"sheet_path":  "res://assets/sprites/dialogue/happy.png",
+		#"expressions": {
+			#"b_neutral": Vector2(0, 0),
+		#}
+	#},
 }
 
 # --- STATE & POSITION NODES ---
@@ -134,6 +151,8 @@ func hide(character_name: String) -> void:
 
 func _hide(node: TextureRect) -> void:
 	node.hide()
+	if node.has_meta("start_y"):
+		node.position.y = node.get_meta("start_y")
 
 func hide_all() -> void:
 	for slot in slot_occupation.keys():

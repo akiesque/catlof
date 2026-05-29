@@ -18,7 +18,7 @@ var player_saved_pos : Vector2
 var use_saved_position : bool = false
 
 #Locking inputs for future stuff
-var unlocked_book := true
+var unlocked_book := false
 var unlock_crafting := false
 var sprint_unlock := true # change upon release
 

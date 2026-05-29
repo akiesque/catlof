@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ftetiutq12dt"
-path="res://.godot/imported/happy.png-b3bdff4a9a70d2e641860271ae3b5733.ctex"
+uid="uid://bgxcn84ycpocx"
+path="res://.godot/imported/casimir.png-3dc04c3be975014f903a68a4f58c16d4.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/sprites/dialogue/happy.png"
-dest_files=["res://.godot/imported/happy.png-b3bdff4a9a70d2e641860271ae3b5733.ctex"]
+source_file="res://assets/sprites/dialogue/casimir.png"
+dest_files=["res://.godot/imported/casimir.png-3dc04c3be975014f903a68a4f58c16d4.ctex"]
 
 [params]
 
