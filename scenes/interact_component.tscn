@@ -76,6 +76,7 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_bbssj")
 
 [node name="interact_label" type="TextureButton" parent="InteractRange/CollisionShape2D" unique_id=1798753935]
+visible = false
 anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0

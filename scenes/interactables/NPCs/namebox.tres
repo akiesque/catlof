@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://ceeq5buxhkj0t"]
+
+[ext_resource type="Texture2D" uid="uid://bm0dkx5nreudq" path="res://assets/ui/characterName.png" id="1_rknef"]
+
+[resource]
+texture = ExtResource("1_rknef")
+texture_margin_left = 32.0
+texture_margin_top = 32.0
+texture_margin_right = 32.0
+texture_margin_bottom = 32.0

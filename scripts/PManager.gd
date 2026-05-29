@@ -31,9 +31,9 @@ const PORTRAIT_MAP: Dictionary = {
 	"Heinester": {
 		"sheet_path":  "res://assets/sprites/dialogue/heinester.png",
 		"expressions": {
-			"h_neutral": Vector2(0, 0),
-			"h_happy ": Vector2(0, 1),
-			"h_frown": Vector2(0, 2),
+			"h_default": Vector2(0, 0),
+			"h_happy": Vector2(1, 0),
+			"h_frown": Vector2(2, 0),
 			"h_shock": Vector2(1, 0),
 			"h_conf": Vector2(1, 1),
 			"h_mad": Vector2(1, 2),

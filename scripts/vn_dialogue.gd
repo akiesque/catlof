@@ -27,6 +27,7 @@ const SFX_CTC = preload("res://assets/ui/sfx/ctc_sfx.mp3")
 # Preloads all beep sounds here
 const VOICES = {
 	"Casimir": preload("res://assets/Sounds/bleep007.wav"),
+	"Heinester": preload("res://assets/Sounds/bleep027.wav"),
 	"Default": preload("res://assets/Sounds/bleep005.wav") 
 }
 
@@ -105,6 +106,9 @@ func update_line(title: String):
 			"Vivianne":
 				current_voice_sfx = VOICES["Default"]
 				character_name.add_theme_color_override("font_color", Color.MEDIUM_PURPLE)
+			"Heinester":
+				current_voice_sfx = VOICES["Heinester"]
+				character_name.add_theme_color_override("font_color", Color("1b4a2fff"))
 			_:
 				current_voice_sfx = VOICES["Default"]
 				character_name.add_theme_color_override("font_color", Color.BLACK)

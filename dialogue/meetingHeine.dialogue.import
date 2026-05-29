@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://ck8oa5fptneoc"
+path="res://.godot/imported/meetingHeine.dialogue-70dd5b0f749406cb25151e8c7aa1e35e.tres"
+
+[deps]
+
+source_file="res://dialogue/meetingHeine.dialogue"
+dest_files=["res://.godot/imported/meetingHeine.dialogue-70dd5b0f749406cb25151e8c7aa1e35e.tres"]
+
+[params]
+
+defaults=true

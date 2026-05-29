@@ -54,7 +54,14 @@ func _sort_by_nearest(area1, area2):
 
 func _on_interact_range_area_entered(area: Area2D) -> void:
 	current_interactions.push_back(area)
+	# Look at the parent node of the interact zone (Heine)
+	var npc = area.get_parent()
+	if npc.has_method("show_tag"):
+		npc.show_tag()
 
 
 func _on_interact_range_area_exited(area: Area2D) -> void:
 	current_interactions.erase(area)
+	var npc = area.get_parent()
+	if npc.has_method("hide_tag"):
+		npc.hide_tag()

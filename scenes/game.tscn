@@ -13,7 +13,10 @@
 [ext_resource type="Texture2D" uid="uid://b1413o5uma64r" path="res://assets/tilesets/grass.png" id="6_dinhu"]
 [ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://8bbkacsdifcj" path="res://scenes/interactables/door.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://cygow7eucpdgp" path="res://scenes/interactables/crafting.tscn" id="12_264po"]
 [ext_resource type="Script" uid="uid://crkvhmhd5uf2h" path="res://scripts/forage_spawner.gd" id="13_ir15t"]
+[ext_resource type="PackedScene" uid="uid://b6s66v6u3mked" path="res://scenes/interactables/NPCs/Heinester.tscn" id="13_rysoc"]
+[ext_resource type="Resource" uid="uid://ck8oa5fptneoc" path="res://dialogue/meetingHeine.dialogue" id="13_ssvqc"]
 [ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="14_ir15t"]
 [ext_resource type="Resource" uid="uid://c3nxxc5yg2wdx" path="res://assets/bag/items/bloodberry.tres" id="14_trtic"]
 
@@ -464,6 +467,17 @@ tile_set = SubResource("TileSet_iywne")
 
 [node name="FromInside" type="Marker2D" parent="." unique_id=386723106]
 position = Vector2(-35, -28)
+
+[node name="CraftCookTable" parent="." unique_id=650274322 instance=ExtResource("12_264po")]
+position = Vector2(481, -30)
+
+[node name="NPCs" type="Node2D" parent="." unique_id=713869226]
+position = Vector2(295, -32)
+
+[node name="Heine" parent="NPCs" unique_id=1995479320 instance=ExtResource("13_rysoc")]
+dialogue = ExtResource("13_ssvqc")
+dialogue_start = "first_meeting"
+bg_image = "uid://mrdgvnc5ulyu"
 
 [node name="Player" parent="." unique_id=1320964713 groups=["Player"] instance=ExtResource("1_uwrxv")]
 position = Vector2(36, -30)

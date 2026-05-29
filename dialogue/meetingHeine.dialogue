@@ -1,0 +1,22 @@
+using GameManager
+using PManager
+
+~ first_meeting
+# Meeting Hein for the first time.
+do mark_npc_as_met("heine")
+do show("Casimir", "c_shocked", "CharacterA")
+do show("Heinester", "h_default", "CharacterC")
+do bounce("CharacterC")
+Heinester: [wave]Wooooow!![/wave]
+do shake("CharacterA")
+do show("Heinester", "h_happy", "CharacterC")
+Heinester: I have [b]NOT[/b] seen you in a while, Casi!
+do show("Casimir", "c_smile", "CharacterA")
+Casimir: ...Hi, Heine.
+do show("Heinester", "h_happy", "CharacterC")
+Heinester: So, you're [i]definitely not updated[/i] and Cloudvale has changed so much...
+do show("Heinester", "h_conf", "CharacterC")
+Heinester: [i]How're you?[/i]
+Heinester: [b][i]You were cooped that in library for so long I thought I'd never see you again![/i][b]
+do hide_all()
+=> END
