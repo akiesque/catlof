@@ -20,6 +20,8 @@ const PORTRAIT_MAP: Dictionary = {
 			"c_happy": Vector2(0, 2),
 			"c_flushed": Vector2(1, 2),
 			"c_shocked": Vector2(2, 2),
+			"c_worry": Vector2(0, 3),
+			
 		}
 	},
 	"Vivienne": {
@@ -36,10 +38,10 @@ const PORTRAIT_MAP: Dictionary = {
 			"h_frown": Vector2(2, 0),
 			"h_shock": Vector2(1, 0),
 			"h_conf": Vector2(1, 1),
-			"h_mad": Vector2(1, 2),
-			"h_smile": Vector2(2, 0),
-			"h_sparkle": Vector2(2, 1),
-			"h_flustered": Vector2(2, 2),
+			"h_mad": Vector2(2, 1),
+			"h_smile": Vector2(0, 2),
+			"h_sparkle": Vector2(1, 2),
+			"h_avert": Vector2(2, 2),
 			
 		}
 	},
