@@ -3,7 +3,8 @@
 #GameManager for saves, player info & variables
 using GameManager
 #SoundManager for sounds
-#PManager for portraits (soon)
+using PManager 
+#for portraits (soon)
 #CurtainCall for cutscenes (soon)
 
 ~ start
@@ -21,8 +22,27 @@ Casimir: Choose a Response...
 #	do GameManager.unlocked_book = true
 - Option 3
 	if BagManager.has_item("Letter"):
-		Casimir: You suddenly dropped the letter!
-		do BagManager.take_item("res://assets/bag/items/letter.tres")
+#		Casimir: You suddenly dropped the letter!
+#		do BagManager.take_item("res://assets/bag/items/letter.tres")
+		do PManager.show("Casimir", "c_default", "CharacterA")
+		Casimir: I am standing over on the left side!
+		do PManager.show("Vivienne", "m_neutral", "CharacterC")
+		Vivenne: And I am standing on the right-middle side. Casimir should look dim now!
+		do PManager.show("Casimir", "c_smile", "CharacterA")
+		Casimir: Yep! Now I lit right back up when I started talking again.
+		do PManager.show("Vivienne", "m_neutral", "CharacterC")
+		Vivienne: Hmmm, you know what? We can even try something fun!
+		do PManager.show("Casimir", "c_conf", "CharacterA")
+		Casimir: Huh? Like what?
+		do show("Heinester", "h_neutral", "CharacterD")
+		Heinester: Like showing me up!
+		do show("Belomere", "b_neutral", "CharacterB")
+		Belomere: Ah, four people in a screen...
+		Belomere: Efficient.
+		do PManager.show("Vivienne", "m_neutral", "CharacterC")
+		do bounce("CharacterC")
+		Vivienne: Oooh! That's [wave]soooo[/wave] cool!
+		do hide_all()
 	else:
 		Casimir: Oh, you don't have the letter anymore.
 - Option 4
@@ -41,13 +61,26 @@ if not is_true("interacted_table") and unlock_crafting == false:
 	do set_true("interacted_table")
 => END
 
+~ mailbox
+do show("Casimir", "c_default", "CharacterA")
+Casimir: There's no more mail.
+do hide_all()
+=> END
+
 ~ globe
+do show("Casimir", "c_default", "CharacterA")
 Casimir: This is a replica model of the world we live in, [b]Krubilei[/b].
+do show("Casimir", "c_neutral", "CharacterA")
 Casimir: Our world is created by the God of Destruction, Qhosthos.
+do show("Casimir", "c_default", "CharacterA")
 Casimir: But here in Cloudvale, our small town is watched over by an omniscent being we call the Prophet.
+do hide_all()
 => END
 
 ~ desk
+do show("Casimir", "c_smile", "CharacterA")
 Casimir: These are photos of me and my childhood friend, Hein.
+do show("Casimir", "c_default", "CharacterA")
 Casimir: He lives a few steps away.
+do hide_all()
 => END

@@ -19,8 +19,27 @@ var use_saved_position : bool = false
 
 #Locking inputs for future stuff
 var unlocked_book := true
-var unlock_crafting := false
+var unlock_crafting := true
 var sprint_unlock := true # change upon release
+
+#Met NPCs dict
+var met_npcs:= {
+	"heine": false,
+	"bel": false,
+	"vivi": false,
+	"lyn": false,
+	"frees": false,
+	"quiyn": false,
+	"ama": false
+}
+
+#Helpers to set to true + checker
+func mark_npc_as_met(npc_id: String) -> void:
+	if npc_id != "":
+		met_npcs[npc_id] = true
+
+func has_met_npc(npc_id: String) -> bool:
+	return met_npcs.has(npc_id) and met_npcs[npc_id] == true
 
 #Items interacted for the first time
 var flag = {

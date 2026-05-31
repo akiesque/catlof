@@ -1,4 +1,6 @@
 using GameManager
+using PManager
+
 ~ bookshelf
 There are many books in the shelf. 
 Most of them are about Cloudvale Town. 
@@ -6,38 +8,49 @@ Casimir likes reading history and cultures a lot.
 => END
 
 ~ sirens
+do show("Casimir", "c_default", "CharacterA")
 Casimir: There's a book here about us——the Sirens.
 Casimir: Sirens like me are noticeable. You can tell if there are any symbols in our bodies. It's like a birthmark.
 Casimir: When Sirens pass away, they become pearls. The quality of the pearl depends on the siren.
 Casimir: The brighter it is, the happier their life must've been, and the bigger it is, the more memories they have.
 do set_true("about_sirens")
+do hide_all()
 => END
 
 ~ dragonborns
+do show("Casimir", "c_angry", "CharacterA")
 Casimir: Mostly scary...
 Casimir: They're the rarest of all the races. They have horns and sharp eyes.
+do show("Casimir", "c_neutral", "CharacterA")
 Casimir: There's barely any of them in Cloudvale ever since the incident...
 do set_true("about_dragonborns")
+do hide_all()
 => END
 
 ~ elementals
+do show("Casimir", "c_neutral", "CharacterA")
 Casimir: Ah, the Elementals. They're born from many things. Some say if an emotion is so strong, the object gains a physical body.
 Casimir: My childhood friend, Hein is an elemental. He was born from the windy forests of Sherbet Mountain.
 Casimir: Sirens are usually born from music, though.
 Casimir: My mother told me I was born from the music of the sea. I didn't really understand that.
 do set_true("about_elementals")
+do hide_all()
 => END
 
 ~ tourists
 if is_true("about_tourists"):
+	do show("Casimir", "c_default", "CharacterA")
 	Casimir: Just some books about strangers outside of this world.
+	do hide_all()
 	=> END!
 if is_true("about_sirens") and is_true("about_elementals") and is_true("about_dragonborns"):
+	do show("Casimir", "c_neutral", "CharacterA")
 	Casimir: Its a book about... ???
 	Casimir: We don't know what to call them, we just call them [b]tourists[/b]
 	Casimir: They're beings that come from above the sky and decided to reside here.
 	Casimir: But despite the name, we're not really advised to trust them.
 	do set_true("about_tourists")
+	do hide_all()
 => END
 
 ~ pearl
@@ -45,5 +58,5 @@ Casimir: ...
 => END
 
 ~ chestparents
-Casimir: 
+Casimir: ...
 => END

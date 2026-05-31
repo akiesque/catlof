@@ -501,7 +501,7 @@ texture = ExtResource("5_cim78")
 [node name="ChoiceBox" type="NinePatchRect" parent="CanvasLayer" unique_id=411604799]
 offset_left = 371.0
 offset_top = 337.0
-offset_right = 784.99945
+offset_right = 784.9995
 offset_bottom = 620.99854
 pivot_offset = Vector2(7, 269)
 size_flags_vertical = 6

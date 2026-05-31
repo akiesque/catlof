@@ -285,7 +285,8 @@ dialogue_start = "pearl"
 scale = Vector2(1, 1)
 dialogue_start = "chestparents"
 
-[node name="Player" parent="." unique_id=1320964713 instance=ExtResource("3_0ya21")]
+[node name="Player" parent="." unique_id=1320964713 groups=["Player"] instance=ExtResource("3_0ya21")]
+visible = false
 position = Vector2(535, -18)
 
 [node name="Player_Cam" type="Camera2D" parent="Player" unique_id=1922041369]

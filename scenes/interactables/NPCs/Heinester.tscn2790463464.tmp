@@ -1,0 +1,79 @@
+[gd_scene format=3 uid="uid://b6s66v6u3mked"]
+
+[ext_resource type="Script" uid="uid://b5gha2d1thesb" path="res://scenes/interactables/NPCs/heinester.gd" id="1_3hhk7"]
+[ext_resource type="Texture2D" uid="uid://cxxpk203ucfwp" path="res://assets/sprites/heinester.png" id="1_7oy04"]
+[ext_resource type="PackedScene" uid="uid://mi3exgqfgsof" path="res://scenes/interactables/NPCs/NPCTag.tscn" id="1_13s0e"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13s0e"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(0, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3hhk7"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(48, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tvgk8"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(96, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wr6ix"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(144, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wbosf"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(192, 0, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hwds7"]
+atlas = ExtResource("1_7oy04")
+region = Rect2(240, 0, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_3jt7f"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_13s0e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3hhk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tvgk8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wr6ix")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wbosf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hwds7")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_13s0e"]
+radius = 15.0
+height = 96.0
+
+[node name="Heine" type="Node2D" unique_id=1995479320]
+script = ExtResource("1_3hhk7")
+
+[node name="Tag" parent="." unique_id=1042009669 instance=ExtResource("1_13s0e")]
+visible = false
+offset_left = -12.0
+offset_top = -41.000008
+offset_right = -12.0
+offset_bottom = -41.000008
+scale = Vector2(0.355, 0.355)
+
+[node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1984224890]
+sprite_frames = SubResource("SpriteFrames_3jt7f")
+frame_progress = 0.563856
+
+[node name="InteractZone" type="Area2D" parent="." unique_id=964069817]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractZone" unique_id=986990592]
+shape = SubResource("CapsuleShape2D_13s0e")

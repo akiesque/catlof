@@ -12,6 +12,12 @@ extends Control
 @onready var voice_player: AudioStreamPlayer = $VoicePlayer
 @onready var ui_player: AudioStreamPlayer = $CtcPlayer
 
+#Positions:
+@onready var character_a: TextureRect = $CanvasLayer/Control/CharacterA
+@onready var character_b: TextureRect = $CanvasLayer/Control/CharacterB
+@onready var character_c: TextureRect = $CanvasLayer/Control/CharacterC
+@onready var character_d: TextureRect = $CanvasLayer/Control/CharacterD
+
 #Choices
 @onready var choice_ui: Control = $CanvasLayer/ChoiceUI
 var choice_visible :=  false
@@ -21,6 +27,7 @@ const SFX_CTC = preload("res://assets/ui/sfx/ctc_sfx.mp3")
 # Preloads all beep sounds here
 const VOICES = {
 	"Casimir": preload("res://assets/Sounds/bleep007.wav"),
+	"Heinester": preload("res://assets/Sounds/bleep027.wav"),
 	"Default": preload("res://assets/Sounds/bleep005.wav") 
 }
 
@@ -31,6 +38,7 @@ var current_voice_sfx: AudioStream = null
 var last_played_character_index: int = 0
 
 func _ready():
+	PManager.register_positions(character_a, character_b, character_c, character_d)
 	process_mode = Node.PROCESS_MODE_ALWAYS
 	layer.visible = false
 	self.hide()
@@ -98,6 +106,9 @@ func update_line(title: String):
 			"Vivianne":
 				current_voice_sfx = VOICES["Default"]
 				character_name.add_theme_color_override("font_color", Color.MEDIUM_PURPLE)
+			"Heinester":
+				current_voice_sfx = VOICES["Heinester"]
+				character_name.add_theme_color_override("font_color", Color("1b4a2fff"))
 			_:
 				current_voice_sfx = VOICES["Default"]
 				character_name.add_theme_color_override("font_color", Color.BLACK)

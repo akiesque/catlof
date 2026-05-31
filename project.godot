@@ -22,6 +22,7 @@ buses/default_bus_layout="uid://6g3e7ryvpwy6"
 [autoload]
 
 UIManager="*uid://d0l7lvj3s56xr"
+PManager="*uid://dke7shyds4fxf"
 BagUI="*uid://c22p7pmals1gm"
 CraftCookUI="*uid://dafxb0ewjaslo"
 DialogueManager="*uid://c3rodes2l3gxb"
@@ -50,6 +51,7 @@ folder_colors={
 [global_group]
 
 ingredients="pickable items"
+Player=""
 
 [input]
 
@@ -95,7 +97,7 @@ sprint={
 
 [internationalization]
 
-locale/translations_pot_files=PackedStringArray("res://dialogue/start_dialogue.dialogue", "res://dialogue/books.dialogue", "res://dialogue/hidden.dialogue")
+locale/translations_pot_files=PackedStringArray("res://dialogue/start_dialogue.dialogue", "res://dialogue/books.dialogue", "res://dialogue/hidden.dialogue", "res://dialogue/meetingHeine.dialogue")
 
 [layer_names]
 
