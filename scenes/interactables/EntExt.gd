@@ -16,6 +16,8 @@ func _ready() -> void:
 	Transition.play_fade_in(transition_color)
 
 func _on_interact_triggered():
+	if GameManager.is_dialogue_active:
+		return
 	var player = get_tree().get_first_node_in_group("Player")
 	
 	if player:

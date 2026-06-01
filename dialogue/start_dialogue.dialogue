@@ -84,3 +84,44 @@ do show("Casimir", "c_default", "CharacterA")
 Casimir: He lives a few steps away.
 do hide_all()
 => END
+
+~ wolframsbed
+do show("Casimir", "c_smile", "CharacterA")
+Casimir: This is Wolfram's side of the room.
+Casimir: She isn't around right now, maybe she's by the beach right now.
+do hide_all()
+=> END
+
+~ bed
+if is_true("slept_bed"):
+	=> sleeping
+if is_true("interacted_true") and not is_true("slept_bed"):
+	Casimir: Hmm… [wait=0.5]though, sleeping for an hour doesn’t sound so bad, does it..?
+	- Maybe a little bit.. =>< sleeping
+	- Nevermind. => END
+else if not is_true("interacted_bed"):
+	do show("Casimir", "c_default", "CharacterA")
+	Casimir: This is my bed. When my parents [i]left[/i], I gave their stuff to a wandering merchant.
+	Casimir: Now, all is left is mine. It saves up space, at least.
+	Casimir: Mother always told me to fix the bed before I left the house.
+	do show("Casimir", "c_worry", "CharacterA")
+	Casimir: Well, now that I'm dying soon, I might as well do as she says.
+	do show("Casimir", "c_neutral", "CharacterA")
+	do set_true("interacted_true")
+	Casimir: Hmm… [wait=0.5]though, sleeping for an hour doesn’t sound so bad, does it..?
+	- Maybe a little bit.. => sleeping
+	- Nevermind. => END
+=> END
+
+~ sleeping
+# Add a cutscene here
+if not is_true("slept_bed"):
+	do set_true("slept_bed")
+if is_true("slept_bed"):
+	Casimir: I already slept before, should I sleep again?
+	- Just a little more. => END!
+	- Nevermind => END!
+if is_true("slept_bed") and BagManager.has_item("Letter"):
+	Casimir: I don't have enough time... should I seriously sleep again?
+	- Just a little more... => END!
+	- No, nevermind. => END!

@@ -4,37 +4,38 @@
 [ext_resource type="StyleBox" uid="uid://ceeq5buxhkj0t" path="res://scenes/interactables/NPCs/namebox.tres" id="2_gxie4"]
 [ext_resource type="Texture2D" uid="uid://bpho6qh83achm" path="res://assets/ui/tail.png" id="2_rggoq"]
 [ext_resource type="FontFile" uid="uid://cj60rdc27g6td" path="res://assets/ui/fonts/Karla-SemiBold.ttf" id="3_74e52"]
+[ext_resource type="Texture2D" uid="uid://c04fu4dwvm1e0" path="res://assets/ui/characterName_effect.png" id="5_gxie4"]
 
 [sub_resource type="Animation" id="Animation_74e52"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, -24.5)]
+"values": [Vector2(0, 131.5)]
 }
 
 [sub_resource type="Animation" id="Animation_gxie4"]
 resource_name = "bouncey"
-length = 0.7
-loop_mode = 1
+length = 0.8333333
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
+tracks/0/path = NodePath("..:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.36666667, 0.7),
-"transitions": PackedFloat32Array(0.35355344, 0.35355344, 0.35355344),
+"times": PackedFloat32Array(0, 0.43333334, 0.8),
+"transitions": PackedFloat32Array(0.21022414, 0.21022414, 0.21022414),
 "update": 0,
-"values": [Vector2(0, -24.5), Vector2(0, -35), Vector2(0, -24.5)]
+"values": [Vector2(0, 131.5), Vector2(0, 120), Vector2(0, 131.5)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_2hjjb"]
@@ -62,39 +63,63 @@ pivot_offset = Vector2(201.00989, 70.293335)
 script = ExtResource("1_74e52")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1581879479]
-root_node = NodePath("../VBoxContainer")
+root_node = NodePath("../Control/VBoxContainer")
 libraries/ = SubResource("AnimationLibrary_2hjjb")
 autoplay = &"bouncey"
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=61264519]
+[node name="Control" type="Control" parent="." unique_id=1020065609]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = -24.5
-offset_bottom = -0.7958374
+offset_top = 131.5
+offset_bottom = 131.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=61264519]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = -6
 
-[node name="Panel" type="PanelContainer" parent="VBoxContainer" unique_id=488352768]
+[node name="Panel" type="PanelContainer" parent="Control/VBoxContainer" unique_id=488352768]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme_override_styles/panel = ExtResource("2_gxie4")
 
-[node name="CharacterName" type="Label" parent="VBoxContainer/Panel" unique_id=1346878200]
+[node name="CharacterName" type="Label" parent="Control/VBoxContainer/Panel" unique_id=1346878200]
 layout_mode = 2
+size_flags_horizontal = 4
 size_flags_vertical = 1
 theme_override_colors/font_color = Color(0.49411765, 0.5372549, 0.5019608, 1)
 theme_override_fonts/font = ExtResource("3_74e52")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 50
 text = "???"
 horizontal_alignment = 1
 vertical_alignment = 1
 justification_flags = 171
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer" unique_id=241754662]
+[node name="TextureRect2" type="TextureRect" parent="Control/VBoxContainer/Panel/CharacterName" unique_id=2049292721]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -32.143707
+offset_top = -32.145355
+offset_right = -8.714569
+offset_bottom = 5.2848816
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("5_gxie4")
+stretch_mode = 3
+
+[node name="TextureRect" type="TextureRect" parent="Control/VBoxContainer" unique_id=241754662]
 layout_mode = 2
 texture = ExtResource("2_rggoq")
 stretch_mode = 3

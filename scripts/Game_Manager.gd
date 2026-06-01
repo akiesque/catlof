@@ -49,6 +49,10 @@ var flag = {
 	"about_sirens": false,
 	"about_elementals": false,
 	"about_dragonborns": false,
+	"slept_bed": false,
+	"interacted_bed": false,
+	"the_liar": false,
+	"the_truth": false
 	
 }
 

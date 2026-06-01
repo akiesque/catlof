@@ -2,6 +2,18 @@ using GameManager
 using PManager
 
 ~ first_meeting
+if has_met_npc("heine"):
+	if is_true("the_liar"):
+		Heinester: I got a visitor going to my house today.
+		Heinester: She's a friend, don't worry! You haven't met her before and I bet you she's [i]totally[/i] nice!
+		Casimir: Not like I have a choice...
+		do hide_all()
+		=> END!
+	if is_true("the_truth"):
+		do show("Heinester", "h_happy", "CharacterC")
+		Heinester:  If you don’t remember since you’ve been so cooped in your library, town’s down south. Just past the red trees.
+		do hide_all()
+		=> END!
 # Meeting Hein for the first time.
 do mark_npc_as_met("heine")
 do show("Casimir", "c_neutral", "CharacterA")
@@ -21,6 +33,7 @@ Casimir: [color=#8f9ab7][i]Heine doesn’t know about the Prophet's letter yet..
 do show("Casimir", "c_worry", "CharacterA")
 Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
 - Don't tell the truth
+	do set_true("the_liar")
 	do show("Casimir", "c_flushed", "CharacterA")
 	Casimir: Just wanted to see the town once in a while. I’m not that of an introvert…
 	do show("Heinester", "h_conf", "CharacterC")
@@ -39,6 +52,7 @@ Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
 	Casimir: W-What? H-Heine–wait–!
 	# Call cutscene here to pull Casimir to Heine's house...
 - Tell the truth
+	do set_true("the_truth")
 	Casimir: How do I put this...
 	do show("Casimir", "c_neutral", "CharacterA")
 	Casimir: I... [i]well.[/i] I got mail.
@@ -74,7 +88,13 @@ Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
 	Heinester:  Oh COME ON. Don’t tell me you’re thinking about adding it to your collection when you can literally turn into a pearl anytime.
 	do show("Casimir", "c_flushed", "CharacterA")
 	Casimir: ... [wait=0.4] I was just curious…
-	do show("Heinester", "h_happy", "CharacterC")
-	Heinester:  If you don’t remember since you’ve been so cooped in your library, town’s down south. Just past the red trees.
 do hide_all()
 => END
+
+~ door
+if is_true("the_liar"):
+	Heinester: Hey! What are you doing? You're coming to visit, remember?
+	=> END
+if is_true("the_truth"):
+	Heinester: [wave]Heeeey,[/wave] Casi! Don't even dare go back to that library! Let's go to town!
+	=> END

@@ -49,8 +49,6 @@ func _on_player_exited(area: Area2D) -> void:
 	tag_ui.visible = false
 	tag_ui.stop_idle()
 
-# Inside heinester.gd
-
 func _on_interact() -> void:
 	if GameManager.is_dialogue_active:
 		return

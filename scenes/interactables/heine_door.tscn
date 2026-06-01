@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://bke0yiwmy5y1d"]
+
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="1_8sgok"]
+[ext_resource type="Texture2D" uid="uid://kcfvojnv41d" path="res://assets/tilesets/heine_door.png" id="1_w25q0"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="3_k87ku"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k87ku"]
+size = Vector2(68.5, 118.25)
+
+[node name="heine_door" type="Node2D" unique_id=503593505]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=128085806]
+texture = ExtResource("1_w25q0")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_8sgok")]
+script = ExtResource("3_k87ku")
+needs_up_input = true
+destination_scene = ""
+spawn_location_name = "FromOutside"
+transition_color = Color(1, 1, 1, 1)
+sfx_door = null
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=1267234104]
+position = Vector2(-1, 0)
+shape = SubResource("RectangleShape2D_k87ku")

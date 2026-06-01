@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://0rq8dd6ahaxg" path="res://scenes/interactables/chest_parents.tscn" id="3_eln4o"]
 [ext_resource type="PackedScene" uid="uid://cnb62qcbh8kv3" path="res://scenes/interactables/blurbs.tscn" id="3_ufdpc"]
 [ext_resource type="Texture2D" uid="uid://qalvwtqcrdn5" path="res://assets/tilesets/items_cassy.png" id="4_0ya21"]
+[ext_resource type="Resource" uid="uid://m52wdqp50uo5" path="res://dialogue/start_dialogue.dialogue" id="6_2g0y2"]
 [ext_resource type="Resource" uid="uid://bvam8mpu31s7k" path="res://dialogue/books.dialogue" id="6_mqnhk"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rxx8o"]
@@ -276,7 +277,17 @@ tile_set = SubResource("TileSet_mqnhk")
 position = Vector2(380, 9)
 scale = Vector2(1.2, 1.2)
 
-[node name="Blurb" parent="Objs" unique_id=1653541290 instance=ExtResource("3_ufdpc")]
+[node name="WolframsBed" parent="Objs" unique_id=210751523 instance=ExtResource("3_ufdpc")]
+position = Vector2(-217.5, 6.666666)
+dialogue = ExtResource("6_2g0y2")
+dialogue_start = "wolframsbed"
+
+[node name="Bed" parent="Objs" unique_id=1653541290 instance=ExtResource("3_ufdpc")]
+position = Vector2(-146.66666, -11.666666)
+dialogue = ExtResource("6_2g0y2")
+dialogue_start = "bed"
+
+[node name="Blurb" parent="Objs" unique_id=1007823792 instance=ExtResource("3_ufdpc")]
 position = Vector2(244.16666, -51.666664)
 dialogue = ExtResource("6_mqnhk")
 dialogue_start = "pearl"

@@ -13,6 +13,8 @@
 [ext_resource type="Texture2D" uid="uid://b1413o5uma64r" path="res://assets/tilesets/grass.png" id="6_dinhu"]
 [ext_resource type="Shader" uid="uid://bbsfoun3ac2c0" path="res://shaders/wobly2d.gdshader" id="9_vtaks"]
 [ext_resource type="PackedScene" uid="uid://8bbkacsdifcj" path="res://scenes/interactables/door.tscn" id="10_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bke0yiwmy5y1d" path="res://scenes/interactables/heine_door.tscn" id="12_1kice"]
+[ext_resource type="Texture2D" uid="uid://if3qluvnckxr" path="res://assets/tilesets/tileset_heine.png" id="13_264po"]
 [ext_resource type="Script" uid="uid://crkvhmhd5uf2h" path="res://scripts/forage_spawner.gd" id="13_ir15t"]
 [ext_resource type="PackedScene" uid="uid://b6s66v6u3mked" path="res://scenes/interactables/NPCs/Heinester.tscn" id="13_rysoc"]
 [ext_resource type="Resource" uid="uid://ck8oa5fptneoc" path="res://dialogue/meetingHeine.dialogue" id="13_ssvqc"]
@@ -177,6 +179,12 @@ shader_parameter/normal_offset = 0.10000000149012
 shader_parameter/time_influence = 2.3790001130025
 shader_parameter/y_div = 0.30000000447036
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1kice"]
+texture = ExtResource("13_264po")
+texture_region_size = Vector2i(64, 64)
+0:0/size_in_atlas = Vector2i(4, 4)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbhrr"]
 texture = ExtResource("3_lnu2h")
 texture_region_size = Vector2i(48, 48)
@@ -267,6 +275,7 @@ texture_region_size = Vector2i(48, 48)
 [sub_resource type="TileSet" id="TileSet_iywne"]
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_lbhrr")
+sources/0 = SubResource("TileSetAtlasSource_1kice")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_iywne"]
 texture = ExtResource("3_lnu2h")
@@ -456,11 +465,16 @@ bg_image = "uid://c0xu4dtmyboi7"
 
 [node name="Door" parent="." unique_id=1055153053 instance=ExtResource("10_vtaks")]
 position = Vector2(-35, -23)
+dialogue_resource = ExtResource("13_ssvqc")
+dialogue_start_title = "door"
+
+[node name="heine_door" parent="." unique_id=503593505 instance=ExtResource("12_1kice")]
+position = Vector2(1143, -36)
 
 [node name="Behind-Player" type="TileMapLayer" parent="." unique_id=2134730351]
 material = SubResource("ShaderMaterial_kvpfn")
 position = Vector2(0, 4)
-tile_map_data = PackedByteArray("AADx//P/AQAAAAAAAADx//b/AQAAAAEAAADx//n/AQAAAAIAAAD0//P/AQABAAAAAAD0//b/AQABAAEAAAD0//n/AQABAAIAAAD0//z/AQABAAMAAAD0////AQABAAQAAAD3//P/AQACAAAAAAD3//b/AQACAAEAAAD3//n/AQACAAIAAAD3//z/AQACAAMAAAD3////AQACAAQAAAD6//P/AQADAAAAAAD6//b/AQADAAEAAAD6//n/AQADAAIAAAD6//z/AQADAAMAAAD6////AQADAAQAAAD9//P/AQAEAAAAAAD9//b/AQAEAAEAAAD9//n/AQAEAAIAAAD9//z/AQAEAAMAAAD9////AQAEAAQAAAAAAPP/AQAFAAAAAAAAAPb/AQAFAAEAAAAAAPn/AQAFAAIAAAAAAPz/AQAFAAMAAAAAAP//AQAFAAQAAAADAPP/AQAGAAAAAAADAPb/AQAGAAEAAAADAPn/AQAGAAIAAAADAPz/AQAGAAMAAAADAP//AQAGAAQAAAAGAPb/AQAHAAEAAAAGAPn/AQAHAAIAAAAGAPz/AQAHAAMAAAAGAP//AQAKAAIAAAAIAP//AQAKAAIAAAAQAP//AQAIAAIAAAAUAP//AQAJAAIAAADx////AQAJAAIAAADt////AQAJAAIAAAA=")
+tile_map_data = PackedByteArray("AADx//P/AQAAAAAAAADx//b/AQAAAAEAAADx//n/AQAAAAIAAAD0//P/AQABAAAAAAD0//b/AQABAAEAAAD0//n/AQABAAIAAAD0//z/AQABAAMAAAD0////AQABAAQAAAD3//P/AQACAAAAAAD3//b/AQACAAEAAAD3//n/AQACAAIAAAD3//z/AQACAAMAAAD3////AQACAAQAAAD6//P/AQADAAAAAAD6//b/AQADAAEAAAD6//n/AQADAAIAAAD6//z/AQADAAMAAAD6////AQADAAQAAAD9//P/AQAEAAAAAAD9//b/AQAEAAEAAAD9//n/AQAEAAIAAAD9//z/AQAEAAMAAAD9////AQAEAAQAAAAAAPP/AQAFAAAAAAAAAPb/AQAFAAEAAAAAAPn/AQAFAAIAAAAAAPz/AQAFAAMAAAAAAP//AQAFAAQAAAADAPP/AQAGAAAAAAADAPb/AQAGAAEAAAADAPn/AQAGAAIAAAADAPz/AQAGAAMAAAADAP//AQAGAAQAAAAGAPb/AQAHAAEAAAAGAPn/AQAHAAIAAAAGAPz/AQAHAAMAAAAGAP//AQAKAAIAAAAIAP//AQAKAAIAAAAQAP//AQAIAAIAAAAUAP//AQAJAAIAAADx////AQAJAAIAAADt////AQAJAAIAAABHAPn/AAAAAAAAAAA=")
 tile_set = SubResource("TileSet_iywne")
 
 [node name="FromInside" type="Marker2D" parent="." unique_id=386723106]
@@ -497,9 +511,9 @@ tile_map_data = PackedByteArray("AAD7/wAAAAABAAAAAAD8/wAAAAAEAAAAAAD9/wAAAAABAAA
 tile_set = SubResource("TileSet_lbhrr")
 
 [node name="ForageZone_Forest" type="ReferenceRect" parent="." unique_id=563305525]
-offset_left = 596.0
+offset_left = 493.0
 offset_top = 3.0
-offset_right = 1273.0
+offset_right = 1034.0
 offset_bottom = 14.0
 script = ExtResource("13_ir15t")
 possible_items = Array[ExtResource("14_ir15t")]([ExtResource("14_trtic")])

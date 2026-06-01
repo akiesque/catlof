@@ -1,6 +1,6 @@
 extends Control
 
-@onready var label: Label = $VBoxContainer/Panel/CharacterName
+@onready var label: Label = $Control/VBoxContainer/Panel/CharacterName
 @onready var anim_play: AnimationPlayer = $AnimationPlayer
 
 func set_npc_name(new_name: String) -> void:
