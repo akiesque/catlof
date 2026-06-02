@@ -37,6 +37,8 @@ var typing_tween: Tween
 var current_voice_sfx: AudioStream = null
 var last_played_character_index: int = 0
 
+var _pause_music: bool = true
+
 func _ready():
 	PManager.register_positions(character_a, character_b, character_c, character_d)
 	process_mode = Node.PROCESS_MODE_ALWAYS
@@ -68,18 +70,22 @@ func _process(_delta):
 		last_played_character_index = current_idx
 
 func start_ui():
+	_pause_music = GameManager.pause_music 
+	if _pause_music:
+		MusicManager.pause_world_music()
+		
 	GameManager.is_dialogue_active = true
 	char_dialogue.text = ""
 	character_name.text = ""
 	char_dialogue.visible_characters = 0
-	_hide_ctc() 
+	_hide_ctc()
 
 	if GameManager.next_background_path != "":
 		background_rect.texture = load(GameManager.next_background_path)
 
 	self.show()
 	layer.visible = true
-	
+
 	if get_parent() and get_parent().has_method("set_process_input"):
 		get_parent().process_mode = Node.PROCESS_MODE_DISABLED
 
@@ -174,6 +180,9 @@ func _input(event):
 			update_line(current_line.next_id)
 
 func _on_dialogue_ended(_resource):
+	if _pause_music:                      
+		MusicManager.stop_dialogue_music()
+		MusicManager.resume_world_music()
 	anim.play("exit")
 	await anim.animation_finished
 	

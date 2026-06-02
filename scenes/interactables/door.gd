@@ -16,7 +16,6 @@ func _on_interact() -> void:
 	
 	if GameManager.is_true("the_truth") or GameManager.is_true("the_liar"):
 		
-		# 2. Safety check to make sure you put a file in the Inspector slot
 		if dialogue_resource:
 			# Feed the parameters into your GameManager like the UI expects
 			GameManager.next_dialogue_resource = dialogue_resource

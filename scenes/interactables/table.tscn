@@ -10,9 +10,9 @@ size = Vector2(54, 44)
 
 [node name="Table" type="Node2D" unique_id=1527519422]
 script = ExtResource("1_f1ge0")
-needs_up_input = false
 dialogue = ExtResource("2_p56b6")
 dialogue_start = "desk"
+Pause_Music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841922687]
 scale = Vector2(1.5, 1.5)

@@ -52,6 +52,7 @@ size = Vector2(11.069011, 110.28125)
 
 [node name="Sparkly" type="Node2D" unique_id=1527519422]
 script = ExtResource("5_1jipe")
+Pause_Music = false
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1417698438]
 scale = Vector2(1.5, 1.5)

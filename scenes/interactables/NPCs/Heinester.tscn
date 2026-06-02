@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b6s66v6u3mked"]
 
-[ext_resource type="Script" uid="uid://b5gha2d1thesb" path="res://scenes/interactables/NPCs/heinester.gd" id="1_3hhk7"]
+[ext_resource type="Script" uid="uid://b5gha2d1thesb" path="res://scenes/interactables/NPCs/npc.gd" id="1_3hhk7"]
 [ext_resource type="Texture2D" uid="uid://cxxpk203ucfwp" path="res://assets/sprites/heinester.png" id="1_7oy04"]
 [ext_resource type="PackedScene" uid="uid://mi3exgqfgsof" path="res://scenes/interactables/NPCs/NPCTag.tscn" id="1_13s0e"]
 [ext_resource type="Script" uid="uid://6cl6gb381aqw" path="res://scripts/interactable.gd" id="4_tvgk8"]
@@ -59,7 +59,7 @@ animations = [{
 radius = 27.0
 height = 96.0
 
-[node name="Heine" type="Node2D" unique_id=1995479320]
+[node name="Heine" type="Node2D" unique_id=1995479320 groups=["NPCs"]]
 script = ExtResource("1_3hhk7")
 
 [node name="Sprite2D" type="AnimatedSprite2D" parent="." unique_id=1984224890]

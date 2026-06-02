@@ -15,7 +15,6 @@ func _ready() -> void:
 	interact_zone.interact = _on_interact
 	tag_ui.visible = false
 	update_tag_text()
-	# REMOVED: interact_zone.area_entered connections entirely!
 
 func update_tag_text() -> void:
 	if not GameManager.has_met_npc(npc_id):
@@ -56,6 +55,7 @@ func _on_interact() -> void:
 	GameManager.next_dialogue_resource = dialogue
 	GameManager.next_dialogue_start = dialogue_start
 	GameManager.next_background_path = bg_image
+	GameManager.set_pause_music(true)
 	
 	var ui = get_tree().root.find_child("ConversationUI", true, false)
 	if ui:

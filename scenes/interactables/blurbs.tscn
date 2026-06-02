@@ -8,6 +8,7 @@ size = Vector2(36.625, 52.09375)
 
 [node name="Blurb" type="Node2D" unique_id=1653541290]
 script = ExtResource("1_v2urv")
+Pause_Music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=539441726]
 

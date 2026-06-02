@@ -11,9 +11,9 @@ height = 76.0
 
 [node name="Globe" type="Node2D" unique_id=1527519422]
 script = ExtResource("1_m2726")
-needs_up_input = false
 dialogue = ExtResource("2_3gptq")
 dialogue_start = "globe"
+Pause_Music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1841922687]
 texture = ExtResource("1_1e2vk")

@@ -3,7 +3,6 @@ using PManager
 using MusicManager
 
 ~ first_meeting
-do pause_world_music()
 do change_bgm_by_path("res://assets/ui/music/みんなでお出かけ.mp3")
 if has_met_npc("heine"):
 	if is_true("the_liar"):
@@ -37,7 +36,6 @@ else:
 	do show("Casimir", "c_worry", "CharacterA")
 	Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
 	- Don't tell the truth
-		do change_bgm_by_path("res://assets/ui/music/Dark_blue_night.mp3")
 		do set_true("the_liar")
 		do show("Casimir", "c_flushed", "CharacterA")
 		Casimir: Just wanted to see the town once in a while. I’m not that of an introvert…
@@ -57,6 +55,7 @@ else:
 		Casimir: W-What? H-Heine–wait–!
 		# Call cutscene here to pull Casimir to Heine's house...
 	- Tell the truth
+		do change_bgm_by_path("res://assets/ui/music/Dark_blue_night.mp3")
 		do set_true("the_truth")
 		Casimir: How do I put this...
 		do show("Casimir", "c_neutral", "CharacterA")
@@ -93,11 +92,11 @@ else:
 		Heinester:  Oh COME ON. Don’t tell me you’re thinking about adding it to your collection when you can literally turn into a pearl anytime.
 		do show("Casimir", "c_flushed", "CharacterA")
 		Casimir: ... [wait=0.4] I was just curious…
-		do resume_world_music()
 		do hide_all()
 => END
 
 ~ door
+
 if is_true("the_liar"):
 	Heinester: Hey! What are you doing? You're coming to visit, remember?
 	=> END

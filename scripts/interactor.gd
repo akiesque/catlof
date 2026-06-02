@@ -4,6 +4,7 @@ extends Node2D
 @export_file("*.png") var bg_image: String
 @onready var collision: CollisionShape2D = $Sprite2D/Interactable/CollisionShape2D
 @onready var interactable: Area2D = $Sprite2D/Interactable
+@export var Pause_Music: bool = true 
 
 # this one has specific conditions to be true + varying conditions.
 
@@ -33,6 +34,8 @@ func _on_interact():
 	GameManager.next_dialogue_resource = dialogue
 	GameManager.next_dialogue_start = dialogue_start
 	GameManager.next_background_path = bg_image
+	GameManager.set_pause_music(Pause_Music)
+	
 	var ui = get_tree().root.find_child("ConversationUI", true, false)
 	if ui:
 		ui.start_ui()

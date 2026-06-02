@@ -52,6 +52,7 @@ folder_colors={
 
 ingredients="pickable items"
 Player=""
+NPCs=""
 
 [input]
 

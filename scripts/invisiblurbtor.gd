@@ -17,6 +17,8 @@ func _on_interact():
 	GameManager.next_dialogue_resource = dialogue
 	GameManager.next_dialogue_start = dialogue_start
 	GameManager.next_background_path = bg_image
+	GameManager.set_pause_music(false)
+	
 	var ui = get_tree().root.find_child("ConversationUI", true, false)
 	if ui:
 		ui.start_ui()

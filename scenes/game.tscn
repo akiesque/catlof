@@ -595,6 +595,7 @@ position = Vector2(295, -32)
 position = Vector2(155, 20)
 dialogue = ExtResource("17_e1j6l")
 dialogue_start = "sign1"
+bg_image = "uid://c0xu4dtmyboi7"
 
 [node name="Heine" parent="NPCs" unique_id=1995479320 instance=ExtResource("13_rysoc")]
 dialogue = ExtResource("13_ssvqc")

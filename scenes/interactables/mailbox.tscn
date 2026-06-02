@@ -15,6 +15,7 @@ height = 88.0
 script = ExtResource("1_drhfn")
 dialogue = ExtResource("2_as08p")
 bg_image = "uid://bqmufvchinalo"
+Pause_Music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=2131923993]
 material = SubResource("ShaderMaterial_8cdug")

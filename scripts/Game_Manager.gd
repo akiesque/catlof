@@ -15,12 +15,19 @@ var hourui_firsttime := true
 var player_return_position: Vector2 = Vector2.ZERO
 var target_spawn_id: String = ""
 var player_saved_pos : Vector2
-var use_saved_position : bool = false
+var use_saved_position := false
 
 #Locking inputs for future stuff
 var unlocked_book := true
 var unlock_crafting := true
 var sprint_unlock := true # change upon release
+
+# Music pausing
+var pause_music:= true
+
+# Helper
+func set_pause_music(value: bool) -> void:
+	pause_music = value
 
 #Met NPCs dict
 var met_npcs:= {

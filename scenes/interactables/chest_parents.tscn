@@ -13,6 +13,7 @@ scale = Vector2(1.2, 1.2)
 script = ExtResource("1_h1otr")
 dialogue = ExtResource("2_53f0u")
 dialogue_start = "chest"
+Pause_Music = false
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1725349399]
 texture = ExtResource("1_m7d2f")
