@@ -73,7 +73,7 @@ func start_ui():
 	character_name.text = ""
 	char_dialogue.visible_characters = 0
 	_hide_ctc() 
-	
+
 	if GameManager.next_background_path != "":
 		background_rect.texture = load(GameManager.next_background_path)
 
@@ -176,10 +176,12 @@ func _input(event):
 func _on_dialogue_ended(_resource):
 	anim.play("exit")
 	await anim.animation_finished
+	
 	GameManager.is_dialogue_active = false
 	UIManager.set_open("Dialogue", false)
 	layer.visible = false
 	self.hide()
+	
 	if get_parent():
 		get_parent().process_mode = Node.PROCESS_MODE_PAUSABLE 
 	

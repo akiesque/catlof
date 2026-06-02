@@ -1,5 +1,6 @@
 [gd_scene format=4 uid="uid://dwuw11amb6tk7"]
 
+[ext_resource type="Script" uid="uid://d3anvmry0trur" path="res://scripts/music_trigger/casimirbedroom.gd" id="1_4yyor"]
 [ext_resource type="Texture2D" uid="uid://qalvwtqcrdn5" path="res://assets/tilesets/items_cassy.png" id="1_ap140"]
 [ext_resource type="PackedScene" uid="uid://dn4t8j6ye14bk" path="res://scenes/Player.tscn" id="1_urk4m"]
 [ext_resource type="PackedScene" uid="uid://ddsn2qyl27a1b" path="res://scenes/interactables/upstairs.tscn" id="3_ap140"]
@@ -145,6 +146,7 @@ physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_ap140")
 
 [node name="Room" type="Node2D" unique_id=1280048899]
+script = ExtResource("1_4yyor")
 
 [node name="Background" type="TileMapLayer" parent="." unique_id=1224560612]
 position = Vector2(-187.20001, -91.8)

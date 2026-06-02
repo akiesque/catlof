@@ -21,7 +21,9 @@
 [ext_resource type="PackedScene" uid="uid://btgrg0v3265go" path="res://scenes/interactables/town_entr.tscn" id="14_37s47"]
 [ext_resource type="Script" uid="uid://c0wwlqkowni6" path="res://assets/bag/inventory_item.gd" id="14_ir15t"]
 [ext_resource type="Resource" uid="uid://c3nxxc5yg2wdx" path="res://assets/bag/items/bloodberry.tres" id="14_trtic"]
+[ext_resource type="PackedScene" uid="uid://cnb62qcbh8kv3" path="res://scenes/interactables/blurbs.tscn" id="16_bt5mj"]
 [ext_resource type="Texture2D" uid="uid://b5q4f6e6ynn15" path="res://assets/tilesets/misc_tiles.png" id="17_5newe"]
+[ext_resource type="Resource" uid="uid://stf5r6lxptvm" path="res://dialogue/signposts.dialogue" id="17_e1j6l"]
 
 [sub_resource type="Gradient" id="Gradient_0tnpc"]
 interpolation_mode = 2
@@ -553,7 +555,7 @@ tile_set = SubResource("TileSet_trtic")
 [node name="Misc" type="TileMapLayer" parent="BackgroundLayers" unique_id=696051516]
 material = SubResource("ShaderMaterial_kvpfn")
 position = Vector2(-104, -33)
-tile_map_data = PackedByteArray("AABkAP//AgACAAAAAABnAP//AgACAAAAAABwAP//AgACAAAAAABqAP//AgACAAAAAAAlAAEAAgAAAAUAAAAnAAEAAgABAAUAAAApAAEAAgACAAUAAAAuAAEAAgABAAUAAAAwAAEAAgACAAUAAAA6AAEAAgABAAUAAAA8AAEAAgABAAUAAAA9AAEAAgABAAUAAAA/AAEAAgABAAUAAAAqAAEAAgAAAAQAAAA3AAEAAgAAAAQAAAAzAAEAAgADAAUAAABZAAEAAgADAAUAAAA=")
+tile_map_data = PackedByteArray("AABkAP//AgACAAAAAABnAP//AgACAAAAAABwAP//AgACAAAAAABqAP//AgACAAAAAAAlAAEAAgAAAAUAAAAnAAEAAgABAAUAAAApAAEAAgACAAUAAAAuAAEAAgABAAUAAAAwAAEAAgACAAUAAAA6AAEAAgABAAUAAAA8AAEAAgABAAUAAAA9AAEAAgABAAUAAAA/AAEAAgABAAUAAAAqAAEAAgAAAAQAAAA3AAEAAgAAAAQAAAAiAAEAAgADAAUAAABYAAEAAgABAAUAAABaAAEAAgABAAUAAABcAAEAAgABAAUAAABeAAEAAgABAAUAAABgAAEAAgACAAUAAAA=")
 tile_set = SubResource("TileSet_p57ef")
 
 [node name="Mailbox" parent="." unique_id=296927762 instance=ExtResource("3_iywne")]
@@ -588,6 +590,11 @@ position = Vector2(-35, -28)
 
 [node name="NPCs" type="Node2D" parent="." unique_id=713869226]
 position = Vector2(295, -32)
+
+[node name="Signpost1" parent="NPCs" unique_id=1653541290 instance=ExtResource("16_bt5mj")]
+position = Vector2(155, 20)
+dialogue = ExtResource("17_e1j6l")
+dialogue_start = "sign1"
 
 [node name="Heine" parent="NPCs" unique_id=1995479320 instance=ExtResource("13_rysoc")]
 dialogue = ExtResource("13_ssvqc")

@@ -1,94 +1,100 @@
 using GameManager
 using PManager
+using MusicManager
 
 ~ first_meeting
+do pause_world_music()
+do change_bgm_by_path("res://assets/ui/music/みんなでお出かけ.mp3")
 if has_met_npc("heine"):
 	if is_true("the_liar"):
 		Heinester: I got a visitor going to my house today.
 		Heinester: She's a friend, don't worry! You haven't met her before and I bet you she's [i]totally[/i] nice!
 		Casimir: Not like I have a choice...
 		do hide_all()
-		=> END!
+		=> END
 	if is_true("the_truth"):
 		do show("Heinester", "h_happy", "CharacterC")
 		Heinester:  If you don’t remember since you’ve been so cooped in your library, town’s down south. Just past the red trees.
 		do hide_all()
-		=> END!
-# Meeting Hein for the first time.
-do mark_npc_as_met("heine")
-do show("Casimir", "c_neutral", "CharacterA")
-do show("Heinester", "h_default", "CharacterC")
-do bounce("CharacterC")
-Heinester: [wave]Wooooow!![/wave]
-do shake("CharacterA")
-do show("Heinester", "h_happy", "CharacterC")
-Heinester: I have [b]NOT[/b] seen you in a while, Casi!
-do show("Casimir", "c_smile", "CharacterA")
-Casimir: ...Hi, Heine.
-do show("Heinester", "h_happy", "CharacterC")
-Heinester: So, Doing some outside library work? [wait=0.5]Or found a book to add to the library?
-do bounce("CharacterC")
-do show("Casimir", "c_neutral", "CharacterA")
-Casimir: [color=#8f9ab7][i]Heine doesn’t know about the Prophet's letter yet...[/i][/color]
-do show("Casimir", "c_worry", "CharacterA")
-Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
-- Don't tell the truth
-	do set_true("the_liar")
-	do show("Casimir", "c_flushed", "CharacterA")
-	Casimir: Just wanted to see the town once in a while. I’m not that of an introvert…
-	do show("Heinester", "h_conf", "CharacterC")
-	Heinester: ...[wait=0.8][do show("Heinester", "h_default", "CharacterC")] [wave]Ookay?[/wave] You don’t [i]really[/i] go out just to see the town though.
-	do show("Heinester", "h_happy", "CharacterC")
-	do bounce("CharacterC")
-	Heinester: Hey, since you’re outside, come visit right now!
-	do show("Casimir", "c_shocked", "CharacterA")
-	Casimir: What? [shake rate=20 level=5][b]N-Now?![/b][/shake]
-	do show("Casimir", "c_angry", "CharacterA")
-	Casimir: You're literally next door!
-	do show("Heinester", "h_happy", "CharacterC")
-	do bounce("CharacterC")
-	Heinester: That’s the point! You don’t go out often, might as well visit right now, huh?
-	do shake("CharacterA")
-	Casimir: W-What? H-Heine–wait–!
-	# Call cutscene here to pull Casimir to Heine's house...
-- Tell the truth
-	do set_true("the_truth")
-	Casimir: How do I put this...
+		=> END
+else:
+	# Meeting Hein for the first time.
+	do mark_npc_as_met("heine")
 	do show("Casimir", "c_neutral", "CharacterA")
-	Casimir: I... [i]well.[/i] I got mail.
-	do show("Heinester", "h_conf", "CharacterC")
-	Heinester:  Uh-huh… [wait=0.2] That’s normal, right? Almost everyone [i]but me[/i] in Cloudvale gets mail all the time.
-	do show("Casimir", "c_neutral", "CharacterA")
-	Casimir: …I got a letter from the Prophet.
-	#Add a shocked
-	Heinester: [wait=0.8]...W-Wait… [wait=0.6] you’re… you’re joking, right? [wait=0.5][do show("Heinester", "h_avert", "CharacterC")] No wait, nevermind. [b]You wouldn’t.[/b]
-	# pained smile
-	Heinester: So… how much time you got left?
-	do show("Casimir", "c_neutral", "CharacterA")
-	Casimir: ...12 hours.
-	do show("Heinester", "h_sparkle", "CharacterC")
-	Heinester: …Wow. Just… wow. I-I don’t know. Never thought I’d see the day where my childhood friend next door’s gonna die on who knows when.
-	do show("Heinester", "h_conf", "CharacterC")
-	Heinester: So… what are you gonna do now?
-	do show("Casimir", "c_conf", "CharacterA")
-	Casimir: …I don’t know. [do show("Casimir", "c_worry", "CharacterA")] I haven’t really given it any thought.
-	Casimir: At least [b]not[/b] anything about avoiding it, surely.
-	do show("Heinester", "h_frown", "CharacterC")
-	Heinester: Yeah… [i]the last one[/i] didn’t get it well when they went against the Prophet’s fate.
-	do show("Heinester", "h_smile", "CharacterC")
-	Heinester: But thanks for telling me the truth, Casi.
 	do show("Heinester", "h_default", "CharacterC")
-	Heinester: Also, since you don’t know what to do yet, [b][i]I suggest you look around town one last time.[/b][/i] It’s not that bad, you know?
-	Heinester: A lot of stuff’s changed in Cloudvale from the last time you probably left the library.
 	do bounce("CharacterC")
-	Heinester: [i]Oh![/i] I passed by the fountain in town earlier and saw [i]the smart Dragonborn![/i] We should go see him. He records a bunch of stuff about the town.
-	do show("Casimir", "c_conf", "CharacterA")
-	Casimir: A Dragonborn recording the town’s history? It would be nice to have a copy of his records…
-	do show("Heinester", "h_mad", "CharacterC")
-	Heinester:  Oh COME ON. Don’t tell me you’re thinking about adding it to your collection when you can literally turn into a pearl anytime.
-	do show("Casimir", "c_flushed", "CharacterA")
-	Casimir: ... [wait=0.4] I was just curious…
-do hide_all()
+	Heinester: [wave]Wooooow!![/wave]
+	do shake("CharacterA")
+	do show("Heinester", "h_happy", "CharacterC")
+	Heinester: I have [b]NOT[/b] seen you in a while, Casi!
+	do show("Casimir", "c_smile", "CharacterA")
+	Casimir: ...Hi, Heine.
+	do show("Heinester", "h_happy", "CharacterC")
+	Heinester: So, Doing some outside library work? [wait=0.5]Or found a book to add to the library?
+	do bounce("CharacterC")
+	do show("Casimir", "c_neutral", "CharacterA")
+	Casimir: [color=#8f9ab7][i]Heine doesn’t know about the Prophet's letter yet...[/i][/color]
+	do show("Casimir", "c_worry", "CharacterA")
+	Casimir: [color=#8f9ab7][i]Do I tell him?[/i][/color]
+	- Don't tell the truth
+		do change_bgm_by_path("res://assets/ui/music/Dark_blue_night.mp3")
+		do set_true("the_liar")
+		do show("Casimir", "c_flushed", "CharacterA")
+		Casimir: Just wanted to see the town once in a while. I’m not that of an introvert…
+		do show("Heinester", "h_conf", "CharacterC")
+		Heinester: ...[wait=0.8][do show("Heinester", "h_default", "CharacterC")] [wave]Ookay?[/wave] You don’t [i]really[/i] go out just to see the town though.
+		do show("Heinester", "h_happy", "CharacterC")
+		do bounce("CharacterC")
+		Heinester: Hey, since you’re outside, come visit right now!
+		do show("Casimir", "c_shocked", "CharacterA")
+		Casimir: What? [shake rate=20 level=5][b]N-Now?![/b][/shake]
+		do show("Casimir", "c_angry", "CharacterA")
+		Casimir: You're literally next door!
+		do show("Heinester", "h_happy", "CharacterC")
+		do bounce("CharacterC")
+		Heinester: That’s the point! You don’t go out often, might as well visit right now, huh?
+		do shake("CharacterA")
+		Casimir: W-What? H-Heine–wait–!
+		# Call cutscene here to pull Casimir to Heine's house...
+	- Tell the truth
+		do set_true("the_truth")
+		Casimir: How do I put this...
+		do show("Casimir", "c_neutral", "CharacterA")
+		Casimir: I... [i]well.[/i] I got mail.
+		do show("Heinester", "h_conf", "CharacterC")
+		Heinester:  Uh-huh… [wait=0.2] That’s normal, right? Almost everyone [i]but me[/i] in Cloudvale gets mail all the time.
+		do show("Casimir", "c_neutral", "CharacterA")
+		Casimir: …I got a letter from the Prophet.
+		#Add a shocked
+		Heinester: [wait=0.8]...W-Wait… [wait=0.6] you’re… you’re joking, right? [wait=0.5][do show("Heinester", "h_avert", "CharacterC")] No wait, nevermind. [b]You wouldn’t.[/b]
+		# pained smile
+		Heinester: So… how much time you got left?
+		do show("Casimir", "c_neutral", "CharacterA")
+		Casimir: ...12 hours.
+		do show("Heinester", "h_sparkle", "CharacterC")
+		Heinester: …Wow. Just… wow. I-I don’t know. Never thought I’d see the day where my childhood friend next door’s gonna die on who knows when.
+		do show("Heinester", "h_conf", "CharacterC")
+		Heinester: So… what are you gonna do now?
+		do show("Casimir", "c_conf", "CharacterA")
+		Casimir: …I don’t know. [do show("Casimir", "c_worry", "CharacterA")] I haven’t really given it any thought.
+		Casimir: At least [b]not[/b] anything about avoiding it, surely.
+		do show("Heinester", "h_frown", "CharacterC")
+		Heinester: Yeah… [i]the last one[/i] didn’t get it well when they went against the Prophet’s fate.
+		do show("Heinester", "h_smile", "CharacterC")
+		Heinester: But thanks for telling me the truth, Casi.
+		do show("Heinester", "h_default", "CharacterC")
+		Heinester: Also, since you don’t know what to do yet, [b][i]I suggest you look around town one last time.[/b][/i] It’s not that bad, you know?
+		Heinester: A lot of stuff’s changed in Cloudvale from the last time you probably left the library.
+		do bounce("CharacterC")
+		Heinester: [i]Oh![/i] I passed by the fountain in town earlier and saw [i]the smart Dragonborn![/i] We should go see him. He records a bunch of stuff about the town.
+		do show("Casimir", "c_conf", "CharacterA")
+		Casimir: A Dragonborn recording the town’s history? It would be nice to have a copy of his records…
+		do show("Heinester", "h_mad", "CharacterC")
+		Heinester:  Oh COME ON. Don’t tell me you’re thinking about adding it to your collection when you can literally turn into a pearl anytime.
+		do show("Casimir", "c_flushed", "CharacterA")
+		Casimir: ... [wait=0.4] I was just curious…
+		do resume_world_music()
+		do hide_all()
 => END
 
 ~ door

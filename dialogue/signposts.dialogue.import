@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://stf5r6lxptvm"
+path="res://.godot/imported/signposts.dialogue-bf54371245ee64db9781d777e1778804.tres"
+
+[deps]
+
+source_file="res://dialogue/signposts.dialogue"
+dest_files=["res://.godot/imported/signposts.dialogue-bf54371245ee64db9781d777e1778804.tres"]
+
+[params]
+
+defaults=true
