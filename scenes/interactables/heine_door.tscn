@@ -14,7 +14,7 @@ texture = ExtResource("1_w25q0")
 
 [node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_8sgok")]
 script = ExtResource("3_k87ku")
-needs_up_input = true
+trigger_mode = 0
 destination_scene = ""
 spawn_location_name = "FromOutside"
 transition_color = Color(1, 1, 1, 1)
