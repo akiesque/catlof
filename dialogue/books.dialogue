@@ -54,9 +54,22 @@ if is_true("about_sirens") and is_true("about_elementals") and is_true("about_dr
 => END
 
 ~ pearl
-Casimir: ...
+if is_true("parents"):
+	do show("Casimir", "c_worry", "CharacterA")
+	Casimir: I'll be fine. Don't worry about me.
+	do hide_all()
+	=> END
+else:
+	do show("Casimir", "c_worry", "CharacterA")
+	Casimir: As much as it feels awkward for me to even [i]say this out loud...[/i]
+	do show("Casimir", "c_smile", "CharacterA")
+	Casimir: Hi Mom, Dad. [wait=0.5] I'm somewhat [i]on my way soon too[/i].
+	do set_true("parents")
+	do hide_all()
 => END
 
 ~ chestparents
-Casimir: ...
+These are books Casimir's parents maintained for so long. They say it comes from people past the sky.
+# Call a screen with papers referring to veldaclite.
+# Something like read the books? Etc...
 => END

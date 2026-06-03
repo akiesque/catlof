@@ -1,0 +1,56 @@
+[gd_scene format=3 uid="uid://bno2wy45nv72r"]
+
+[ext_resource type="Texture2D" uid="uid://dj6cjq4mqaswm" path="res://assets/tilesets/town_fountain.png" id="1_wkd73"]
+[ext_resource type="Script" uid="uid://q6wxgn67es85" path="res://scenes/interactables/auto_detector.gd" id="2_qgu4b"]
+[ext_resource type="Resource" uid="uid://br0jbryafcw3h" path="res://dialogue/meetingBelomere.dialogue" id="3_o5uj1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qgu4b"]
+atlas = ExtResource("1_wkd73")
+region = Rect2(0, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o5uj1"]
+atlas = ExtResource("1_wkd73")
+region = Rect2(192, 0, 192, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lnqc"]
+atlas = ExtResource("1_wkd73")
+region = Rect2(384, 0, 192, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4keyx"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qgu4b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o5uj1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lnqc")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2754a"]
+size = Vector2(148, 126)
+
+[node name="Fountain" type="Node2D" unique_id=593297909]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=815814515]
+position = Vector2(38, 15)
+sprite_frames = SubResource("SpriteFrames_4keyx")
+autoplay = "default"
+frame_progress = 0.8872856
+
+[node name="Detector2" type="Area2D" parent="AnimatedSprite2D" unique_id=1710151873]
+visible = false
+script = ExtResource("2_qgu4b")
+dialogue = ExtResource("3_o5uj1")
+dialogue_start = "firstMeet"
+bg_image = "uid://bqmufvchinalo"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AnimatedSprite2D/Detector2" unique_id=303169538]
+position = Vector2(31, 4)
+shape = SubResource("RectangleShape2D_2754a")

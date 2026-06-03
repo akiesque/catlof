@@ -53,6 +53,8 @@ else:
 		Heinester: That’s the point! You don’t go out often, might as well visit right now, huh?
 		do shake("CharacterA")
 		Casimir: W-What? H-Heine–wait–!
+		do hide_all()
+		=> END
 		# Call cutscene here to pull Casimir to Heine's house...
 	- Tell the truth
 		do change_bgm_by_path("res://assets/ui/music/Dark_blue_night.mp3")

@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://o03iva7xf0yq"]
+
+[ext_resource type="Texture2D" uid="uid://dayh2o2fauqy8" path="res://assets/sprites/belomere.png" id="1_f5g1y"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nkqm8"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(0, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rrctp"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(48, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a4bg4"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(96, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ybool"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(144, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yqg5a"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(192, 96, 48, 96)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dheeg"]
+atlas = ExtResource("1_f5g1y")
+region = Rect2(240, 96, 48, 96)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hjln0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nkqm8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rrctp")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_a4bg4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ybool")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yqg5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dheeg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bel_Seat" type="Node2D" unique_id=102043821]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=953927075]
+sprite_frames = SubResource("SpriteFrames_hjln0")

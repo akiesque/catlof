@@ -11,6 +11,8 @@
 [ext_resource type="Shader" uid="uid://bj8uvyxhuhm8j" path="res://shaders/swaying.gdshader" id="5_u4arb"]
 [ext_resource type="Texture2D" uid="uid://b5q4f6e6ynn15" path="res://assets/tilesets/misc_tiles.png" id="5_yn4qk"]
 [ext_resource type="Texture2D" uid="uid://b1413o5uma64r" path="res://assets/tilesets/grass.png" id="6_icc4n"]
+[ext_resource type="PackedScene" uid="uid://bno2wy45nv72r" path="res://scenes/interactables/Misc/fountain.tscn" id="10_u4arb"]
+[ext_resource type="PackedScene" uid="uid://o03iva7xf0yq" path="res://scenes/interactables/NPCs/Bel_seat.tscn" id="11_icc4n"]
 
 [sub_resource type="Gradient" id="Gradient_5q1rr"]
 interpolation_mode = 2
@@ -474,9 +476,9 @@ sources/0 = SubResource("TileSetAtlasSource_f2a5t")
 [node name="Sky" type="TextureRect" parent="." unique_id=916605992]
 modulate = Color(1, 1, 1, 0.45490196)
 material = SubResource("ShaderMaterial_b0eaf")
-offset_left = -1406.0
+offset_left = -689.0
 offset_top = -249.0
-offset_right = 1751.0
+offset_right = 2468.0
 offset_bottom = 111.0
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -516,6 +518,15 @@ position = Vector2(-586, 0)
 trigger_mode = 2
 destination_scene = "uid://mis3jo8v22a7"
 spawn_location_name = "FromTown"
+
+[node name="Fountain" parent="." unique_id=593297909 instance=ExtResource("10_u4arb")]
+position = Vector2(546, -64)
+
+[node name="NPCs" type="Node2D" parent="." unique_id=873226734]
+position = Vector2(98, -50)
+
+[node name="Bel_Seat" parent="NPCs" unique_id=102043821 instance=ExtResource("11_icc4n")]
+position = Vector2(511, 15)
 
 [node name="Player" parent="." unique_id=1320964713 groups=["Player"] instance=ExtResource("1_f2a5t")]
 position = Vector2(-522, -30)

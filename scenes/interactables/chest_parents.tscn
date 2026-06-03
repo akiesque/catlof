@@ -19,6 +19,7 @@ Pause_Music = false
 texture = ExtResource("1_m7d2f")
 
 [node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("1_ww75c")]
+show_ui = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=579597790]
 position = Vector2(0, -1)

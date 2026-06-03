@@ -21,6 +21,7 @@ func _on_interact() -> void:
 			GameManager.next_dialogue_resource = dialogue_resource
 			GameManager.next_dialogue_start = dialogue_start_title
 			GameManager.next_background_path = ""
+			GameManager.set_pause_music(false)
 
 			# Open the UI window frame
 			UIManager.set_open("Dialogue", true)

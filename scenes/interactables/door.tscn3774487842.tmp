@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://8bbkacsdifcj"]
+
+[ext_resource type="Script" uid="uid://bnub30udj0wnr" path="res://scenes/interactables/door.gd" id="1_iyt8h"]
+[ext_resource type="Texture2D" uid="uid://b0tu0gm4ixj86" path="res://assets/tilesets/door.png" id="1_qq3h0"]
+[ext_resource type="Resource" uid="uid://ck8oa5fptneoc" path="res://dialogue/meetingHeine.dialogue" id="2_8lim4"]
+[ext_resource type="PackedScene" uid="uid://xpw7og3vfa2k" path="res://scenes/interactable.tscn" id="2_fnoyy"]
+[ext_resource type="AudioStream" uid="uid://bc6ur07vapwia" path="res://assets/ui/sfx/open_door.mp3" id="4_iyt8h"]
+[ext_resource type="Script" uid="uid://dw6x25kvcwhi3" path="res://scenes/interactables/EntExt.gd" id="4_nmwkn"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_xetrc"]
+radius = 11.0
+height = 52.0
+
+[node name="DoorToHome" type="Node2D" unique_id=349202613]
+script = ExtResource("1_iyt8h")
+dialogue_resource = ExtResource("2_8lim4")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=44939885]
+texture = ExtResource("1_qq3h0")
+
+[node name="Interactable" parent="Sprite2D" unique_id=894810374 instance=ExtResource("2_fnoyy")]
+script = ExtResource("4_nmwkn")
+trigger_mode = 0
+destination_scene = "uid://dwuw11amb6tk7"
+spawn_location_name = "FromOutside"
+transition_color = Color(0.56310296, 0.7635702, 0.9305151, 1)
+sfx_door = ExtResource("4_iyt8h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite2D/Interactable" unique_id=611041434]
+shape = SubResource("CapsuleShape2D_xetrc")

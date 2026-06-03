@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cs7tey5d1pr3k"]
+
+[ext_resource type="Texture2D" uid="uid://bap1jgmhg7vcb" path="res://assets/ui/SavePoint.png" id="1_5qxge"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nlm6o"]
+atlas = ExtResource("1_5qxge")
+region = Rect2(0, 0, 64, 64)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrg1p"]
+atlas = ExtResource("1_5qxge")
+region = Rect2(64, 0, 64, 64)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_87p64"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nlm6o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nrg1p")
+}],
+"loop": true,
+"name": &"default",
+"speed": 2.0
+}]
+
+[node name="SavePoint" type="Node2D" unique_id=440970411]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=758655673]
+sprite_frames = SubResource("SpriteFrames_87p64")
+autoplay = "default"
+frame_progress = 0.91335344

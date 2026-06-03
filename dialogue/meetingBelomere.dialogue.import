@@ -1,0 +1,16 @@
+[remap]
+
+importer="dialogue_manager"
+importer_version=15
+type="Resource"
+uid="uid://br0jbryafcw3h"
+path="res://.godot/imported/meetingBelomere.dialogue-cbf1566daa6dbcceb0b7c3d40d5cbe41.tres"
+
+[deps]
+
+source_file="res://dialogue/meetingBelomere.dialogue"
+dest_files=["res://.godot/imported/meetingBelomere.dialogue-cbf1566daa6dbcceb0b7c3d40d5cbe41.tres"]
+
+[params]
+
+defaults=true

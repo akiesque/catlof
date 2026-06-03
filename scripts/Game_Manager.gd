@@ -59,7 +59,8 @@ var flag = {
 	"slept_bed": false,
 	"interacted_bed": false,
 	"the_liar": false,
-	"the_truth": false
+	"the_truth": false,
+	"parents": false,
 	
 }
 
